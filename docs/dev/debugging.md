@@ -10,6 +10,10 @@ The best way to debug Mouse Wizkers is to use the Developer tools in Chrome. You
 
 This will start Mouse Wizkers with all developer tools enabled (which is not the case in the Chrome Store version where those are disabled).
 
+You can then fire up the Chrome developer tools and do complete debugging of Wizkers by clicking on the "Inspect views:" links as shown below:
+
+![Inpect views](img/inspect-views.png)
+
 ## Server mode
 
 In server mode, Wizkers uses the Node.js “debug” facility: simply define a “DEBUG” variable to enable debug output. All modules in Wizkers already define a unique debug name, so you get fairly fine grained output. You can try a “DEBUG=* node server.js” to get an idea of the maximum level of debug output you can get.

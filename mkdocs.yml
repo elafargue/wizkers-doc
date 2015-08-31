@@ -5,9 +5,9 @@ pages:
 - Developers:
     - Overview: devdoc.md
     - Building: building.md
-    - Creating outputs: dev/outputs.md
-    - Creating instruments: dev/instruments.md
     - Connections: dev/connections.md
+    - Instruments: dev/instruments.md
+    - Outputs: dev/outputs.md
     - Debugging: dev/debugging.md
 - Instruments:
     - Medcom Onyx: ins/medcom-onyx.md
@@ -18,6 +18,7 @@ pages:
     - Elecraft KX3: ins/elecraft-kx3.md
     - Elecraft Remote KX3: ins/elecraft-remote-kx3.md
     - Fluke 287/289 DMMs: ins/fluke289.md
+    - Simple serial terminal: ins/simple-serial.md
 - Outputs:
     - REST API: out/rest.md
     - Safecast: out/safecast.md

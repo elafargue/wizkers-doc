@@ -1,10 +1,10 @@
 # Elecraft KX3
 
-The KX3 instrument plugin gives you pretty extensive rig controller capabilities from your computer. The first and foremost feature of this plugin is the reproduction of the KX3 faceplace – you can click on the buttons, nearly everything works:
+The KX3 instrument plugin gives you pretty extensive rig controller capabilities from your computer. The first and foremost feature of this plugin is the reproduction of the KX3 faceplace – you can click on the buttons, nearly everything works. But this instrument also support advanced capabilities including complete KXPA100 monitoring and configuration, as well as PX3 support with Screenshots.
 
 ![KX3 main](img/kx3-main.png)
 
-What's more, you get access to features that are either not directly supported or a bit involved to work with on the KX3 such as:
+You will also get access to features that are either not directly supported or a bit involved to work with on the KX3 such as:
 
 * Memory Management
 * Monitoring of KXPA100 health
@@ -34,7 +34,30 @@ The waterfall display is the most recent feature of this plugin. It is an Audio 
 The "Scale" and "Ref" controls let you change the rendering of the waterfall. Smoothing and FFT window are further controls to fine-tune how the waterfall looks.
 
 
-## Device setup
+## KX3 Setup
+
+The "Device Setup" screen cover the following capabilities:
+
+* Quick diagnostics: KX3, KXPA100, PX3 versions, options installed, etc
+* Configuration of the KX3 receive and transmit equalizers
+* Full KXPA100 configuration and monitoring
+* PX3 screenshots
+
+### KX3 diagnostics
+
+
+### KXPA100 configuration and monitoring
+
+This tab reproduces nearly all the capabilities of the official Elecraft KXPA100 utility, and is also able to graph most amplifier values in real time.
+
+
+### PX3 Utility
+
+The PX3 utility lets you take screenshots of the PX3 screen.
+
+
+
+## Configuring KX3 instruments on Wizkers
 
 On the "Instruments" screen, create a new "Elecraft Radio" instrument, as shown below. Most of the fields are self-explanatory:
 

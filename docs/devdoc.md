@@ -10,7 +10,7 @@ Due to its multiple supported run modes, the structure of Wizkers is split betwe
 
 The diagram below shows how the the various components of Wizkers interact with each other. If you want to add new instruments, this will be a good reference, though you will usually not need to go deep into those modules, and only implement instrument views and the instruments’s front-end/back-end API.
 
-![Wizkers architecture](img/Wizkers-arch-201502.png)
+![Wizkers architecture](dev/img/Wizkers-arch-201502.png)
 
 ## Source tree organization
 
