@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Creating instruments - Wizkers Documentation</title>
+	<title>Instruments - Wizkers Documentation</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -83,19 +83,19 @@
                         
                             
 <li >
-    <a href="../outputs/">Creating outputs</a>
+    <a href="../connections/">Connections</a>
 </li>
 
                         
                             
 <li class="active">
-    <a href="./">Creating instruments</a>
+    <a href="./">Instruments</a>
 </li>
 
                         
                             
 <li >
-    <a href="../connections/">Connections</a>
+    <a href="../outputs/">Outputs</a>
 </li>
 
                         
@@ -156,6 +156,12 @@
 </li>
 
                         
+                            
+<li >
+    <a href="../../ins/simple-serial/">Simple serial terminal</a>
+</li>
+
+                        
                         </ul>
                     </li>
                 
@@ -204,12 +210,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../outputs/">
+                        <a rel="next" href="../connections/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../connections/">
+                        <a rel="prev" href="../outputs/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -225,11 +231,48 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
+        <li class="main active"><a href="#adding-a-new-instrument">Adding a new instrument</a></li>
+        
+            <li><a href="#the-basic-structure">The basic structure</a></li>
+        
+            <li><a href="#connecting-your-instrument-plugin-to-the-rest-of-wizkers">Connecting your instrument plugin to the rest of Wizkers</a></li>
+        
+            <li><a href="#instrument-view-templates">Instrument view templates</a></li>
+        
+    
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-</div>
+<h1 id="adding-a-new-instrument">Adding a new instrument</h1>
+<h2 id="the-basic-structure">The basic structure</h2>
+<p>Instrument plugins are stored in <code>wizkers/server/www/js/app/instruments</code>. Each instrument plugin is made of the following:</p>
+<p>In every run mode:</p>
+<ul>
+<li><code>icon.png</code> should be a 350x350px icon representing the instrument</li>
+<li><code>instrument.js</code> . The main plugin entry point: defines what capabilities the instrument has, and the path to the other plugin files.</li>
+<li><code>driver_frontend.js</code> The front-end driver, which runs in the browser</li>
+<li><code>settings.js</code>  Instruments specific settings screen (displayed in the "instrument details" view)</li>
+<li><code>display_live.js</code> The main "live" visualization. Can be as simple as a graph, or as sophisticated as the Elecraft KX3 controller</li>
+<li><code>display_numeric.js</code> The right side visualization</li>
+<li><code>display_diag.js</code> The interface for instrument configuration</li>
+<li><code>display_.log.js</code> Log visualization interface, usually similar to ‘display_live’</li>
+<li><code>display_logmanager.js</code>  Interface to manage and download on-device logs, if supported</li>
+<li><code>display_logedit.js</code> Interface to manage editing log contents directly on Wizkers (optional)</li>
+</ul>
+<p>All these files can be optional, depending on the capabilities you want to implement in your instrument.</p>
+<p>In Chrome and Cordova mode, you will also need to add the following:</p>
+<ul>
+<li><code>driver_backend.js</code> The back-end driver: the low-level driver for the instrument, which forwards its data to the front-end driver.</li>
+</ul>
+<p>In server mode, the backend driver lives in <code>wizkers/server/server/parsers/</code> . Usually, the Chrome/Cordova <code>driver_backend.js</code> and the <code>parsers/instrument_backend.js</code> are similar, though the server-mode low level drivers tend to make use of the NodeJS buffer objects whereas the Chrome version uses pure Javascript ArrayBuffers.</p>
+<p>This list might seem a bit overwhelming, but there are already many instruments defined in Wizkers, and you should definitely start a new instrument by 'borrowing' from an existing intrument, rather than restart everything from scratch. Wizkers also contains a <code>wizkers/server/www/js/app/instruments/sample_instrument</code> which is a sample instrument scaffolding and can be used to quickly add a new instrument.</p>
+<h2 id="connecting-your-instrument-plugin-to-the-rest-of-wizkers">Connecting your instrument plugin to the rest of Wizkers</h2>
+<p>Once you have implemented those files, you will need to add a reference to the main plugin file (instrument.js) in <code>server/www/js/app/instruments/instrumentmanager.js</code>.</p>
+<p>In server mode, you will also need to add a reference to the parser in <code>wizkers/server/server/connectionmanager.js</code> to make it available on the server.</p>
+<h2 id="instrument-view-templates">Instrument view templates</h2>
+<p>All templates are stored in <code>wizkers/server/www/js/tpl</code>. The best practice for new instruments is to add new templates in <code>www/js/tpl/instruments/instrument_name/XXX.html</code>.</p>
+<p>Wizkers uses the basic BackboneJS "handlebars" template style.</p></div>
             
         </div>
 

@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Creating outputs - Wizkers Documentation</title>
+	<title>Outputs - Wizkers Documentation</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -82,20 +82,20 @@
 
                         
                             
-<li class="active">
-    <a href="./">Creating outputs</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../instruments/">Creating instruments</a>
-</li>
-
-                        
-                            
 <li >
     <a href="../connections/">Connections</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../instruments/">Instruments</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">Outputs</a>
 </li>
 
                         
@@ -156,6 +156,12 @@
 </li>
 
                         
+                            
+<li >
+    <a href="../../ins/simple-serial/">Simple serial terminal</a>
+</li>
+
+                        
                         </ul>
                     </li>
                 
@@ -204,12 +210,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../../building/">
+                        <a rel="next" href="../instruments/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../instruments/">
+                        <a rel="prev" href="../debugging/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -225,20 +231,46 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#outputs-api">Outputs API</a></li>
+        <li class="main active"><a href="#outputs">Outputs</a></li>
         
-            <li><a href="#chromecordova-mode">Chrome/Cordova mode</a></li>
+            <li><a href="#general-architecture">General architecture.</a></li>
         
-            <li><a href="#server-mode">Server mode</a></li>
+            <li><a href="#output-backend-drivers">Output backend drivers</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="outputs-api">Outputs API</h1>
-<h2 id="chromecordova-mode">Chrome/Cordova mode</h2>
-<h2 id="server-mode">Server mode</h2></div>
+<h1 id="outputs">Outputs</h1>
+<p>Outputs are plugins which subscribe to 'data' events coming from connected instruments, and are able to forward those events to other services. They extend the capabilities of Wizkers a great deal by turning it into a middleware between your sensors and any number of backend services.</p>
+<p>A typical use case for outputs, is using the <a href="../../out/safecast/">safecast</a> output to connect a Geiger counter to the <a href="http://safecast.org/">Safecast.org</a> service to send regular radiation readings to the Safecast API.</p>
+<h2 id="general-architecture">General architecture.</h2>
+<p>Due to the fact Wizkers in server mode supports multiple open devices at once and standalone operation, there are slight differences in the way outputs work in server vs Chrome mode, but a lot of similarities too.</p>
+<ul>
+<li><code>wizkers/server/www/js/app/outputs/&lt;output_name&gt;/logo.png</code> is the output logo.</li>
+</ul>
+<h3 id="output-definition">Output definition</h3>
+<p>Outputs are defined in <code>wizkers/server/www/js/app/outputs/&lt;output_name&gt;/&lt;output_name&gt;.js</code>. This file defines a couple of high level output characteristics which are used by Wizkers to understand how and when it can be used.</p>
+<ul>
+<li><code>this.wantOnly</code> returns an array of strings that describe the type of data the output will accept. For instance, the <code>safecast.js</code> output will return <code>['radioactivity']</code> so that it does not show up as an available output to devices which don't sent that sort of reading.</li>
+<li><code>this.requestAllData</code> is true if the output want Wizkers to send it everything in "pass through" mode rather than use the regular/alarm mechanism</li>
+<li><code>this.outputFields</code> is the list of fields required by the output to work. The result can be "variable" in case the output does not have a fixed number of fields or "none" if the output does not support the concept of fields.</li>
+</ul>
+<h3 id="front-end-output-config">Front-end output config</h3>
+<p>Outputs always provide a configuration view, which is located in <code>wizkers/server/www/js/app/outputs/&lt;output_name&gt;/settings.js</code>. The corresponding template, by convention, lives in <code>wizkers/server/www/js/tpl/outputs/</code>.</p>
+<p>The front-end view is a Backbone view: refer to the existing outputs to get an idea of how to manage output-specific settings, which are merged with general output settings automatically.</p>
+<h2 id="output-backend-drivers">Output backend drivers</h2>
+<h3 id="chromecordova-mode">Chrome/Cordova mode</h3>
+<p>In this mode, you want to implement <code>wizkers/server/www/js/app/outputs/&lt;output_name&gt;/backend_driver.js</code> . The backend driver needs to implement a couple of public methods which are expected by the output manager:</p>
+<ul>
+<li><code>setup</code></li>
+<li><code>onClose</code></li>
+<li><code>resolveMapping</code></li>
+<li><code>sendData</code></li>
+</ul>
+<h3 id="server-mode">Server mode</h3>
+<p>In server mode, output backends live in <code>wizkers/server/server/outputs/</code> and implement the same API as in Chrome/Cordova mode. Since the outputs are executed in a NodeJS environment, they often use different low-level APIs which is the reason why they are separate from the 'app mode' output code.</p></div>
             
         </div>
 

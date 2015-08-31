@@ -83,19 +83,19 @@
                         
                             
 <li >
-    <a href="../../dev/outputs/">Creating outputs</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../dev/instruments/">Creating instruments</a>
-</li>
-
-                        
-                            
-<li >
     <a href="../../dev/connections/">Connections</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../dev/instruments/">Instruments</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../dev/outputs/">Outputs</a>
 </li>
 
                         
@@ -153,6 +153,12 @@
                             
 <li >
     <a href="../fluke289/">Fluke 287/289 DMMs</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../simple-serial/">Simple serial terminal</a>
 </li>
 
                         
@@ -229,7 +235,9 @@
         
             <li><a href="#the-main-screen">The main screen</a></li>
         
-            <li><a href="#device-setup">Device setup</a></li>
+            <li><a href="#kx3-setup">KX3 Setup</a></li>
+        
+            <li><a href="#configuring-kx3-instruments-on-wizkers">Configuring KX3 instruments on Wizkers</a></li>
         
     
     </ul>
@@ -237,9 +245,9 @@
                 <div class="col-md-9" role="main">
 
 <h1 id="elecraft-kx3">Elecraft KX3</h1>
-<p>The KX3 instrument plugin gives you pretty extensive rig controller capabilities from your computer. The first and foremost feature of this plugin is the reproduction of the KX3 faceplace – you can click on the buttons, nearly everything works:</p>
+<p>The KX3 instrument plugin gives you pretty extensive rig controller capabilities from your computer. The first and foremost feature of this plugin is the reproduction of the KX3 faceplace – you can click on the buttons, nearly everything works. But this instrument also support advanced capabilities including complete KXPA100 monitoring and configuration, as well as PX3 support with Screenshots.</p>
 <p><img alt="KX3 main" src="../img/kx3-main.png" /></p>
-<p>What's more, you get access to features that are either not directly supported or a bit involved to work with on the KX3 such as:</p>
+<p>You will also get access to features that are either not directly supported or a bit involved to work with on the KX3 such as:</p>
 <ul>
 <li>Memory Management</li>
 <li>Monitoring of KXPA100 health</li>
@@ -257,7 +265,20 @@
 <h3 id="waterfall-display">Waterfall display</h3>
 <p>The waterfall display is the most recent feature of this plugin. It is an Audio (not IQ) display, and uses the computer’s default sound input. Press the small "power" icon on the upper left to start the waterfall. The Headphones icon sends the audio to the computer’s speakers, which is good for monitoring in digital modes, for instance.</p>
 <p>The "Scale" and "Ref" controls let you change the rendering of the waterfall. Smoothing and FFT window are further controls to fine-tune how the waterfall looks.</p>
-<h2 id="device-setup">Device setup</h2>
+<h2 id="kx3-setup">KX3 Setup</h2>
+<p>The "Device Setup" screen cover the following capabilities:</p>
+<ul>
+<li>Quick diagnostics: KX3, KXPA100, PX3 versions, options installed, etc</li>
+<li>Configuration of the KX3 receive and transmit equalizers</li>
+<li>Full KXPA100 configuration and monitoring</li>
+<li>PX3 screenshots</li>
+</ul>
+<h3 id="kx3-diagnostics">KX3 diagnostics</h3>
+<h3 id="kxpa100-configuration-and-monitoring">KXPA100 configuration and monitoring</h3>
+<p>This tab reproduces nearly all the capabilities of the official Elecraft KXPA100 utility, and is also able to graph most amplifier values in real time.</p>
+<h3 id="px3-utility">PX3 Utility</h3>
+<p>The PX3 utility lets you take screenshots of the PX3 screen.</p>
+<h2 id="configuring-kx3-instruments-on-wizkers">Configuring KX3 instruments on Wizkers</h2>
 <p>On the "Instruments" screen, create a new "Elecraft Radio" instrument, as shown below. Most of the fields are self-explanatory:</p>
 <ul>
 <li>Pick the correct serial port</li>
