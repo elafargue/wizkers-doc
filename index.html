@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="./img/favicon.ico">
+
+	<title>Wizkers Documentation</title>
+
+        <link href="./css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="./css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="./css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="./css/highlight.css">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body class="homepage">
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href=".">Wizkers Documentation</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li class="active">
+                        <a href=".">Overview</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="userdoc/">Users</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Developers <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="devdoc/">Overview</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="building/">Building</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="dev/outputs/">Creating outputs</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="dev/instruments/">Creating instruments</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="dev/connections/">Connections</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="dev/debugging/">Debugging</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Instruments <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="ins/medcom-onyx/">Medcom Onyx</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="ins/medcom-onyx-ble/">Medcom Blue Onyx</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="ins/medcom-geigerlink/">Medcom GeigerLink</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="ins/fcoled/">Fried Circuits OLED backpack</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="ins/sark110/">Sark 110</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="ins/elecraft-kx3/">Elecraft KX3</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="ins/elecraft-remote-kx3/">Elecraft Remote KX3</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Outputs <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="out/rest/">REST API</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="out/safecast/">Safecast</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="out/rigctld/">rigctld</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="out/webrtc/">WebRTC</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                
+                    <li class="disabled">
+                        <a rel="next" >
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="userdoc/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#wizkers-documentation">Wizkers documentation</a></li>
+        
+            <li><a href="#what-can-wizkers-do">What can Wizkers do?</a></li>
+        
+            <li><a href="#why-wizkers">Why Wizkers ?</a></li>
+        
+            <li><a href="#wizkers-overview">Wizkers overview</a></li>
+        
+            <li><a href="#installation-instructions">Installation instructions</a></li>
+        
+    
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="wizkers-documentation">Wizkers documentation</h1>
+<p>Wizkers is a universal open source application for both data visualization and control of various kinds of scientific instruments. Wizkers is a full Javascript/HTML5 application which runs on nearly any computer, phone or tablet. It can also run as a standalone server application, on any Linux platform, from a simple Raspberry Pi or Beaglebone black, all the way to cloud-hosted AWS instances, which gives it tremendous flexibility.</p>
+<p>Out of the box, Wizkers supports a variety of instruments, and it can easily be extended to support additional devices.</p>
+<p>This documentation covers both <a href="userdoc/">user instructions</a> as well as <a href="devdoc/">developer docs</a>.</p>
+<p><img alt="Wizkers connected to a KX3" src="./img/instruments-kx3.png" /></p>
+<h2 id="what-can-wizkers-do">What can Wizkers do?</h2>
+<p>At the core, Wizkers is designed to interface with various kind of sensors and scientific instruments and visualize and record their data. Wizkers lets you:</p>
+<ul>
+<li>Visualize the readings coming from your sensors and instruments</li>
+<li>Record those readings</li>
+<li>Forward the readings to a variety of backends - from HTTP REST APIs to WebRTC</li>
+<li>Remotely control and configure the sensors and instruments connected to it</li>
+</ul>
+<h2 id="why-wizkers">Why Wizkers ?</h2>
+<p>We created Wizkers for several simple reasons:</p>
+<ul>
+<li>Most of my lab instruments had no decent computer utilities even though they have great connectivity. And those utilities are usually less than user-friendly.</li>
+<li>I create and use many small and not-so-small sensors that generate data, but always had trouble finding good ways to record, visualize and analyze their output</li>
+<li>Most IoT services are all about 'dumb' sensors and nearly free and easy to use APIs, but at the cost of a completely closed backend and limited control on your data once it is sent over. But there are many situations where you want to be able to deploy your own infrastructure without having to rely on a third party, especially if you are not deploying millions of sensors, or you cannot afford 24/7 connectivity.</li>
+</ul>
+<p>Another issue I have experienced many times over the last few years, is that most IoT startups cannot provide any kind of continuity and stability for a project: from Pinocc.io to Pachube, Spark.io, Helium.com, etc, most of those companies tend to review and modify their business model every couple of months, and put any project that relies on them at great risk.</p>
+<p>Wizkers solves all this issues with one elegant framework: In a nutshell, Wizkers is both the missing link between your sensors, your instruments and the Cloud, as well as the missing universal utility for scientific instruments which works on any OS and any computer.</p>
+<h2 id="wizkers-overview">Wizkers overview</h2>
+<h3 id="supported-instruments">Supported instruments</h3>
+<p>The following instruments are currently supported in Wizkers (as of August 2015):</p>
+<table>
+<thead>
+<tr>
+<th align="left">Instrument name</th>
+<th align="left">Chrome App</th>
+<th align="left">Android App</th>
+<th align="left">Server</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Medcom Onyx</td>
+<td align="left">Yes</td>
+<td align="left">Yes</td>
+<td align="left">Yes</td>
+<td></td>
+</tr>
+<tr>
+<td align="left">Medcom Geiger Link</td>
+<td align="left">Yes</td>
+<td align="left">Yes</td>
+<td align="left">Yes</td>
+<td></td>
+</tr>
+<tr>
+<td align="left">Medcom Blue Onyx</td>
+<td align="left">Chromebooks only</td>
+<td align="left">No</td>
+<td align="left">No</td>
+<td></td>
+</tr>
+<tr>
+<td align="left">Medcom Hawk Nest</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">Yes</td>
+<td></td>
+</tr>
+<tr>
+<td align="left">Elecraft KX3</td>
+<td align="left">Yes</td>
+<td align="left">Yes</td>
+<td align="left">Yes</td>
+<td></td>
+</tr>
+<tr>
+<td align="left">Remote KX3 (Wizkers to Wizkers)</td>
+<td align="left">Yes</td>
+<td align="left">Not tested</td>
+<td align="left">Not tested</td>
+<td></td>
+</tr>
+<tr>
+<td align="left">Fluke 287/289</td>
+<td align="left">Yes</td>
+<td align="left">Yes</td>
+<td align="left">Yes</td>
+<td></td>
+</tr>
+<tr>
+<td align="left">Fried Circuits USB tester OLED backpack</td>
+<td align="left">Yes</td>
+<td align="left">Yes</td>
+<td align="left">Yes</td>
+<td></td>
+</tr>
+<tr>
+<td align="left">Simple serial terminal</td>
+<td align="left">Yes</td>
+<td align="left">Yes</td>
+<td align="left">Yes</td>
+<td></td>
+</tr>
+<tr>
+<td align="left">Sark 110 antena analyzer</td>
+<td align="left">Yes</td>
+<td align="left">Yes</td>
+<td align="left">Yes</td>
+<td></td>
+</tr>
+<tr>
+<td align="left">Kromek Sigma 25</td>
+<td align="left">Yes</td>
+<td align="left">Yes</td>
+<td align="left">Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="installation-instructions">Installation instructions</h2>
+<p>Below are installation instructions for the three run modes supported on Wizkers:</p>
+<h3 id="chrome-packaged-app">Chrome packaged app</h3>
+<p>Wizkers can be <a href="https://goo.gl/DgLqXH">downloaded</a> from the Chrome app store, and is available on any computer that can run Chrome. This includes MacOS, Linux and Windows. </p>
+<p>Chrome packaged apps rely on the Chrome runtime to run - this means you need to have Google Chrome installed on the computer - but otherwise behave as native applications.</p>
+<h3 id="android-app">Android app</h3>
+<p>Wizkers will eventually be available on the Google Play store, but in the mean time, you will have to build Wizkers for Android yourself (refer to the <a href="devdoc/">developer documentation</a> for details on how to do this).</p>
+<h3 id="server">Server</h3>
+<p>You can also run Wizkers as a standalone server. You then interact with a running Wizkers instance using a web browser. The advantage of running Wizkers in this mode, is that you can leave it connected to instruments 24/7. Server mode supports advanced features such as user management and user rights, multiple open instruments at the same time.</p>
+<p>Refer to the <a href="devdoc/">developer documentation</a> for instructions on how to checkout Wizkers from Github and build the server version.</p></div>
+            
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+        <script src="./js/jquery-1.10.2.min.js"></script>
+        <script src="./js/bootstrap-3.0.3.min.js"></script>
+        <script src="./js/highlight.pack.js"></script>
+        <script>var base_url = '.';</script>
+        <script data-main="./mkdocs/js/search.js" src="./mkdocs/js/require.js"></script>
+        <script src="./js/base.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
+
+<!--
+MkDocs version : 0.14.0
+Build Date UTC : 2015-08-31 15:28:53.856207
+-->

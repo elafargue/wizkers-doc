@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+
+	<title>Users - Wizkers Documentation</title>
+
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/highlight.css">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="..">Wizkers Documentation</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="..">Overview</a>
+                    </li>
+                
+                
+                
+                    <li class="active">
+                        <a href="./">Users</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Developers <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../devdoc/">Overview</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../building/">Building</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../dev/outputs/">Creating outputs</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../dev/instruments/">Creating instruments</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../dev/connections/">Connections</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../dev/debugging/">Debugging</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Instruments <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../ins/medcom-onyx/">Medcom Onyx</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../ins/medcom-onyx-ble/">Medcom Blue Onyx</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../ins/medcom-geigerlink/">Medcom GeigerLink</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../ins/fcoled/">Fried Circuits OLED backpack</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../ins/sark110/">Sark 110</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../ins/elecraft-kx3/">Elecraft KX3</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../ins/elecraft-remote-kx3/">Elecraft Remote KX3</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Outputs <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../out/rest/">REST API</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../out/safecast/">Safecast</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../out/rigctld/">rigctld</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../out/webrtc/">WebRTC</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                
+                    <li >
+                        <a rel="next" href="..">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../devdoc/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#wizkers-user-documentation">Wizkers User documentation</a></li>
+        
+    
+        <li class="main "><a href="#home-screen">Home screen</a></li>
+        
+            <li><a href="#connecting-instruments">Connecting instruments</a></li>
+        
+    
+        <li class="main "><a href="#configuring-instruments">Configuring instruments</a></li>
+        
+    
+        <li class="main "><a href="#logs-and-recordings">Logs and recordings</a></li>
+        
+    
+        <li class="main "><a href="#outputs">Outputs</a></li>
+        
+            <li><a href="#creating-and-configuring-an-output">Creating and configuring an output</a></li>
+        
+            <li><a href="#data-to-send">Data to send</a></li>
+        
+    
+        <li class="main "><a href="#wizkers-in-server-mode">Wizkers in server mode</a></li>
+        
+            <li><a href="#user-authentication">User authentication</a></li>
+        
+    
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="wizkers-user-documentation">Wizkers User documentation</h1>
+<p>Welcome to the user documentation of Wizkers. This section will help you make the most of the various capabilities of Wizkers.</p>
+<h1 id="home-screen">Home screen</h1>
+<p>The home screen contains three main zones:</p>
+<ul>
+<li>Connect/Setup/Record zone</li>
+<li>Main view / Live view</li>
+<li>Side view</li>
+</ul>
+<p><img alt="Home screen" src="../img/homescreen.png" /></p>
+<p>The first time you start Wizkers, you will need to create a new instrument, as described in the next section.</p>
+<h2 id="connecting-instruments">Connecting instruments</h2>
+<p><img alt="Home controls" src="../img/homescreen-top.png" /></p>
+<p>The top buttons are pretty much self-explanatory: the “Connect” button opens the connection to the instrument. The “Device Setup” button will only be enabled if the device supports a Setup screen (not all do). Last, the “Record Session” button lets you do a live recording of the data coming in from the device. You can view the logs that are saved there in the “Logs and recordings” screen.</p>
+<h1 id="configuring-instruments">Configuring instruments</h1>
+<p>All instrument configuration is done on the “Instruments” screen. The first time you start the application, no instruments will be present. To create a new instrument, click on “Add Instrument” card:</p>
+<p><img alt="Add instrument" src="../img/instruments-add.png" /></p>
+<p>After pressing “Add Instrument“, you will be presented with a blank configuration screen, as shown below. Some instruments display extra settings, but the following is always present:</p>
+<p><img alt="Add instrument" src="../img/instruments-new.png" /></p>
+<p>First of all, give a “Friendly Name” to your instrument, and select the correct instrument type.</p>
+<p>Depending on the instrument type, the "port" section will be different. Port can be:</p>
+<ul>
+<li>A serial port</li>
+<li>A bluetooth device</li>
+<li>A network address</li>
+<li>An API Key</li>
+</ul>
+<p>Refer to the documentation of each instrument for more details on how to configure those fields.</p>
+<p>The <em>Live view length</em> option defines the time length of the the home screen live view - by defaults, Wizkers displays the last five minutes of data, or last 500 points.</p>
+<p><em>Polling period</em> defines how often Wizkers requests information from the instrument. Some instruments will send data at their own rate, in which case this setting will be unused for that instrument.</p>
+<h1 id="logs-and-recordings">Logs and recordings</h1>
+<h1 id="outputs">Outputs</h1>
+<p>Output plugins are one of the great features of Wizkers: using those plugins, you can automatically send the data generated by your instruments to various backend services.</p>
+<p>At the moment, Wizkers ships with four output plugins:</p>
+<ul>
+<li><a href="../out/rest/">Generic REST output</a></li>
+<li><a href="out/safecase.md">Safecast output</a></li>
+<li>HAM Radio <a href="../out/rigctld/">“rigctld” emulation plugin</a>, for remote control of radios.</li>
+<li><a href="../out/webrtc/">WebRTC Output</a></li>
+</ul>
+<h2 id="creating-and-configuring-an-output">Creating and configuring an output</h2>
+<p>All output plugins share quite a few settings: selecting what fields should be sent to the output, how often and with what conditions:</p>
+<p>When you create an output from the “Data Output” screen (option on the top menu bar), you will see the screen below:</p>
+<p><img alt="Output config" src="../img/output-config.png" /></p>
+<p>Note: you should be connected to the current instrument before creating an output, because the output plugin detects the data sent by the instrument for creating its configuration.</p>
+<p>You can select the output plugin, give it a name and write notes in the top part of the window.</p>
+<p>The section on the right tells you when the plugin was last triggered with success, when it last attempted to send data, and what the last message from the backend was. Very useful for debugging.</p>
+<p>Then the screen contains three tabs: “Data to send”, “When to send it”, “Output Settings”. Only the last one (“Output Settings”) is plugin-specific, the first two are identical for all output plugins.</p>
+<h2 id="data-to-send">Data to send</h2>
+<p>Again, you need to be connected to your instrument in order to be able to do anything with this screen. If not, it only displays a help message encouraging you to do so.</p>
+<h1 id="wizkers-in-server-mode">Wizkers in server mode</h1>
+<p>In server mode, you connect to Wizkers by pointing your Chrome browser to the IP address of the computer running Wizkers.</p>
+<p>In this mode, Wizkers will behave a little bit differently:</p>
+<ul>
+<li>It will enforce a simple user authentication mechanism</li>
+<li>It will support multiple open instruments at once</li>
+<li>It will keep all open instruments connected even when the user logs out of the interface</li>
+</ul>
+<p>This makes it possible to use Wizkers for autonomous monitoring stations. When combined with local recording and output capabilties, this actually turns Wizkers into a pretty powerful system.</p>
+<h2 id="user-authentication">User authentication</h2>
+<p>The first time you access Wizkesr through the network, a default <code>admin</code> user will be created. Wizkers will force you to change the default admin password before letting you access most of its functionality.</p>
+<p>TODO: describe user roles</p></div>
+            
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+        <script src="../js/jquery-1.10.2.min.js"></script>
+        <script src="../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../js/highlight.pack.js"></script>
+        <script>var base_url = '..';</script>
+        <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
+        <script src="../js/base.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
