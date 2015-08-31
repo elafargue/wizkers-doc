@@ -65,7 +65,7 @@ We can help! If you are a developer, you can head over to the [developer documen
 
 ## Wizkers and Open Source
 
-Wizkers is a fully open source project, released under the terms of the GNU Affero General Public License. The Affero version of the GPL means that if you use Wizkers in any manner (including by running it or offering it as a service), you must make any code modification you did available to all your users.
+Wizkers is a fully open source project, released under the terms of the GNU Affero General Public License. The Affero version of the GPL means that if you use Wizkers in any manner (including by running it or offering it as a service), you must make the full source code, including any modifications you did available to all your users.
 
 Wizkers also uses a variety of third party libraries which are released under multiple license schemes, but are all compatible with this global license.
 
