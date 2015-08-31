@@ -1,4 +1,5 @@
 site_name: Wizkers Documentation
+google_analytics: ['UA-66729721-2', 'auto']
 pages:
 - Overview: index.md
 - Users: userdoc.md
