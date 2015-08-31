@@ -229,9 +229,13 @@
         
             <li><a href="#what-can-wizkers-do">What can Wizkers do?</a></li>
         
+            <li><a href="#who-is-wizkers-for">Who is Wizkers for ?</a></li>
+        
             <li><a href="#why-wizkers">Why Wizkers ?</a></li>
         
             <li><a href="#wizkers-overview">Wizkers overview</a></li>
+        
+            <li><a href="#wizkers-and-open-source">Wizkers and Open Source</a></li>
         
             <li><a href="#installation-instructions">Installation instructions</a></li>
         
@@ -241,7 +245,8 @@
                 <div class="col-md-9" role="main">
 
 <h1 id="wizkers-documentation">Wizkers documentation</h1>
-<p>Wizkers is a universal open source application for both data visualization and control of various kinds of scientific instruments. Wizkers is a full Javascript/HTML5 application which runs on nearly any computer, phone or tablet. It can also run as a standalone server application, on any Linux platform, from a simple Raspberry Pi or Beaglebone black, all the way to cloud-hosted AWS instances, which gives it tremendous flexibility.</p>
+<p>Wizkers is a universal open source application for both data visualization and control of various kinds of scientific instruments. It is a full Javascript/HTML5 application which runs on nearly any computer, phone or tablet.</p>
+<p>It can also run as a standalone server application, on any Linux platform, from a simple Raspberry Pi or Beaglebone black, all the way to cloud-hosted AWS instances, which gives it tremendous flexibility. Basically, it is a real open source simple 'cloud' system  and one of the only 'cloud' projects out there with a fully open source (GNU Affero General Public License) front-end <em>and</em> backend.</p>
 <p>Out of the box, Wizkers supports a variety of instruments, and it can easily be extended to support additional devices.</p>
 <p>This documentation covers both <a href="userdoc/">user instructions</a> as well as <a href="devdoc/">developer docs</a>.</p>
 <p><img alt="Wizkers connected to a KX3" src="./img/instruments-kx3.png" /></p>
@@ -250,17 +255,23 @@
 <ul>
 <li>Visualize the readings coming from your sensors and instruments</li>
 <li>Record those readings</li>
-<li>Forward the readings to a variety of backends - from HTTP REST APIs to WebRTC</li>
+<li>Forward the readings to a variety of backends - from HTTP REST APIs to WebRTC<ul>
+<li>You can use this capability to forward data to IoT services, and remain independent</li>
+</ul>
+</li>
 <li>Remotely control and configure the sensors and instruments connected to it</li>
 </ul>
+<h2 id="who-is-wizkers-for">Who is Wizkers for ?</h2>
+<p>Wizkers is an ideal fit for anyone building or using measurement instruments, as it provides all the necessary capabilities to create an instrument utility that works on any operating system or device, is easy to maintain and fast to deploy. This enables instrument and sensor designers to focus on their project without spending too much time on the software part, and still create a best of class interface.</p>
+<p>Wizkers is also a great solution for any sensor deployment project where there is a desire to be truly independent from third party service providers, or the deployment occurs in regions where 24/7 Internet connectivity is not a given. For this reason, Wizkers is popular with NGOs.</p>
 <h2 id="why-wizkers">Why Wizkers ?</h2>
-<p>We created Wizkers for several simple reasons:</p>
+<p>Wizkers came to life for a couple of simple reasons:</p>
 <ul>
-<li>Most of my lab instruments had no decent computer utilities even though they have great connectivity. And those utilities are usually less than user-friendly.</li>
-<li>I create and use many small and not-so-small sensors that generate data, but always had trouble finding good ways to record, visualize and analyze their output</li>
-<li>Most IoT services are all about 'dumb' sensors and nearly free and easy to use APIs, but at the cost of a completely closed backend and limited control on your data once it is sent over. But there are many situations where you want to be able to deploy your own infrastructure without having to rely on a third party, especially if you are not deploying millions of sensors, or you cannot afford 24/7 connectivity.</li>
+<li>Most lab instruments have no decent computer utilities even though they have great connectivity. Those utilities are usually less than user-friendly, Windows-only, and poorly supported.</li>
+<li>It is becoming easier and easier to create and use many small and not-so-small sensors that generate data, but finding good ways to record, visualize and analyze their output, and remotely configure and control them with an engaging interface is often an afterthought.</li>
+<li>Most IoT services are all about 'dumb' sensors and easy and free APIs, but at the cost of a completely closed backend and limited control on your data once it is sent over. Basically, you are only getting access to half of the infrastructure, and the arguably most critical part is outside of your control. But there are many situations where you want to be able to deploy your own infrastructure without having to rely on a third party, especially if you are not deploying millions of sensors, or you cannot do 24/7 connectivity for some reason.</li>
 </ul>
-<p>Another issue I have experienced many times over the last few years, is that most IoT startups cannot provide any kind of continuity and stability for a project: from Pinocc.io to Pachube, Spark.io, Helium.com, etc, most of those companies tend to review and modify their business model every couple of months, and put any project that relies on them at great risk.</p>
+<p>Another issue we have experienced many times over the last few years, is that most IoT startups cannot provide any kind of continuity and stability for a project: from Pinocc.io to Pachube, Spark.io, Helium.com, etc, most of those companies tend to review and modify their business model every couple of months, and put any project that relies on them at great risk.</p>
 <p>Wizkers solves all this issues with one elegant framework: In a nutshell, Wizkers is both the missing link between your sensors, your instruments and the Cloud, as well as the missing universal utility for scientific instruments which works on any OS and any computer.</p>
 <h2 id="wizkers-overview">Wizkers overview</h2>
 <h3 id="supported-instruments">Supported instruments</h3>
@@ -355,6 +366,11 @@
 </tr>
 </tbody>
 </table>
+<h3 id="what-if-my-instrument-is-not-supported">What if my instrument is not supported ?</h3>
+<p>We can help! If you are a developer, you can head over to the <a href="devdoc/">developer documentation</a> and get started. You can also contact us at <a href="mailto:info@wizkers.io">info@wizkers.io</a> and find out how we can help.</p>
+<h2 id="wizkers-and-open-source">Wizkers and Open Source</h2>
+<p>Wizkers is a fully open source project, released under the terms of the GNU Affero General Public License. The Affero version of the GPL means that if you use Wizkers in any manner (including by running it or offering it as a service), you must make any code modification you did available to all your users.</p>
+<p>Wizkers also uses a variety of third party libraries which are released under multiple license schemes, but are all compatible with this global license.</p>
 <h2 id="installation-instructions">Installation instructions</h2>
 <p>Below are installation instructions for the three run modes supported on Wizkers:</p>
 <h3 id="chrome-packaged-app">Chrome packaged app</h3>
@@ -411,5 +427,5 @@
 
 <!--
 MkDocs version : 0.14.0
-Build Date UTC : 2015-08-31 15:28:53.856207
+Build Date UTC : 2015-08-31 16:45:46.515411
 -->
