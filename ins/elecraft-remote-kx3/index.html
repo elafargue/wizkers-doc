@@ -150,6 +150,12 @@
 </li>
 
                         
+                            
+<li >
+    <a href="../fluke289/">Fluke 287/289 DMMs</a>
+</li>
+
+                        
                         </ul>
                     </li>
                 
@@ -203,7 +209,7 @@
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../../out/rest/">
+                        <a rel="prev" href="../fluke289/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -219,11 +225,34 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
+        <li class="main active"><a href="#elecraft-remote-kx3">Elecraft remote KX3</a></li>
+        
+            <li><a href="#setting-up-wizkers-for-kx3-remote-control">Setting up Wizkers for KX3 remote control</a></li>
+        
+    
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-</div>
+<h1 id="elecraft-remote-kx3">Elecraft remote KX3</h1>
+<p>The remote KX3 instrument is very similar to the standard <a href="../elecraft-kx3/">KX3 instrument</a>, with one very big difference: instead of connecting to a local KX3, this instrument will connect to a remote Wizkers instance over a WebRTC channel.</p>
+<p>Full rig control as well as full duplex audio are supported.</p>
+<p><em>Note:</em> KX3 remote capabilities are very experimental and require a bit of manual setup in order to work properly. Contact us at <a href="../info@wizkers.io">info@wizkers.io</a> for help if required.</p>
+<h2 id="setting-up-wizkers-for-kx3-remote-control">Setting up Wizkers for KX3 remote control</h2>
+<h3 id="local-end">Local end</h3>
+<p>The first requirement for using this instrument, is to have another Chrome instance of Wizkers running somewhere, and configured with a standard <a href="../elecraft-kx3/">KX3 instrument</a>.</p>
+<p>On that first instance, you need to then enable a <a href="../../out/webrtc/">WebRTC output</a>. Refer to the WebRTC output documentation for details on how to do this.</p>
+<p>Once the KX3 and the WebRTC output are configured, simply connect the KX3. You are done on this end.</p>
+<h3 id="remote-end">Remote end</h3>
+<p>On the remote end, things are a lot simpler: just create a Remote KX3 instrument. Most of the screen is similar to any other instrument, with the following differences:</p>
+<ul>
+<li>WebRTC Peer needs to point to the call establishment server (see the <a href="../../out/webrtc/">WebRTC output</a> doc for details on what this is).</li>
+<li>You should select the correct sound card inputs and outputs for the audio. Audio from the radio comes in from the WebRTC audio channel, what you are setting up here is local audio (your microphone and speaker/headphones, in other words).</li>
+</ul>
+<p><img alt="Remote KX3 setup screen" src="../img/kx3-remote-config.png" /></p>
+<h3 id="establishing-a-call">Establishing a call</h3>
+<p>With the KX3 turned on and connected to the 'local end' Wizkers, you can now start Wizkers on the "remote end" device - which can be as simple as a low-end Chromebook, and press "Connect". You should see the KX3 display start to update, and you will be able to remotely control the KX3 in the same way you would with the local instance.</p>
+<p>In order to start audio, press the "power" icon next to the waterfall. This will establish audio communications. You can now use the "XMIT" button on the KX3 faceplate to start talking. Be very careful about Audio feedback if you are not using headphones!</p></div>
             
         </div>
 

@@ -150,6 +150,12 @@
 </li>
 
                         
+                            
+<li >
+    <a href="../fluke289/">Fluke 287/289 DMMs</a>
+</li>
+
+                        
                         </ul>
                     </li>
                 
@@ -221,12 +227,47 @@
     
         <li class="main active"><a href="#elecraft-kx3">Elecraft KX3</a></li>
         
+            <li><a href="#the-main-screen">The main screen</a></li>
+        
+            <li><a href="#device-setup">Device setup</a></li>
+        
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="elecraft-kx3">Elecraft KX3</h1></div>
+<h1 id="elecraft-kx3">Elecraft KX3</h1>
+<p>The KX3 instrument plugin gives you pretty extensive rig controller capabilities from your computer. The first and foremost feature of this plugin is the reproduction of the KX3 faceplace – you can click on the buttons, nearly everything works:</p>
+<p><img alt="KX3 main" src="../img/kx3-main.png" /></p>
+<p>What's more, you get access to features that are either not directly supported or a bit involved to work with on the KX3 such as:</p>
+<ul>
+<li>Memory Management</li>
+<li>Monitoring of KXPA100 health</li>
+<li>Direct frequency access</li>
+<li>TX and RX equalizer setup</li>
+</ul>
+<p>And when used with the "rigctld" output plugin, you can use Wizkers as the rig controller for third party software such as fldigi.</p>
+<h2 id="the-main-screen">The main screen</h2>
+<h3 id="the-kx3-faceplace">The KX3 Faceplace</h3>
+<p>Not much to say there: most buttons work as they should – click on the text below the buttons for accessing those functions which are usually accessed by “holding” the buttons.</p>
+<p>The display mostly works, a few elements are not kept in sync, most notably the SWR. This will be implemented in a future revision.</p>
+<h3 id="direct-input-area">Direct input area</h3>
+<p>In this area, you can enter VFO A and VFO B frequencies, select input power, and adjust AF gain, RF attenuation, Mic gain, filter bandwidth and center frequency. Press the <code>*</code> button to recenter the filter.</p>
+<p><img alt="Direct input" src="../img/kx3-directinput.png" /></p>
+<h3 id="waterfall-display">Waterfall display</h3>
+<p>The waterfall display is the most recent feature of this plugin. It is an Audio (not IQ) display, and uses the computer’s default sound input. Press the small "power" icon on the upper left to start the waterfall. The Headphones icon sends the audio to the computer’s speakers, which is good for monitoring in digital modes, for instance.</p>
+<p>The "Scale" and "Ref" controls let you change the rendering of the waterfall. Smoothing and FFT window are further controls to fine-tune how the waterfall looks.</p>
+<h2 id="device-setup">Device setup</h2>
+<p>On the "Instruments" screen, create a new "Elecraft Radio" instrument, as shown below. Most of the fields are self-explanatory:</p>
+<ul>
+<li>Pick the correct serial port</li>
+<li>If you are planning to connect your radio audio to the KX3, you can also setup your sound cards here</li>
+</ul>
+<p><img alt="KX3 config" src="../img/kx3-config.png" /></p>
+<h3 id="sound-card-setup">Sound card setup</h3>
+<p>The KX3 instrument gives you the ability to visualize the audio from the KX3 on a "waterfall" display, as well as monitor the audio on the computer. It can also send audio coming from your computer (a microphone for instance) to the radio. This is convenient since the radio's audio input and output are connected to your computer, to it is not possible to connect your microphone to the radio anymore.</p>
+<p>For doing this, you will need to setup the "audio from radio" and "audio to radio" drop-downs to indicate which sound card the radio is connected to. And you can use the "audio from/to operator" dropdowns to indicate the sound card used by the operator.</p>
+<p>Note that making full use of this setup requires two sound cards, but you can choose to simply setup the "audio from radio" and "audio to operator" dropdowns to do a simple monitoring when working on digital modes.</p></div>
             
         </div>
 
