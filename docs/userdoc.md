@@ -55,7 +55,7 @@ Output plugins are one of the great features of Wizkers: using those plugins, yo
 At the moment, Wizkers ships with four output plugins:
 
 * [Generic REST output](out/rest.md)
-* [Safecast output](out/safecase.md)
+* [Safecast output](out/safecast.md)
 * HAM Radio [“rigctld” emulation plugin](out/rigctld.md), for remote control of radios.
 * [WebRTC Output](out/webrtc.md)
 
