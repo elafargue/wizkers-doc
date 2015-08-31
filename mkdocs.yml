@@ -17,6 +17,7 @@ pages:
     - Sark 110: ins/sark110.md
     - Elecraft KX3: ins/elecraft-kx3.md
     - Elecraft Remote KX3: ins/elecraft-remote-kx3.md
+    - Fluke 287/289 DMMs: ins/fluke289.md
 - Outputs:
     - REST API: out/rest.md
     - Safecast: out/safecast.md

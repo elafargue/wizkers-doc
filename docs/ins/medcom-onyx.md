@@ -27,7 +27,7 @@ Since Wizkers provides official support to Medcom for the Onyx, nearly all the c
 
 The Onyx can store 3000+ recordings in its flash memory. You can download the logs from the "logs and recordings" screen. Wizkers supports all Onyx log formats, including single datapoint logs, and min/max logs.
 
-## Log display and download
+## Log display
 
 The "Logs and recordings" screen lets you visualize both Wizkers recordings and downloaded device logs. 
 
@@ -35,3 +35,68 @@ The "Logs and recordings" screen lets you visualize both Wizkers recordings and 
 
 You can also save any log in CSV format by clicking on the "Download as CSV" button.
 
+## Firmware upgrades
+
+_Note:_ firmware upgrades have been tested on Wizkers running on Chromebooks, MacOS, as well as Windows on all version from XP to Windows 10.
+
+Starting with Onyx firmware 12.26-b, it is now possible to upgrade the firmware of the Onyx directly from Wizkers. Simply head over to the "Settings" screen, then click on "Upgrade Firmware", as shown below:
+
+![Upgrade FW](img/onyx-fw-upgrade1.png)
+
+Wizkers will first verify that the existing Onyx firmware can be upgraded, then, if successful, will let you either manually select a firmware file on your hard drive, or download the latest version of the Onyx firmware directly from the Wizkers firmware service.
+
+![Upgrade FW step 2](img/onyx-fw-upgrade2.png)
+
+You can then press “Upgrade Firmware” (it should turn green once Wizkers is happy with the firmware file or download).
+
+Do not switch screens once the firmware upgrade starts, it will crash the upgrade process and the Onyx will be temporarily ‘bricked’. Which brings us to the next section: recovering from a failed firmware upgrade.
+
+### Recovering from a failed upgrade
+
+If for any reason, the firmware upgrade process is not successful, the Onyx screen will remain blank and the unit will not react to its power/standby switch anymore. Fear not, though, you can recover from this fairly easily. Depending on the operating system you are using, the procedure will be slightly different. Please note that at the moment, it is not possible to recover from a failed upgrade from a Chromebook, you will need a Mac, Linux or a Windows computer.
+
+#### Recovering on MacOS X
+
+In order to recover from a failed upgrade, you will need access to the two files below:
+
+* [Onyx firmware loader (MacOS)](http://www.wizkers.io/files/2015/04/fwload.zip)
+* [Onyx firmware](http://www.wizkers.io/download/780/)
+
+You then need to uncompress the Onyx firmware loader in your home directory. Also put the firmware file in the same location. The rest takes place on a terminal: launch the “Terminal” application and follow the procedure below:
+
+1. Unload the FTDI drivers from the MacOS kernel:
+
+```bash
+sudo kextunload -b com.apple.driver.AppleUSBFTDI
+```
+
+This command works on MacOS Yosemite and later. If you are running an older version of MacOS, please replace com.apple.driver.AppleUSBFTDI with “com.FTDI.driver.FTDIUSBSerialDriver”.
+
+You might get an error at this stage, but this is nothing to worry about, the driver is unloaded anyway.
+
+2. Do the firmware recovery (please use the correct name for the firmware file, 12.26-c is used here as an example)
+
+```bash
+chmod a+x fwload
+./fwload -f firmware-12.26-c.bin
+```
+
+Recovery takes about two minutes, you will see a progress indicator move slowly. If the utility complains it cannot find the Onyx, please unplug it, wait a couple of seconds, then replug it and retry the last step (./fwload -f firmware-12.26-c.bin)
+
+You should now be up and running again.
+
+3. Reload the MacOS FTDI drivers so that the Onyx serial port is available again:
+
+```bash
+sudo kextload -b com.apple.driver.AppleUSBFTDI
+```
+
+Again, this is for Yosemite and later, use “com.FTDI.driver.FTDIUSBSerialDriver” for earlier MacOS versions.
+
+#### Recovering on Windows
+
+Recovery on Windows is done with a different utility, and the same firmware file: firmware 12.26-c and the OnyxLink utility are bundled in the ZIP file below:
+
+* [OnyxLink](http://www.wizkers.io/files/2015/04/OnyxLink.zip)
+
+Once you have downloaded OnyxLink.zip, extract it to your desktop, and run the “OnyxLink” application, to do a firmware upgrade using firmware.12-26-c.bin and get back on your feet . You will then be able to use Wizkers to upgrade to the latest firmware.
