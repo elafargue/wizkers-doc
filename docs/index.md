@@ -6,7 +6,7 @@ It can also run as a standalone server application, on any Linux platform, from 
 
 Out of the box, Wizkers supports a variety of instruments, and it can easily be extended to support additional devices.
 
-This documentation covers both [user instructions](userdoc.md) as well as [developer docs](devdoc.md).
+This documentation covers both [user instructions](userdoc.md) and [developer docs](devdoc.md).
 
 ![Wizkers connected to a KX3](img/instruments-kx3.png)
 

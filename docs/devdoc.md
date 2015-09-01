@@ -2,7 +2,7 @@
 
 ## Building Wizkers
 
-Refer to the [build instructions](building.md) to do a check out and initial build of the code.
+Refer to the [build instructions](building.md) to do a check out and initial build of the code. Wizkers mostly being a javascript application, there is no "compilation" per se, but rather automated code optimization, download of dependencies, etc.
 
 ## Wizkers architecture
 
@@ -11,6 +11,42 @@ Due to its multiple supported run modes, the structure of Wizkers is split betwe
 The diagram below shows how the the various components of Wizkers interact with each other. If you want to add new instruments, this will be a good reference, though you will usually not need to go deep into those modules, and only implement instrument views and the instruments’s front-end/back-end API.
 
 ![Wizkers architecture](dev/img/Wizkers-arch-201502.png)
+
+### Global Wizkers services
+
+The Wizkers front-end exposes a couple of global objects/services throughout the application:
+
+* The Instrument manager
+* The Output manager
+* The link manager
+
+All communication between the various parts of Wizkers, whether they are located in the browser or on the server, are done using those three services.
+
+Wizkers also exposes a couple of utility services:
+
+* The statistics service, which enables the connection of Wizkers to analytics services
+* The global settings
+
+
+#### The link manager
+
+The link manager is the interface between the front-end and the back-end of Wizkers. In particular, the front-end only talks to instruments through the link manager.
+
+Even when Wizkers is running on its own (not in server mode), it makes use of the link manager, which makes it possible to use a single architecture for both in-app and server modes.
+
+In server mode, the link manager uses socket.io to communicate with the server for all commands and instrument data - the HTML and javascript resources are loaded directly using HTTP.
+
+In Chrome or Cordova mode, the link manager talks to the `chromeSocket.js` object, which emulates the API of socker.io but implements the backend on the app directly.
+
+#### The Instrument manager
+
+The instrument manager loads new instruments, switches between instruments.
+
+
+#### The Output manager
+
+The output manager subscribes to all data coming in from instruments, is in charge or starting/stopping outputs depending on what is enabled for a particular instrument, and forwards instrument data to all active outputs.
+
 
 ## Source tree organization
 

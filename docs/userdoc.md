@@ -2,6 +2,8 @@
 
 Welcome to the user documentation of Wizkers. This section will help you make the most of the various capabilities of Wizkers.
 
+Refer to the [introduction](index.md#installation-instructions) for installation instructions.
+
 
 # Home screen
 
