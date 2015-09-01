@@ -243,7 +243,13 @@
     
         <li class="main active"><a href="#webrtc-output">WebRTC Output</a></li>
         
+            <li><a href="#audio-settings">Audio settings</a></li>
+        
+            <li><a href="#self-hosted-vs-peerjs">Self-hosted vs PeerJS</a></li>
+        
             <li><a href="#interfacing-a-web-page-with-the-webrtc-output">Interfacing a web page with the WebRTC Output</a></li>
+        
+            <li><a href="#future-evolutions-of-the-webrtc-output">Future evolutions of the WebRTC output</a></li>
         
     
     </ul>
@@ -253,11 +259,19 @@
 <h1 id="webrtc-output">WebRTC Output</h1>
 <p>This output plugin forwards all the data coming from the instrument over a WebRTC data channel. If can also send bidirectional audio to a remote end. The data channel is also bidirectional.</p>
 <p><img alt="WebRTC Output Config" src="../img/webrtc-output.png" /></p>
-<p>You can use this plugin in two different ways: display instrument data and do remote control from remote web page, or connect to an instrument from Wizkers running on a remote computer.</p>
+<p>You can use this plugin in two different ways: display instrument data and do remote control from remote web pages, or connect to an instrument from Wizkers running on a remote computer. Think of it as "Wizkers to Wizkers" communication.</p>
 <p>As of 0.9.19, you can use this Output for the Elecraft KX3 for remote operations: configure a “Elecraft KX3 Radio” instrument on a local Wizkers instance, then add the WebRTC output. Then, on another computer, create a “Remote KX3” instrument, which will let you connect to your KX3 remotely, including full duplex audio.</p>
+<h2 id="audio-settings">Audio settings</h2>
+<p>If enabled, the WebRTC output will forward local audio to any peer connected to it, and will receive remote audio.</p>
+<h2 id="self-hosted-vs-peerjs">Self-hosted vs PeerJS</h2>
+<p>The WebRTC is now working fine. But in order to establish communication between two peers, a broker service is required: we are using <a href="http://peerjs.com/">PeerJS</a> to do this. The PeerJS seems to be a bit dormant at the moment and its broker service does not work. But PeerJS also provides everything you need to run your own broker service, and this is currently the recommended way of working with the WebRTC output.</p>
+<p>Follow instructions on <a href="https://github.com/peers/peerjs-server">Github</a> to run PeerServer on a local machine on your network.</p>
+<p>Once your PeerServer is running, configure the WebRTC output as "Self-hosted" in the connection method, and put the IP:Port of the peer server in the "Server IP:Port" field.</p>
 <h2 id="interfacing-a-web-page-with-the-webrtc-output">Interfacing a web page with the WebRTC Output</h2>
-<p>The WebRTC output uses the PeerJS library to implement a simple wrapper around WebRTC. This makes it easy to display instrument data on a remote web page.</p>
-<p>TODO: create a detailed guide on how to implement an example web page once all the code is on github.</p></div>
+<p>The WebRTC output uses the <a href="http://peerjs.com/">PeerJS</a> library to implement a simple wrapper around WebRTC. This makes it easy to display instrument data on a remote web page.</p>
+<p>TODO: create a detailed guide on how to implement an example web page once all the code is on github.</p>
+<h2 id="future-evolutions-of-the-webrtc-output">Future evolutions of the WebRTC output</h2>
+<p>We are currently investigating running a Wizkers.io PeerServer for Wizkers users, which will make it a lot easier to use the output (no manual installation of PeerServer required). But self-hosting will always be supported anyway.</p></div>
             
         </div>
 

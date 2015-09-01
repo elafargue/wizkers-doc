@@ -256,11 +256,33 @@
 
 <h1 id="developer-documentation">Developer documentation</h1>
 <h2 id="building-wizkers">Building Wizkers</h2>
-<p>Refer to the <a href="../building/">build instructions</a> to do a check out and initial build of the code.</p>
+<p>Refer to the <a href="../building/">build instructions</a> to do a check out and initial build of the code. Wizkers mostly being a javascript application, there is no "compilation" per se, but rather automated code optimization, download of dependencies, etc.</p>
 <h2 id="wizkers-architecture">Wizkers architecture</h2>
 <p>Due to its multiple supported run modes, the structure of Wizkers is split between a “front-end” and a “back-end” part, even when it runs 100% in a browser.</p>
 <p>The diagram below shows how the the various components of Wizkers interact with each other. If you want to add new instruments, this will be a good reference, though you will usually not need to go deep into those modules, and only implement instrument views and the instruments’s front-end/back-end API.</p>
 <p><img alt="Wizkers architecture" src="../dev/img/Wizkers-arch-201502.png" /></p>
+<h3 id="global-wizkers-services">Global Wizkers services</h3>
+<p>The Wizkers front-end exposes a couple of global objects/services throughout the application:</p>
+<ul>
+<li>The Instrument manager</li>
+<li>The Output manager</li>
+<li>The link manager</li>
+</ul>
+<p>All communication between the various parts of Wizkers, whether they are located in the browser or on the server, are done using those three services.</p>
+<p>Wizkers also exposes a couple of utility services:</p>
+<ul>
+<li>The statistics service, which enables the connection of Wizkers to analytics services</li>
+<li>The global settings</li>
+</ul>
+<h4 id="the-link-manager">The link manager</h4>
+<p>The link manager is the interface between the front-end and the back-end of Wizkers. In particular, the front-end only talks to instruments through the link manager.</p>
+<p>Even when Wizkers is running on its own (not in server mode), it makes use of the link manager, which makes it possible to use a single architecture for both in-app and server modes.</p>
+<p>In server mode, the link manager uses socket.io to communicate with the server for all commands and instrument data - the HTML and javascript resources are loaded directly using HTTP.</p>
+<p>In Chrome or Cordova mode, the link manager talks to the <code>chromeSocket.js</code> object, which emulates the API of socker.io but implements the backend on the app directly.</p>
+<h4 id="the-instrument-manager">The Instrument manager</h4>
+<p>The instrument manager loads new instruments, switches between instruments.</p>
+<h4 id="the-output-manager">The Output manager</h4>
+<p>The output manager subscribes to all data coming in from instruments, is in charge or starting/stopping outputs depending on what is enabled for a particular instrument, and forwards instrument data to all active outputs.</p>
 <h2 id="source-tree-organization">Source tree organization</h2>
 <p>The Wizkers source tree is organized as follows:</p>
 <pre><code class="no-highlight">README.md            # Top level Readme, for the benefit of Github
