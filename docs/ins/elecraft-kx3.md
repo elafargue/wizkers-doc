@@ -45,15 +45,32 @@ The "Device Setup" screen cover the following capabilities:
 
 ### KX3 diagnostics
 
+![KX3 Diag](img/kx3-settings-1.png)
+
+This screen is a quick summary of the current state of the KX-line setup: KX3, KXPA100 and PX3 configurations, options etc.
+
+### Audio settings
+
+![KX3 audio](img/kx3-settings-eq.png)
+
+You can adjust the TX and RX equalizers there. This is a feature of the KX3 that is often underused because changing those settings on the radio is fairly cumbersome: the Wizkers UI makes it super easy.
+
+_Note:_ the KX3 seems to keep separate TX/RX EQ settings depending on the band. Moreover, if your KX3 is in "DATA" mode when trying to modify the settings, the UI will freeze. Put the Radio in USB mode to resume operations.
 
 ### KXPA100 configuration and monitoring
 
+![KXPA100 Config](img/kx3-settings-kxpa100.png)
+
 This tab reproduces nearly all the capabilities of the official Elecraft KXPA100 utility, and is also able to graph most amplifier values in real time.
+
+You can adjust your KXPA100 settings from there and check all operating parameters. The values are refreshed once per second.
 
 
 ### PX3 Utility
 
-The PX3 utility lets you take screenshots of the PX3 screen.
+The PX3 utility lets you take screenshots of the PX3 screen, not much to say there. Click on the image to save it:
+
+![PX3 Screenshot](img/kx3-settings-px3.png)
 
 
 
