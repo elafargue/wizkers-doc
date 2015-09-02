@@ -20,18 +20,22 @@ The main graph displays instant CPM readings (in orange) as well as a rolling 10
 
 Since Wizkers provides official support to Medcom for the Onyx, nearly all the capabilities of this device are supported in the Device Setup screen
 
------ add a screenshot -----
-
+![Onyx setup](img/onyx-setup.png)
 
 ## Log downloads
 
 The Onyx can store 3000+ recordings in its flash memory. You can download the logs from the "logs and recordings" screen. Wizkers supports all Onyx log formats, including single datapoint logs, and min/max logs.
 
+![Onyx log download](img/onyx-logdownload.png)
+
+
 ## Log display
 
-The "Logs and recordings" screen lets you visualize both Wizkers recordings and downloaded device logs. 
+The "Logs and recordings" screen lets you visualize both Wizkers recordings and downloaded device logs.
 
--------- add a screenshot -----
+Depending on the logging mode on the Onyx, logs will be displayed either as a single recording, or as minimum/maximum limits and recording, as shown below:
+
+![Onyx log display](img/onyx-logdisplay-1.png)
 
 You can also save any log in CSV format by clicking on the "Download as CSV" button.
 
