@@ -264,6 +264,9 @@
 <p><img alt="Inpect views" src="../img/inspect-views.png" /></p>
 <h2 id="server-mode">Server mode</h2>
 <p>In server mode, Wizkers uses the Node.js “debug” facility: simply define a “DEBUG” variable to enable debug output. All modules in Wizkers already define a unique debug name, so you get fairly fine grained output. You can try a “DEBUG=* node server.js” to get an idea of the maximum level of debug output you can get.</p>
+<h3 id="using-node-inspector">Using node-inspector</h3>
+<p>You can also debug the server side using the Chrome debugger, thanks to <code>node-inspector</code>. This gives your nearly the same ease of debugging as doing everything browser-side.</p>
+<p>You can install node-inspector by visiting <a href="https://github.com/node-inspector/node-inspector">github</a> and following the instructions.</p>
 <h2 id="android-application">Android application</h2>
 <p>You can also use Chrome to debug Wizkers running as an Android application: you need to have the Android SDK installed on your computer, and your test device connected through USB using <code>adb</code>.</p>
 <h3 id="network-debugging-of-android">Network debugging of Android</h3>
