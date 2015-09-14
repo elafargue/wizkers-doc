@@ -275,6 +275,14 @@
 <h3 id="waterfall-display">Waterfall display</h3>
 <p>The waterfall display is the most recent feature of this plugin. It is an Audio (not IQ) display, and uses the computer’s default sound input. Press the small "power" icon on the upper left to start the waterfall. The Headphones icon sends the audio to the computer’s speakers, which is good for monitoring in digital modes, for instance.</p>
 <p>The "Scale" and "Ref" controls let you change the rendering of the waterfall. Smoothing and FFT window are further controls to fine-tune how the waterfall looks.</p>
+<h3 id="graph-displays">Graph displays</h3>
+<p>The right side of the page shows you three graphs:</p>
+<ul>
+<li>Amplifier temperature</li>
+<li>Transmit power</li>
+<li>Power supply voltage/current</li>
+</ul>
+<p>Those graphs really make most sense when a KXPA100 unit is connected to the setup. But even witout a KXPA100, you can graph the KX3 amp temperature (PA.I) or the internal oscillator temp (OSC) by enabling the display of that value on VFOB. Only one value at a time can be monitored, due to the way the KX3 is designed.</p>
 <h2 id="kx3-setup">KX3 Setup</h2>
 <p>The "Device Setup" screen cover the following capabilities:</p>
 <ul>
@@ -303,6 +311,7 @@
 <li>Pick the correct serial port</li>
 <li>If you are planning to connect your radio audio to the KX3, you can also setup your sound cards here</li>
 </ul>
+<p><em>Important note: you will need to set your KX3 baud rate to 38400 for Wizkers to talk to your KX3.</em></p>
 <p><img alt="KX3 config" src="../img/kx3-config.png" /></p>
 <h3 id="sound-card-setup">Sound card setup</h3>
 <p>The KX3 instrument gives you the ability to visualize the audio from the KX3 on a "waterfall" display, as well as monitor the audio on the computer. It can also send audio coming from your computer (a microphone for instance) to the radio. This is convenient since the radio's audio input and output are connected to your computer, to it is not possible to connect your microphone to the radio anymore.</p>
