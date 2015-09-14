@@ -33,6 +33,15 @@ The waterfall display is the most recent feature of this plugin. It is an Audio 
 
 The "Scale" and "Ref" controls let you change the rendering of the waterfall. Smoothing and FFT window are further controls to fine-tune how the waterfall looks.
 
+### Graph displays
+
+The right side of the page shows you three graphs:
+
+* Amplifier temperature
+* Transmit power
+* Power supply voltage/current
+
+Those graphs really make most sense when a KXPA100 unit is connected to the setup. But even witout a KXPA100, you can graph the KX3 amp temperature (PA.I) or the internal oscillator temp (OSC) by enabling the display of that value on VFOB. Only one value at a time can be monitored, due to the way the KX3 is designed.
 
 ## KX3 Setup
 
@@ -80,6 +89,9 @@ On the "Instruments" screen, create a new "Elecraft Radio" instrument, as shown 
 
 * Pick the correct serial port
 * If you are planning to connect your radio audio to the KX3, you can also setup your sound cards here
+
+*Important note: you will need to set your KX3 baud rate to 38400 for Wizkers to talk to your KX3.*
+
 
 ![KX3 config](img/kx3-config.png)
 

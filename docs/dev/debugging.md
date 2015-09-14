@@ -18,6 +18,12 @@ You can then fire up the Chrome developer tools and do complete debugging of Wiz
 
 In server mode, Wizkers uses the Node.js “debug” facility: simply define a “DEBUG” variable to enable debug output. All modules in Wizkers already define a unique debug name, so you get fairly fine grained output. You can try a “DEBUG=* node server.js” to get an idea of the maximum level of debug output you can get.
 
+### Using node-inspector
+
+You can also debug the server side using the Chrome debugger, thanks to ```node-inspector```. This gives your nearly the same ease of debugging as doing everything browser-side.
+
+You can install node-inspector by visiting [github](https://github.com/node-inspector/node-inspector) and following the instructions.
+
 ## Android application
 
 You can also use Chrome to debug Wizkers running as an Android application: you need to have the Android SDK installed on your computer, and your test device connected through USB using `adb`.

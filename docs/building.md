@@ -73,12 +73,12 @@ Once all dependencies are installed, Wizkers uses 'gulp' as its build system: if
 sudo npm install -g gulp
 ```
 
-You can now build Wizkers in its three supported modes:
+You can now build Wizkers in its three supported modes. Note that ```gulp cordova``` will only work if you have a working cordova/phonegap development environment installed.
 
 ```bash
 gulp chrome
+gulp server
 gulp cordova
-gulp android
 ```
 
 Those three gulp targets will build Wizkers in the `dist` directory
