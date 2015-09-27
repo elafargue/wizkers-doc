@@ -255,6 +255,8 @@
         
             <li><a href="#serial-connection">Serial Connection</a></li>
         
+            <li><a href="#serial-over-tcpip-sockets">Serial over TCP/IP Sockets</a></li>
+        
             <li><a href="#usb-hid-connection">USB HID Connection</a></li>
         
             <li><a href="#helium-connection">Helium connection</a></li>
@@ -308,6 +310,13 @@
 <td>Standard serial ports (incl. serial over USB)</td>
 </tr>
 <tr>
+<td>TCP/IP Sockets</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>Serial over TCP sockets</td>
+</tr>
+<tr>
 <td>USB HID</td>
 <td>Yes</td>
 <td>No</td>
@@ -346,6 +355,8 @@
 </table>
 <h2 id="serial-connection">Serial Connection</h2>
 <p>The  serial connection is the first that was supported in Wizkers. It works in every mode (Server, Android/Cordova, Chrome) and provides access to any serial device that is connected to the computer.</p>
+<h2 id="serial-over-tcpip-sockets">Serial over TCP/IP Sockets</h2>
+<p>This is accessible in Chrome mode only for now. TCP/IP sockets are an extension to the serial connection, and are managed along with the serial connection (this adds an extra entry in the serial port dropdown). You will have to explicitely add support for this on your instrument's backend driver, like you can see here: <code>www/js/app/instruments/elecraft/backend_driver.js</code>.</p>
 <h2 id="usb-hid-connection">USB HID Connection</h2>
 <p>This connection type is only supported in Chrome packaged app mode at the moment (0.9.3). It provides read/write access to generic USB HID devices through the usual connection API.</p>
 <p>Due to the nature of USB HID, which is a polling system, you will need to call the “read” method on the driver to get data from the device. You can look at the Sark110 backend driver in <code>www/js/app/instruments/sark110/backend_driver.js</code> for an example of how this can be implemented.</p>
