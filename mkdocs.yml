@@ -10,6 +10,7 @@ pages:
     - Instruments: dev/instruments.md
     - Outputs: dev/outputs.md
     - Debugging: dev/debugging.md
+    - API Access: dev/api.md
 - Instruments:
     - Medcom Onyx: ins/medcom-onyx.md
     - Medcom Blue Onyx: ins/medcom-onyx-ble.md

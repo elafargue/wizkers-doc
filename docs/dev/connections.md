@@ -31,6 +31,7 @@ In server mode, new connections are used directly by instrument backend-drivers 
 | Connection type   | Chrome     | Cordova | Server | Comment  |
 |-------------------|------------|---------|--------|----------|
 | Serial            | Yes        | Yes     | Yes    | Standard serial ports (incl. serial over USB) |
+| TCP/IP Sockets    | Yes        | No      | No     | Serial over TCP sockets |
 | USB HID           | Yes        | No      | No     | USB HID communications. |
 | Helium            | No         | No      | Yes    | Network connection to the [helium.com](http://helium.com) IoT network. |
 | Pinocc.io         | No         | No      | Yes    | Network connection to the Pinocc.io IoT network |
@@ -40,6 +41,10 @@ In server mode, new connections are used directly by instrument backend-drivers 
 ## Serial Connection
 
 The  serial connection is the first that was supported in Wizkers. It works in every mode (Server, Android/Cordova, Chrome) and provides access to any serial device that is connected to the computer.
+
+## Serial over TCP/IP Sockets
+
+This is accessible in Chrome mode only for now. TCP/IP sockets are an extension to the serial connection, and are managed along with the serial connection (this adds an extra entry in the serial port dropdown). You will have to explicitely add support for this on your instrument's backend driver, like you can see here: `www/js/app/instruments/elecraft/backend_driver.js`.
 
 ## USB HID Connection
 
