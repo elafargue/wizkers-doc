@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Medcom Blue Onyx - Wizkers Documentation</title>
+	<title>API Access - Wizkers Documentation</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -75,7 +75,7 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Developers <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -93,31 +93,31 @@
                         
                             
 <li >
-    <a href="../../dev/connections/">Connections</a>
+    <a href="../connections/">Connections</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../dev/instruments/">Instruments</a>
+    <a href="../instruments/">Instruments</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../dev/outputs/">Outputs</a>
+    <a href="../outputs/">Outputs</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../dev/debugging/">Debugging</a>
+    <a href="../debugging/">Debugging</a>
 </li>
 
                         
                             
-<li >
-    <a href="../../dev/api/">API Access</a>
+<li class="active">
+    <a href="./">API Access</a>
 </li>
 
                         
@@ -126,55 +126,55 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Instruments <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../medcom-onyx/">Medcom Onyx</a>
-</li>
-
-                        
-                            
-<li class="active">
-    <a href="./">Medcom Blue Onyx</a>
+    <a href="../../ins/medcom-onyx/">Medcom Onyx</a>
 </li>
 
                         
                             
 <li >
-    <a href="../fcoled/">Fried Circuits OLED backpack</a>
+    <a href="../../ins/medcom-onyx-ble/">Medcom Blue Onyx</a>
 </li>
 
                         
                             
 <li >
-    <a href="../sark110/">Sark 110</a>
+    <a href="../../ins/fcoled/">Fried Circuits OLED backpack</a>
 </li>
 
                         
                             
 <li >
-    <a href="../elecraft-kx3/">Elecraft KX3</a>
+    <a href="../../ins/sark110/">Sark 110</a>
 </li>
 
                         
                             
 <li >
-    <a href="../elecraft-remote-kx3/">Elecraft Remote KX3</a>
+    <a href="../../ins/elecraft-kx3/">Elecraft KX3</a>
 </li>
 
                         
                             
 <li >
-    <a href="../fluke289/">Fluke 287/289 DMMs</a>
+    <a href="../../ins/elecraft-remote-kx3/">Elecraft Remote KX3</a>
 </li>
 
                         
                             
 <li >
-    <a href="../simple-serial/">Simple serial terminal</a>
+    <a href="../../ins/fluke289/">Fluke 287/289 DMMs</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../ins/simple-serial/">Simple serial terminal</a>
 </li>
 
                         
@@ -226,12 +226,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../medcom-onyx/">
+                        <a rel="next" href="../debugging/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../fcoled/">
+                        <a rel="prev" href="../../ins/medcom-onyx/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -247,16 +247,153 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#medcom-blue-onyx">Medcom Blue Onyx</a></li>
+        <li class="main active"><a href="#wizkers-api-access-in-server-mode">Wizkers API access in server mode</a></li>
+        
+            <li><a href="#live-recording">Live recording</a></li>
+        
+            <li><a href="#low-level-api-access">Low level API access</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="medcom-blue-onyx">Medcom Blue Onyx</h1>
-<p>The Blue Onyx is an exciting upcoming device from Medcom. Wizkers already support the beta devices that were issued to field testers. Since the Blue Onyx is a Bluetooth LE device, support is limited to BLE-enabled hardware.</p>
-<p>As of 0.9.19, Wizkers supports BLE on the Chromebook platform only.</p></div>
+<h1 id="wizkers-api-access-in-server-mode">Wizkers API access in server mode</h1>
+<p>When running on a server, you can also interact with it using a REST API, so that all the data from the server can be queried/streamed to external systems.</p>
+<h2 id="live-recording">Live recording</h2>
+<p>Wizkers exposes a public "live recording" API, which lets you query data that is currently being recorded. The syntax is as follows</p>
+<p><code>/live/:id/:period</code> with <code>id</code> being the instrument ID, and <code>period</code> being in minutes - get the live recording for the last <code>period</code> minutes.</p>
+<h2 id="low-level-api-access">Low level API access</h2>
+<p>You can access the low level RESTFUL API of Wizkers using the standard authentication mechanism that is used by the Wizkers front-end web app. The simple Shell script below demonstrates how to get a list of instruments in JSON format.</p>
+<pre><code>#!/bin/sh
+
+## Example of Wizkers authentication then API request
+
+## Save cookies to the &quot;cookies.txt&quot; file
+curl --cookie-jar cookies.txt -H &quot;Content-Type: application/json&quot; -X POST http://localhost:8090/login -d &quot;{\&quot;email\&quot;: \&quot;admin\&quot;, \&quot;password\&quot;: \&quot;abc123\&quot;}&quot;
+
+## Now you can do queries:
+curl --cookie cookies.txt -X GET http://localhost:8090/instruments
+</code></pre>
+
+<h3 id="listing-instruments">Listing instruments</h3>
+<p>You can get a list of all instruments registered in a Wizkers instance by doing an HTTP GET to /instruments/ . Note that this returns all instruments contents, not only a list of references. </p>
+<p>Example below:</p>
+<pre><code>[
+    {
+    &quot;name&quot;:&quot;Piglet&quot;,
+    &quot;type&quot;:&quot;simple_serial&quot;,
+    &quot;tag&quot;:&quot;&quot;,
+    &quot;uuid&quot;:&quot;00000000 (n.a.)&quot;,
+    &quot;port&quot;:&quot;/dev/cu.usbserial-FTGDPEGI&quot;,
+    &quot;comment&quot;:&quot;enter your notes here&quot;,
+    &quot;icon&quot;:&quot;&quot;,
+    &quot;liveviewspan&quot;:600,
+    &quot;liveviewperiod&quot;:1,
+    &quot;liveviewlogscale&quot;:false,
+    &quot;metadata&quot;:{&quot;baudrate&quot;:&quot;9600&quot;,&quot;lines&quot;:&quot;40&quot;},
+    &quot;_id&quot;:&quot;5AD6B170-A8AC-820E-9070-6DB9619661C4&quot;,
+    &quot;_rev&quot;:&quot;19-5199b8924f8388771d32d13f0b26c508&quot;
+    },
+    {
+    &quot;name&quot;:&quot;OLED&quot;,
+    &quot;type&quot;:&quot;fcoledv1&quot;,
+    &quot;tag&quot;:&quot;&quot;,
+    &quot;uuid&quot;:&quot;00000000 (n.a.)&quot;,
+    &quot;port&quot;:&quot;/dev/cu.usbmodem14121&quot;,
+    &quot;comment&quot;:&quot;enter your notes here&quot;,
+    &quot;icon&quot;:&quot;&quot;,
+    &quot;liveviewspan&quot;:600,
+    &quot;liveviewperiod&quot;:1,
+    &quot;liveviewlogscale&quot;:false,
+    &quot;metadata&quot;:{},
+    &quot;_id&quot;:&quot;6C8BCEB8-77C7-DF73-930A-3DEA48992119&quot;,
+    &quot;_rev&quot;:&quot;3-643fc192e8094b885f0b29c4f944e8f3&quot;
+    },
+    {
+    &quot;name&quot;:&quot;FCOLED&quot;,
+    &quot;type&quot;:&quot;fcoledv1&quot;,
+    &quot;tag&quot;:&quot;&quot;,
+    &quot;uuid&quot;:&quot;00000000 (n.a.)&quot;,
+    &quot;port&quot;:&quot;/dev/cu.usbmodem1451&quot;,
+    &quot;comment&quot;:&quot;enter your notes here&quot;,
+    &quot;icon&quot;:&quot;&quot;,
+    &quot;liveviewspan&quot;:600,
+    &quot;liveviewperiod&quot;:1,
+    &quot;liveviewlogscale&quot;:false,
+    &quot;metadata&quot;:{},
+    &quot;_id&quot;:&quot;8E7A801E-8AD1-FB5C-B772-CABA61B8FCC6&quot;,
+    &quot;_rev&quot;:&quot;7-13d2c6309ffeab1bcf87833fae563764&quot;
+    },
+]
+</code></pre>
+
+<h3 id="instruments-details">Instruments details</h3>
+<p>Returns one instrument's details (http GET):</p>
+<p><code>http://localhost:8090/instruments/6C8BCEB8-77C7-DF73-930A-3DEA48992119</code></p>
+<h3 id="listing-logs-for-an-instrument">Listing logs for an instrument</h3>
+<p>You can get all the logs for a given instrument by doing a GET on /logs :</p>
+<p><code>http://localhost:8090/instruments/E1B65550-BEA8-63BB-9AFA-58F94E0D881D/logs</code></p>
+<pre><code>[
+    {
+    &quot;instrumentid&quot;:&quot;E1B65550-BEA8-63BB-9AFA-58F94E0D881D&quot;,    
+    &quot;name&quot;:&quot;Autorecord&quot;,
+    &quot;description&quot;:&quot;Autorecord&quot;,
+    &quot;logtype&quot;:&quot;live&quot;,
+    &quot;startstamp&quot;:1437430818782.795,
+    &quot;isrecording&quot;:false,
+    &quot;datapoints&quot;:11,
+    &quot;swversion&quot;:0,
+    &quot;endstamp&quot;:1437431082121.264,
+    &quot;_id&quot;:&quot;4E148536-1F12-8F85-AF9B-6E48401F030C&quot;,
+    &quot;_rev&quot;:&quot;5-ef4df5e4f9a9e85e26252cbfc175706f&quot;
+    }
+]
+</code></pre>
+
+<h3 id="log-download">Log download</h3>
+<p>The contents of a log are returned with (http GET):</p>
+<p><code>http://localhost:8090/logs/4E148536-1F12-8F85-AF9B-6E48401F030C/entries</code></p>
+<p>Each log record contains two keys:</p>
+<ul>
+<li>timestamp: javascript timestamp (milliseconds since January 1 1970). Time when the entry was added to the log. Sometimes (esp for on-intrument log download), the timestamp in the 'data' key will be more important.</li>
+<li>data : structure depends on the instrument.</li>
+</ul>
+<pre><code>[
+    {
+       &quot;timestamp&quot;:1437430818782.795,
+       &quot;data&quot;:{&quot;uniqueID&quot;:&quot;00000000 (n.a.)&quot;},
+       &quot;_id&quot;:&quot;1437430818782.795&quot;
+    },
+    {
+        &quot;timestamp&quot;:1437430878351.307,
+        &quot;data&quot;:{
+            &quot;probeid&quot;:3001739,
+            &quot;timestamp&quot;:25544,
+            &quot;devicestamp&quot;:1437426924000,
+            &quot;cpm&quot;:{
+                &quot;value&quot;:0,
+                &quot;valid&quot;:true
+            },
+            &quot;cpm2&quot;:{
+                 &quot;value&quot;:0,
+                 &quot;valid&quot;:true
+                }
+        },
+        &quot;_id&quot;:&quot;1437430878351.307&quot;
+    },
+    {
+        &quot;timestamp&quot;:1437430878351.7,
+        &quot;data&quot;:{
+           ...
+        },
+        &quot;_id&quot;:&quot;1437430878351.7&quot;
+    }
+
+....
+
+    ]
+</code></pre></div>
             
         </div>
 

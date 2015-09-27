@@ -115,6 +115,12 @@
 </li>
 
                         
+                            
+<li >
+    <a href="../../dev/api/">API Access</a>
+</li>
+
+                        
                         </ul>
                     </li>
                 
@@ -245,6 +251,8 @@
         
             <li><a href="#the-main-screen">The main screen</a></li>
         
+            <li><a href="#data-mode">Data mode</a></li>
+        
             <li><a href="#kx3-setup">KX3 Setup</a></li>
         
             <li><a href="#configuring-kx3-instruments-on-wizkers">Configuring KX3 instruments on Wizkers</a></li>
@@ -283,6 +291,12 @@
 <li>Power supply voltage/current</li>
 </ul>
 <p>Those graphs really make most sense when a KXPA100 unit is connected to the setup. But even witout a KXPA100, you can graph the KX3 amp temperature (PA.I) or the internal oscillator temp (OSC) by enabling the display of that value on VFOB. Only one value at a time can be monitored, due to the way the KX3 is designed.</p>
+<h2 id="data-mode">Data mode</h2>
+<p>You can access a simple data mode terminal by clicking on the "Data" tab next to the "Memories" tab:</p>
+<p><img alt="Data terminal" src="../img/kx3-data-terminal.png" /></p>
+<p>The layout should be pretty much self-explanatory. Note that Wizkers will continuously scan for call signs in the terminal window and populate the "you" dropdown menu for you.</p>
+<p>The buttons called CQ, ANS, KN, etc. are macros, which can be configured in the "Settings" screen of Wizkers, on the top black menu on the right:</p>
+<p><img alt="KX3 macros settings" src="../img/kx3-settings-macros.png" /></p>
 <h2 id="kx3-setup">KX3 Setup</h2>
 <p>The "Device Setup" screen cover the following capabilities:</p>
 <ul>
@@ -316,7 +330,8 @@
 <h3 id="sound-card-setup">Sound card setup</h3>
 <p>The KX3 instrument gives you the ability to visualize the audio from the KX3 on a "waterfall" display, as well as monitor the audio on the computer. It can also send audio coming from your computer (a microphone for instance) to the radio. This is convenient since the radio's audio input and output are connected to your computer, to it is not possible to connect your microphone to the radio anymore.</p>
 <p>For doing this, you will need to setup the "audio from radio" and "audio to radio" drop-downs to indicate which sound card the radio is connected to. And you can use the "audio from/to operator" dropdowns to indicate the sound card used by the operator.</p>
-<p>Note that making full use of this setup requires two sound cards, but you can choose to simply setup the "audio from radio" and "audio to operator" dropdowns to do a simple monitoring when working on digital modes.</p></div>
+<p>Note that making full use of this setup requires two sound cards, but you can choose to simply setup the "audio from radio" and "audio to operator" dropdowns to do a simple monitoring when working on digital modes.</p>
+<p><em>Why are the "Audio to..." dropdowns empty ?</em> : You need to enable experimental support in Chrome 45.0.2441.x or later by selecting Enable experimental Web Platform features in chrome://flags or by using command line flag "--enable-blink-features=EnumerateDevices,AudioOutputDevices"</p></div>
             
         </div>
 
