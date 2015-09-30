@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../img/favicon.ico">
 
-	<title>Users - Wizkers Documentation</title>
+	<title>Deploying (server) - Wizkers Documentation</title>
 
         <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -69,13 +69,13 @@
                 
                 
                 
-                    <li class="active">
-                        <a href="./">Users</a>
+                    <li >
+                        <a href="../userdoc/">Users</a>
                     </li>
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Developers <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -92,8 +92,8 @@
 
                         
                             
-<li >
-    <a href="../deploying/">Deploying (server)</a>
+<li class="active">
+    <a href="./">Deploying (server)</a>
 </li>
 
                         
@@ -232,12 +232,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="..">
+                        <a rel="next" href="../building/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../devdoc/">
+                        <a rel="prev" href="../dev/connections/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -253,110 +253,68 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#wizkers-user-documentation">Wizkers User documentation</a></li>
+        <li class="main active"><a href="#deploy-wizkers-as-a-server-application">Deploy Wizkers as a server application</a></li>
         
-    
-        <li class="main "><a href="#home-screen">Home screen</a></li>
+            <li><a href="#selecting-the-database">Selecting the database</a></li>
         
-            <li><a href="#connecting-instruments">Connecting instruments</a></li>
-        
-    
-        <li class="main "><a href="#configuring-instruments">Configuring instruments</a></li>
-        
-    
-        <li class="main "><a href="#logs-and-recordings">Logs and recordings</a></li>
-        
-    
-        <li class="main "><a href="#outputs">Outputs</a></li>
-        
-            <li><a href="#creating-and-configuring-an-output">Creating and configuring an output</a></li>
-        
-            <li><a href="#data-to-send">Data to send</a></li>
-        
-    
-        <li class="main "><a href="#wizkers-in-server-mode">Wizkers in server mode</a></li>
-        
-            <li><a href="#user-authentication">User authentication</a></li>
-        
-            <li><a href="#autorecord-and-autoreconnect">Autorecord and autoreconnect</a></li>
-        
-            <li><a href="#multiple-open-devices">Multiple open devices</a></li>
+            <li><a href="#wizkers-auto-start">Wizkers auto start</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="wizkers-user-documentation">Wizkers User documentation</h1>
-<p>Welcome to the user documentation of Wizkers. This section will help you make the most of the various capabilities of Wizkers.</p>
-<p>Refer to the <a href="..#installation-instructions">introduction</a> for installation instructions.</p>
-<h1 id="home-screen">Home screen</h1>
-<p>The home screen contains three main zones:</p>
+<h1 id="deploy-wizkers-as-a-server-application">Deploy Wizkers as a server application</h1>
+<p>Wizkers runs great as a server application. In that mode, you access Wizkers through a standard browser (Google Chrome being the reference browser for our tests).</p>
+<p>This section describes the various database backends you can select when running Wizkers, as well as how you should configure it with reverse proxies like nginx.</p>
+<h2 id="selecting-the-database">Selecting the database</h2>
+<p>Wizkers will run fine out of the box with no particular additional configuration: a simple</p>
+<pre><code>gulp server
+cd dist/server
+node server.js
+</code></pre>
+
+<p>will be enough to get you started. In that mode, Wizkers will use a disk database called LevelDB which is the default storage mechanism for PouchDB, the internal Wizkers database API.</p>
+<p>For larger deployments where you have potentially dozens or more sensors connected at once, levelDB will not be adequate, which is why Wizkers also supports standard CouchDB servers.</p>
+<p>The database engine is selected in <code>server/pouchdb-config.js</code> with the <code>backend</code> variable. Set it to <code>CouchDB</code> to use CouchDB rather than PouchDB (which is the default).</p>
+<pre><code>var backend = 'CouchDB';
+</code></pre>
+
+<p>Do not forget to run <code>gulp server</code> again after making a change.</p>
+<h3 id="configuring-couchdb">Configuring CouchDB</h3>
+<p>Please head over to the <a href="http://couchdb.readthedocs.org/en/1.6.1/">CouchDB documentation</a> for details on how to install CouchDB on your particular machine. Most Linux distributions already include Couch in their standard packages, so this should be very easy.</p>
+<p>By default, CouchDB binds to the 127.0.0.1 interface, and lets anyone connect to it with no authentication. You probably do not want this for a production system, and should take the appropriate steps to secure your installation. For development purposes, this should be fine, though.</p>
+<p>The only Wizkers-specific configuration you should do on CouchDB (and this can become critical for large number of connected sensors), is configure the auto_compaction daemon so that there are no runaway databases due to frequent document updates. This can be done from the admin interface of couchdb at <code>http://127.0.0.1:5984/_utils</code>. From this interface, head over to "configuration" (menu on the right) and add the configuration for compactions: at the bottom of the page, click on the "add a new section" link, and enter the following:</p>
 <ul>
-<li>Connect/Setup/Record zone</li>
-<li>Main view / Live view</li>
-<li>Side view</li>
+<li>Section: compactions</li>
+<li>Option:  _default</li>
+<li>value: <code>[{db_fragmentation, "70%"}, {view_fragmentation, "60%"}]</code></li>
 </ul>
-<p><img alt="Home screen" src="../img/homescreen.png" /></p>
-<p>The first time you start Wizkers, you will need to create a new instrument, as described in the next section.</p>
-<h2 id="connecting-instruments">Connecting instruments</h2>
-<p><img alt="Home controls" src="../img/homescreen-top.png" /></p>
-<p>The top buttons are pretty much self-explanatory: the “Connect” button opens the connection to the instrument. The “Device Setup” button will only be enabled if the device supports a Setup screen (not all do). Last, the “Record Session” button lets you do a live recording of the data coming in from the device. You can view the logs that are saved there in the “Logs and recordings” screen.</p>
-<h1 id="configuring-instruments">Configuring instruments</h1>
-<p>All instrument configuration is done on the “Instruments” screen. The first time you start the application, no instruments will be present. To create a new instrument, click on “Add Instrument” card:</p>
-<p><img alt="Add instrument" src="../img/instruments-add.png" /></p>
-<p>After pressing “Add Instrument“, you will be presented with a blank configuration screen, as shown below. Some instruments display extra settings, but the following is always present:</p>
-<p><img alt="Add instrument" src="../img/instruments-new.png" /></p>
-<p>First of all, give a “Friendly Name” to your instrument, and select the correct instrument type.</p>
-<p>Depending on the instrument type, the "port" section will be different. Port can be:</p>
-<ul>
-<li>A serial port</li>
-<li>A bluetooth device</li>
-<li>A network address</li>
-<li>An API Key</li>
-</ul>
-<p>Refer to the documentation of each instrument for more details on how to configure those fields.</p>
-<p>The <em>Live view length</em> option defines the time length of the the home screen live view - by defaults, Wizkers displays the last five minutes of data, or last 500 points.</p>
-<p><em>Polling period</em> defines how often Wizkers requests information from the instrument. Some instruments will send data at their own rate, in which case this setting will be unused for that instrument.</p>
-<h1 id="logs-and-recordings">Logs and recordings</h1>
-<p>The Logs and recordings screen gives you access to all the recordings and logs saved on Wizkers, as well as an interface to download device logs if the currently connected instrument supports this.</p>
-<h1 id="outputs">Outputs</h1>
-<p>Output plugins are one of the great features of Wizkers: using those plugins, you can automatically send the data generated by your instruments to various backend services.</p>
-<p>At the moment, Wizkers ships with four output plugins:</p>
-<ul>
-<li><a href="../out/rest/">Generic REST output</a></li>
-<li><a href="../out/safecast/">Safecast output</a></li>
-<li>HAM Radio <a href="../out/rigctld/">“rigctld” emulation plugin</a>, for remote control of radios.</li>
-<li><a href="../out/webrtc/">WebRTC Output</a></li>
-</ul>
-<h2 id="creating-and-configuring-an-output">Creating and configuring an output</h2>
-<p>All output plugins share quite a few settings: selecting what fields should be sent to the output, how often and with what conditions:</p>
-<p>When you create an output from the “Data Output” screen (option on the top menu bar), you will see the screen below:</p>
-<p><img alt="Output config" src="../img/output-config.png" /></p>
-<p>Note: you should be connected to the current instrument before creating an output, because the output plugin detects the data sent by the instrument for creating its configuration.</p>
-<p>You can select the output plugin, give it a name and write notes in the top part of the window.</p>
-<p>The section on the right tells you when the plugin was last triggered with success, when it last attempted to send data, and what the last message from the backend was. Very useful for debugging.</p>
-<p>Then the screen contains three tabs: “Data to send”, “When to send it”, “Output Settings”. Only the last one (“Output Settings”) is plugin-specific, the first two are identical for all output plugins.</p>
-<h2 id="data-to-send">Data to send</h2>
-<p>Again, you need to be connected to your instrument in order to be able to do anything with this screen. If not, it only displays a help message encouraging you to do so.</p>
-<h1 id="wizkers-in-server-mode">Wizkers in server mode</h1>
-<p>In server mode, you connect to Wizkers by pointing your Chrome browser to the IP address of the computer running Wizkers.</p>
-<p>In this mode, Wizkers will behave a little bit differently:</p>
-<ul>
-<li>It will enforce a simple user authentication mechanism</li>
-<li>It will support multiple open instruments at once</li>
-<li>It will keep all open instruments connected even when the user logs out of the interface</li>
-</ul>
-<p>This makes it possible to use Wizkers for autonomous monitoring stations. When combined with local recording and output capabilties, this actually turns Wizkers into a pretty powerful system.</p>
-<h2 id="user-authentication">User authentication</h2>
-<p>The first time you access Wizkesr through the network, a default <code>admin</code> user will be created. Wizkers will force you to change the default admin password before letting you access most of its functionality.</p>
-<p>TODO: describe user roles</p>
-<h2 id="autorecord-and-autoreconnect">Autorecord and autoreconnect</h2>
-<p>Wizkers is designed to be a very resilient system: when running by itself on small embedded devices, there can be situations such as power cuts which will lead the device to reboot. For this reason, in server mode you will see two extra flags on Wizkers on each instrument configuration screen:</p>
-<p><img alt="Autoreconnect/autorecord" src="../img/server-autoreconnect.png" /></p>
-<p>Those two options are fairly self-explanatory: when the Wizkers server is started, it will go through all configured instruments, and automatically reconnect (and start recording) them according to those check boxes.</p>
-<h2 id="multiple-open-devices">Multiple open devices</h2>
-<p>While Wizkers in Chrome and Android modes only supports one open instrument at a time, you can open multiple instruments simultaneously in server mode, and simply switch from one to another without closing them. In the "Instruments" screen, you will see a little green badge next to all connected instruments.</p></div>
+<p><img alt="CouchDB compactions settings" src="../img/couchdb_compactions.png" /></p>
+<p>This way, CouchDB will make sure that even with frequent document updates, the overall database size does not get out of hand.</p>
+<h3 id="migrating-from-pouch-to-couch">Migrating from Pouch to Couch</h3>
+<p>If you started your deployment with PouchDB and later decided to migrate to CouchDB, a script in the <code>server/utils</code> directory will automatically migrate all your data and settings to CouchDB.</p>
+<p>First of all, make sure Wizkers is not running. Then go to <code>dist/server/utils</code> and launch <code>node migrate_to_couchdb.js</code>. The process should take from a couple of seconds to a couple of minutes depending on how much data you have in your database.</p>
+<p>Last, make sure that the <code>backend</code> variable in <code>dist/server/pouchdb-config.jg</code> is set to <code>CouchDB</code>, then relaunch Wizkers. You should be able to login exactly like before.</p>
+<h2 id="wizkers-auto-start">Wizkers auto start</h2>
+<p>On a Linux distribution, you will probably want to have Wizkers automatically start when the device/computer boots. The init scripts below give you an example of how to do this. Tweak as needed!</p>
+<p>On recent Ubuntu distributions, you will need to create a <code>/etc/init/wizkers.conf</code> script. Note that you can enable debugging output in <code>/tmp</code> or not, this is optional...</p>
+<pre><code># Ubuntu upstart file at /etc/init/wizkers.conf
+
+start on runlevel [2345]
+stop on runlevel [06]
+
+setuid ubuntu
+
+script
+  export HOME=&quot;/home/ubuntu/wizkers/server/dist/server&quot;
+  ENABLE_CONTROLLER=&quot;yes&quot;
+  export DEBUG=&quot;wizkers*&quot;
+  DAEMON_ARGS=&quot;/home/ubuntu/wizkers/server/dist/server/server.js&quot;
+  if [ -f /etc/default/wizkers ]; then . /etc/default/wizkers; fi
+  if [ &quot;x$ENABLE_CONTROLLER&quot; = &quot;xyes&quot; ]; then cd $HOME; exec node $DAEMON_ARGS &gt; /tmp/wizkers.log 2&gt;&amp;1 ; fi
+end script
+</code></pre></div>
             
         </div>
 
