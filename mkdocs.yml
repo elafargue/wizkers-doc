@@ -6,6 +6,7 @@ pages:
 - Developers:
     - Overview: devdoc.md
     - Building: building.md
+    - Deploying (server): deploying.md
     - Connections: dev/connections.md
     - Instruments: dev/instruments.md
     - Outputs: dev/outputs.md
