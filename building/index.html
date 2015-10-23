@@ -150,6 +150,12 @@
                         
                             
 <li >
+    <a href="../ins/bgeigie/">Safecast bGeigie Nano</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../ins/fcoled/">Fried Circuits OLED backpack</a>
 </li>
 
@@ -332,11 +338,19 @@ gulp cordova
 <p>The <code>chrome</code> version requires finalizing the compilation by launching <code>build-toold/build-chrome.sh</code> which will optimize the javascript code. The resulting Chrome app in <code>dist/chrome</code> will run faster but it won't be possible to debug it easily.</p>
 <h3 id="cordova-android-app">Cordova (Android app)</h3>
 <p>The Android app version of Wizker uses the Cordova framework to package Wizkers into a native Android application.</p>
+<p>The first thing to do is to install Cordova on your machine:</p>
+<pre><code class="bash">npm install -g cordova
+</code></pre>
+
+<p>Then cd to the <code>cordova</code> directory and install the required plugins. Cordova does not have a good way to automate this, which is strange, so you will have to take a look at the config.xml file to see the list of plugins, and install them pretty much manually. A future revision of Wizkers will automate this.</p>
+<p>Once all the plugins are installed, you can <code>cd ..</code> and launch <code>gulp cordova</code>. Once this is done, <code>cd dist/cordova</code> and launch the build following the standard Cordova procedure...</p>
 <h3 id="server">Server</h3>
 <p>The server build of Wizkers is available in <code>dist/server</code>. Simply go to that directory and launch the server:</p>
 <pre><code class="bash">cd dist/server
 node server.js
-</code></pre></div>
+</code></pre>
+
+<p>Refer to the <a href="../deploying/">Deploying</a> section for more details on how to properly launch Wizkers as a server.</p></div>
             
         </div>
 
