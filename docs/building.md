@@ -34,6 +34,19 @@ sudo apt-get install --yes git
 
 You can then move on to checking out the code, as described in the next section.
 
+#### Node-serialport issues on Linux
+
+You might have to add rules in udev to make sure the right entries are created in ```/dev/serial``` because Debian does not do it by default
+
+```
+debian@aprs:~$ cat /etc/udev/rules.d/60-ed-persistent-serial.rules 
+ENV{.ID_PORT}=="", SYMLINK+="serial/by-id/$env{ID_BUS}-$env{ID_SERIAL}-if$env{ID_USB_INTERFACE_NUM}"
+ENV{.ID_PORT}=="?*", SYMLINK+="serial/by-id/$env{ID_BUS}-$env{ID_SERIAL}-if$env{ID_USB_INTERFACE_NUM}-port$env{.ID_PORT}"
+```
+
+This way, you will be able to list serial ports even on the most recent versions on node-serialport.    
+
+
 #### Generic Linux
 
 Linux instructions are very similar to the Beaglebone black instructions described above. The only difference from one distribution to the next is the presence of a bundled NodeJS with the distribution: if you have access to Node version 0.10 or later as part of your distributions's package manager, you should definitely try it before doing a manual download and install.
@@ -97,6 +110,15 @@ The `chrome` version requires finalizing the compilation by launching `build-too
 
 The Android app version of Wizker uses the Cordova framework to package Wizkers into a native Android application.
 
+The first thing to do is to install Cordova on your machine:
+
+```bash
+npm install -g cordova
+```
+
+Then cd to the ```cordova``` directory and install the required plugins. Cordova does not have a good way to automate this, which is strange, so you will have to take a look at the config.xml file to see the list of plugins, and install them pretty much manually. A future revision of Wizkers will automate this.
+
+Once all the plugins are installed, you can ```cd ..``` and launch ```gulp cordova```. Once this is done, ```cd dist/cordova``` and launch the build following the standard Cordova procedure...
 
 ### Server
 
@@ -107,3 +129,4 @@ cd dist/server
 node server.js
 ```
 
+Refer to the [Deploying](deploying.md) section for more details on how to properly launch Wizkers as a server.

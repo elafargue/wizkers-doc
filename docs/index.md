@@ -49,15 +49,17 @@ Instrument name                          | Chrome App       | Android App  | Ser
 :----------------------------------------|:-----------------|:-------------|:------------|
 Medcom Onyx                              | Yes              |  Yes         |  Yes        |
 Medcom Geiger Link                       | Yes              |  Yes         |  Yes        |
-Medcom Blue Onyx                         | Chromebooks only |  No          |  No         |
+Medcom Blue Onyx                         | Chromebooks only |  Yes         |  No         |
 Medcom Hawk Nest                         | -                |  -           |  Yes        |
+Safecast bGeigie Nano                    | Chromebooks only |  Yes         |  No         |
 Elecraft KX3                             | Yes              |  Yes         |  Yes        |
 Remote KX3 (Wizkers to Wizkers)          | Yes              |  Not tested  |  Not tested |
 Fluke 287/289                            | Yes              |  Yes         |  Yes        |
 Fried Circuits USB tester OLED backpack  | Yes              |  Yes         |  Yes        |
+Fried Circuits USB tested BTLE backpack  | Chromebooks only |  Yes         |  No         |
 Simple serial terminal                   | Yes              |  Yes         |  Yes        |
 Sark 110 antena analyzer                 | Yes              |  Yes         |  Yes        |
-Kromek Sigma 25                          | Yes              | Yes          | Yes         |
+Kromek Sigma 25                          | Yes              | Yes          |  Yes        |
 
 ### What if my instrument is not supported ?
 
