@@ -4,7 +4,7 @@
     
     <url>
      <loc>None/</loc>
-     <lastmod>2015-10-22</lastmod>
+     <lastmod>2015-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -12,7 +12,7 @@
     
     <url>
      <loc>None/userdoc/</loc>
-     <lastmod>2015-10-22</lastmod>
+     <lastmod>2015-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -21,49 +21,49 @@
         
     <url>
      <loc>None/devdoc/</loc>
-     <lastmod>2015-10-22</lastmod>
+     <lastmod>2015-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/building/</loc>
-     <lastmod>2015-10-22</lastmod>
+     <lastmod>2015-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/deploying/</loc>
-     <lastmod>2015-10-22</lastmod>
+     <lastmod>2015-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/dev/connections/</loc>
-     <lastmod>2015-10-22</lastmod>
+     <lastmod>2015-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/dev/instruments/</loc>
-     <lastmod>2015-10-22</lastmod>
+     <lastmod>2015-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/dev/outputs/</loc>
-     <lastmod>2015-10-22</lastmod>
+     <lastmod>2015-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/dev/debugging/</loc>
-     <lastmod>2015-10-22</lastmod>
+     <lastmod>2015-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/dev/api/</loc>
-     <lastmod>2015-10-22</lastmod>
+     <lastmod>2015-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -73,55 +73,55 @@
         
     <url>
      <loc>None/ins/medcom-onyx/</loc>
-     <lastmod>2015-10-22</lastmod>
+     <lastmod>2015-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/ins/medcom-onyx-ble/</loc>
-     <lastmod>2015-10-22</lastmod>
+     <lastmod>2015-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/ins/bgeigie/</loc>
-     <lastmod>2015-10-22</lastmod>
+     <lastmod>2015-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/ins/fcoled/</loc>
-     <lastmod>2015-10-22</lastmod>
+     <lastmod>2015-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/ins/sark110/</loc>
-     <lastmod>2015-10-22</lastmod>
+     <lastmod>2015-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/ins/elecraft-kx3/</loc>
-     <lastmod>2015-10-22</lastmod>
+     <lastmod>2015-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/ins/elecraft-remote-kx3/</loc>
-     <lastmod>2015-10-22</lastmod>
+     <lastmod>2015-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/ins/fluke289/</loc>
-     <lastmod>2015-10-22</lastmod>
+     <lastmod>2015-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/ins/simple-serial/</loc>
-     <lastmod>2015-10-22</lastmod>
+     <lastmod>2015-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -131,25 +131,25 @@
         
     <url>
      <loc>None/out/rest/</loc>
-     <lastmod>2015-10-22</lastmod>
+     <lastmod>2015-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/out/safecast/</loc>
-     <lastmod>2015-10-22</lastmod>
+     <lastmod>2015-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/out/rigctld/</loc>
-     <lastmod>2015-10-22</lastmod>
+     <lastmod>2015-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/out/webrtc/</loc>
-     <lastmod>2015-10-22</lastmod>
+     <lastmod>2015-11-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         

@@ -298,6 +298,14 @@ sudo apt-get install --yes git
 </code></pre>
 
 <p>You can then move on to checking out the code, as described in the next section.</p>
+<h4 id="node-serialport-issues-on-linux">Node-serialport issues on Linux</h4>
+<p>You might have to add rules in udev to make sure the right entries are created in <code>/dev/serial</code> because Debian does not do it by default</p>
+<pre><code>debian@aprs:~$ cat /etc/udev/rules.d/60-ed-persistent-serial.rules 
+ENV{.ID_PORT}==&quot;&quot;, SYMLINK+=&quot;serial/by-id/$env{ID_BUS}-$env{ID_SERIAL}-if$env{ID_USB_INTERFACE_NUM}&quot;
+ENV{.ID_PORT}==&quot;?*&quot;, SYMLINK+=&quot;serial/by-id/$env{ID_BUS}-$env{ID_SERIAL}-if$env{ID_USB_INTERFACE_NUM}-port$env{.ID_PORT}&quot;
+</code></pre>
+
+<p>This way, you will be able to list serial ports even on the most recent versions on node-serialport.    </p>
 <h4 id="generic-linux">Generic Linux</h4>
 <p>Linux instructions are very similar to the Beaglebone black instructions described above. The only difference from one distribution to the next is the presence of a bundled NodeJS with the distribution: if you have access to Node version 0.10 or later as part of your distributions's package manager, you should definitely try it before doing a manual download and install.</p>
 <h4 id="windows">Windows</h4>
