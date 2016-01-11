@@ -266,6 +266,13 @@
             <li><a href="#wizkers-auto-start">Wizkers auto start</a></li>
         
     
+        <li class="main "><a href="#wizkers-behind-a-proxy">Wizkers behind a proxy</a></li>
+        
+            <li><a href="#nginx">NGINX</a></li>
+        
+            <li><a href="#apache2">Apache2</a></li>
+        
+    
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -320,6 +327,29 @@ script
   if [ -f /etc/default/wizkers ]; then . /etc/default/wizkers; fi
   if [ &quot;x$ENABLE_CONTROLLER&quot; = &quot;xyes&quot; ]; then cd $HOME; exec node $DAEMON_ARGS &gt; /tmp/wizkers.log 2&gt;&amp;1 ; fi
 end script
+</code></pre>
+
+<h1 id="wizkers-behind-a-proxy">Wizkers behind a proxy</h1>
+<p>In a production environment, you will want to run Wizkers behind a web server that will be running on port 80. NGINX or just Apache 2 are two good choices:</p>
+<h2 id="nginx">NGINX</h2>
+<p>To be detailed</p>
+<h2 id="apache2">Apache2</h2>
+<p>On Apache2, a 'sites-available' configuration that is adequate to run Wizkers is as follows. This works for Apache 2.4 + with mod rewrite and mod proxy enabled. The trick being to handle socket.io in websockets mode without having it fall back into http polling mode:</p>
+<pre><code># Setup for Wizkers
+&lt;VirtualHost *:80&gt;
+
+    ServerAlias *
+
+    RewriteEngine On
+    RewriteCond %{REQUEST_URI}  ^/socket.io            [NC]
+    RewriteCond %{QUERY_STRING} transport=websocket    [NC]
+    RewriteRule /(.*)           ws://localhost:8090/$1 [P,L]
+
+    ProxyPass /aprs !
+    ProxyPass / http://localhost:8090/
+    ProxyPassReverse / http://localhost:8090/
+
+&lt;/VirtualHost&gt;
 </code></pre></div>
             
         </div>
