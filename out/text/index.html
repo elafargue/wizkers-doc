@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Sark 110 - Wizkers Documentation</title>
+	<title>Text - Wizkers Documentation</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -132,61 +132,61 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Instruments <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../medcom-onyx/">Medcom Onyx</a>
+    <a href="../../ins/medcom-onyx/">Medcom Onyx</a>
 </li>
 
                         
                             
 <li >
-    <a href="../medcom-onyx-ble/">Medcom Blue Onyx</a>
+    <a href="../../ins/medcom-onyx-ble/">Medcom Blue Onyx</a>
 </li>
 
                         
                             
 <li >
-    <a href="../bgeigie/">Safecast bGeigie Nano</a>
+    <a href="../../ins/bgeigie/">Safecast bGeigie Nano</a>
 </li>
 
                         
                             
 <li >
-    <a href="../fcoled/">Fried Circuits OLED backpack</a>
-</li>
-
-                        
-                            
-<li class="active">
-    <a href="./">Sark 110</a>
+    <a href="../../ins/fcoled/">Fried Circuits OLED backpack</a>
 </li>
 
                         
                             
 <li >
-    <a href="../elecraft-kx3/">Elecraft KX3</a>
+    <a href="../../ins/sark110/">Sark 110</a>
 </li>
 
                         
                             
 <li >
-    <a href="../elecraft-remote-kx3/">Elecraft Remote KX3</a>
+    <a href="../../ins/elecraft-kx3/">Elecraft KX3</a>
 </li>
 
                         
                             
 <li >
-    <a href="../fluke289/">Fluke 287/289 DMMs</a>
+    <a href="../../ins/elecraft-remote-kx3/">Elecraft Remote KX3</a>
 </li>
 
                         
                             
 <li >
-    <a href="../simple-serial/">Simple serial terminal</a>
+    <a href="../../ins/fluke289/">Fluke 287/289 DMMs</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../ins/simple-serial/">Simple serial terminal</a>
 </li>
 
                         
@@ -195,37 +195,37 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Outputs <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../../out/rest/">REST API</a>
+    <a href="../rest/">REST API</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../out/safecast/">Safecast</a>
+    <a href="../safecast/">Safecast</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../out/rigctld/">rigctld</a>
+    <a href="../rigctld/">rigctld</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">Text</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../out/text/">Text</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../out/webrtc/">WebRTC</a>
+    <a href="../webrtc/">WebRTC</a>
 </li>
 
                         
@@ -244,12 +244,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../fcoled/">
+                        <a rel="next" href="../rigctld/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../elecraft-kx3/">
+                        <a rel="prev" href="../webrtc/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -265,15 +265,22 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#sark-110">Sark 110</a></li>
+        <li class="main active"><a href="#text-output">Text output</a></li>
+        
+            <li><a href="#configuration">Configuration</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="sark-110">Sark 110</h1>
-<p>The <a href="http://www.sark110.com/">Sark110</a> is a powerful graphical antenna analyzer. Wizkers provides basic support for it at this stage.</p></div>
+<h1 id="text-output">Text output</h1>
+<p>The text output plugin is simple but very effective: it will regularly create - or append to - a file with the data fields of your choice.</p>
+<p>This makes it possible to either create flat log files for later analysis, or more interestingly, interact with external processes which will read those files and process the data in real time.</p>
+<h2 id="configuration">Configuration</h2>
+<p><img alt="Text output config" src="../img/text-output.png" /></p>
+<p>The text output works with a simple tag style template which lets you create lines containing the fields of your choice. You can setup the location of the output file, as well as whether Wizkers should append to the file or overwrite it at each plugin trigger.</p>
+<p>The example above shows how Wizkers can be setup to simply write an instrument value (radioactivity in this case) so that an external program can use it (direwolf in this case, for broadcasting this value as a telemetry packet over the Amateur Radio band).</p></div>
             
         </div>
 
