@@ -74,3 +74,32 @@ script
 end script
 ```
 
+# Wizkers behind a proxy
+
+In a production environment, you will want to run Wizkers behind a web server that will be running on port 80. NGINX or just Apache 2 are two good choices:
+
+## NGINX
+
+To be detailed
+
+## Apache2
+
+On Apache2, a 'sites-available' configuration that is adequate to run Wizkers is as follows. This works for Apache 2.4 + with mod rewrite and mod proxy enabled. The trick being to handle socket.io in websockets mode without having it fall back into http polling mode:
+
+```
+# Setup for Wizkers
+<VirtualHost *:80>
+
+    ServerAlias *
+
+    RewriteEngine On
+    RewriteCond %{REQUEST_URI}  ^/socket.io            [NC]
+    RewriteCond %{QUERY_STRING} transport=websocket    [NC]
+    RewriteRule /(.*)           ws://localhost:8090/$1 [P,L]
+
+    ProxyPass /aprs !
+    ProxyPass / http://localhost:8090/
+    ProxyPassReverse / http://localhost:8090/
+
+</VirtualHost>
+```

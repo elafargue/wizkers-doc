@@ -43,7 +43,11 @@ You can also save any log in CSV format by clicking on the "Download as CSV" but
 
 _Note:_ firmware upgrades have been tested on Wizkers running on Chromebooks, MacOS, as well as Windows on all version from XP to Windows 10.
 
-Starting with Onyx firmware 12.26-b, it is now possible to upgrade the firmware of the Onyx directly from Wizkers. Simply head over to the "Settings" screen, then click on "Upgrade Firmware", as shown below:
+Starting with Onyx firmware 12.26-b, it is now possible to upgrade the firmware of the Onyx directly from Wizkers. 
+
+_Important:_ if your Onyx firmware version is lower than 12.26-b, you will need to do one final manual upgrade to get it up to date, by following the "Recovering from a failed upgrade" procedure described just below.
+
+If your firmware is 12.26-b or more recent, simply head over to the "Settings" screen, then click on "Upgrade Firmware", as shown below:
 
 ![Upgrade FW](img/onyx-fw-upgrade1.png)
 
