@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Safecast bGeigie Nano - Wizkers Documentation</title>
+	<title>Elecraft KXPA100 - Wizkers Documentation</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -149,8 +149,8 @@
 
                         
                             
-<li class="active">
-    <a href="./">Safecast bGeigie Nano</a>
+<li >
+    <a href="../bgeigie/">Safecast bGeigie Nano</a>
 </li>
 
                         
@@ -179,8 +179,8 @@
 
                         
                             
-<li >
-    <a href="../elecraft-kxpa100/">Elecraft KXPA100</a>
+<li class="active">
+    <a href="./">Elecraft KXPA100</a>
 </li>
 
                         
@@ -250,12 +250,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../medcom-onyx-ble/">
+                        <a rel="next" href="../elecraft-remote-kx3/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../fcoled/">
+                        <a rel="prev" href="../fluke289/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -271,32 +271,36 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#safecast-bgeigie-nano">Safecast bGeigie Nano</a></li>
+        <li class="main active"><a href="#elecraft-kxpa100">Elecraft KXPA100</a></li>
         
-            <li><a href="#device-setup">Device setup</a></li>
-        
-            <li><a href="#the-main-screen-chrome">The main screen (Chrome)</a></li>
-        
-            <li><a href="#the-main-screen-cordova-app-android">The main screen (Cordova app / Android)</a></li>
+            <li><a href="#the-main-screen">The main screen</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="safecast-bgeigie-nano">Safecast bGeigie Nano</h1>
-<p>The bGeigie Nano is a portable Geiger counter / logger designed by <a href="http://www.safecast.org/">Safecast</a>. The full story behind the bGeigie is fascinating, as it was created as a rapid response instrument after the Fukushima Daiichi nuclear accident, and is really a brilliant 'no nonsense' design.</p>
-<p>Hundreds of bGeigie units have been built so far, and they can all be equipped with Bluetooth Low Energy modules for serial communications.</p>
-<p>Wizkers supports the bGeigie when running on a Chromebook, or as an Android app, as long as the Android device supports Bluetooth Low Energy.</p>
-<h2 id="device-setup">Device setup</h2>
-<p>When creating a bGeigie device, you will need to select the Bluetooth device name that corresponds to your bGeigie. This is also where you can enter your Safecast API key (you can get an API key at http://api.safecast.org/).</p>
-<p>Without the API key, you will not be able to upload your drives to Safecast. You can add the key at any point, even after creating a drive.</p>
-<h2 id="the-main-screen-chrome">The main screen (Chrome)</h2>
-<p>On Chromebooks, the bGeigie Nano instrument displays pretty much the same data as the Onyx, except that the GPS coordinates come from the bGeigie and not the localization API of Chrome.</p>
-<p>Due to content policy restrictions on Chrome, there is no mapping support for the bGeigie yet, though a future revision of Wizkers will probably add this.</p>
-<p><img alt="bGeigie main screen on Chrome" src="../img/bGeigie-chrome-main.png" /></p>
-<h2 id="the-main-screen-cordova-app-android">The main screen (Cordova app / Android)</h2>
-<p>Mapping is enabled by default in Android mode. Wizkers displays the trace on the map using color dots that go from white to red depending on the CPM value.</p></div>
+<h1 id="elecraft-kxpa100">Elecraft KXPA100</h1>
+<p>The KXPA100 instrument plugin is a complete interface for monitoring and configuring the Elecraft KXPA100 HF amplifier.</p>
+<p><img alt="KXPA100 main" src="../img/kxpa100-main.png" /></p>
+<p>Nearly all LEDs on the front panel monitor are functional, so you can get a display of the KXPA100 even when it is located far away.</p>
+<p>You can either use the KXPA100 monitor along with a KX3, in which case you can access it through the "Device Setup" screen, or simply in standalone mode, in case you are using the KXPA100 without a KX3. In that case, just configure it as a standalone instrument through the "Instruments" screen.</p>
+<h2 id="the-main-screen">The main screen</h2>
+<h3 id="the-kxpa100-faceplate">The KXPA100 faceplate</h3>
+<p>As mentioned above, most LEDs on the faceplate follow the LEDs on the KXPA100 display - the only LED that is not implemented at the moment is the "TX" led.</p>
+<p>Two LED brightness levels are used, in order to avoid polling the KXPA100 too fast but still provide great visual feedback</p>
+<h3 id="amp-and-atu-configuration">AMP and ATU Configuration</h3>
+<p>As shown on the screenshot above, you can control pretty much every aspect of the configuration of the KXPA100 by directly clicking on the checkboxes and dropdowns. Changes are done instantly.</p>
+<h3 id="parameter-monitoring">Parameter Monitoring</h3>
+<p>The bottom of the screen displays four graphs:</p>
+<ul>
+<li>Power: input, forward and reflected power</li>
+<li>Temperature</li>
+<li>Voltage and current</li>
+<li>SWR</li>
+</ul>
+<h3 id="evolutions">Evolutions</h3>
+<p>In a future release, the KXPA100 monitor will also display the fault history.</p></div>
             
         </div>
 
