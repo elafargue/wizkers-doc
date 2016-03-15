@@ -6,7 +6,13 @@ Hundreds of bGeigie units have been built so far, and they can all be equipped w
 
 Wizkers supports the bGeigie when running on a Chromebook, or as an Android app, as long as the Android device supports Bluetooth Low Energy.
 
-### The main screen (Chrome)
+## Device setup
+
+When creating a bGeigie device, you will need to select the Bluetooth device name that corresponds to your bGeigie. This is also where you can enter your Safecast API key (you can get an API key at http://api.safecast.org/).
+
+Without the API key, you will not be able to upload your drives to Safecast. You can add the key at any point, even after creating a drive.
+
+## The main screen (Chrome)
 
 On Chromebooks, the bGeigie Nano instrument displays pretty much the same data as the Onyx, except that the GPS coordinates come from the bGeigie and not the localization API of Chrome.
 
@@ -14,7 +20,7 @@ Due to content policy restrictions on Chrome, there is no mapping support for th
 
 ![bGeigie main screen on Chrome](img/bGeigie-chrome-main.png)
 
-### The main screen (Cordova app / Android)
+## The main screen (Cordova app / Android)
 
 Mapping is enabled by default in Android mode. Wizkers displays the trace on the map using color dots that go from white to red depending on the CPM value.
 

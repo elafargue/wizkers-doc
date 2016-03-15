@@ -21,6 +21,8 @@ pages:
     - Sark 110: ins/sark110.md
     - Elecraft KX3: ins/elecraft-kx3.md
     - Elecraft Remote KX3: ins/elecraft-remote-kx3.md
+    - Elecraft KXPA100: ins/elecraft-kxpa100.md
+    - Elecraft XG3: ins/elecraft-xg3.md
     - Fluke 287/289 DMMs: ins/fluke289.md
     - Simple serial terminal: ins/simple-serial.md
 - Outputs:
