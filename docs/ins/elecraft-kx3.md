@@ -80,11 +80,11 @@ _Note:_ the KX3 seems to keep separate TX/RX EQ settings depending on the band. 
 
 ### KXPA100 configuration and monitoring
 
-![KXPA100 Config](img/kx3-settings-kxpa100.png)
+![KXPA100 Config](img/kxpa100-main.png)
 
 This tab reproduces nearly all the capabilities of the official Elecraft KXPA100 utility, and is also able to graph most amplifier values in real time.
 
-You can adjust your KXPA100 settings from there and check all operating parameters. The values are refreshed once per second.
+You can adjust your KXPA100 settings from there and check all operating parameters. The values are refreshed twice per second.
 
 
 ### PX3 Utility
