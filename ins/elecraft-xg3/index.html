@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>rigctld - Wizkers Documentation</title>
+	<title>Elecraft XG3 - Wizkers Documentation</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -132,73 +132,73 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Instruments <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../../ins/medcom-onyx/">Medcom Onyx</a>
+    <a href="../medcom-onyx/">Medcom Onyx</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../ins/medcom-onyx-ble/">Medcom Blue Onyx</a>
+    <a href="../medcom-onyx-ble/">Medcom Blue Onyx</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../ins/bgeigie/">Safecast bGeigie Nano</a>
+    <a href="../bgeigie/">Safecast bGeigie Nano</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../ins/fcoled/">Fried Circuits OLED backpack</a>
+    <a href="../fcoled/">Fried Circuits OLED backpack</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../ins/sark110/">Sark 110</a>
+    <a href="../sark110/">Sark 110</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../ins/elecraft-kx3/">Elecraft KX3</a>
+    <a href="../elecraft-kx3/">Elecraft KX3</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../ins/elecraft-remote-kx3/">Elecraft Remote KX3</a>
+    <a href="../elecraft-remote-kx3/">Elecraft Remote KX3</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../ins/elecraft-kxpa100/">Elecraft KXPA100</a>
+    <a href="../elecraft-kxpa100/">Elecraft KXPA100</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">Elecraft XG3</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../ins/elecraft-xg3/">Elecraft XG3</a>
+    <a href="../fluke289/">Fluke 287/289 DMMs</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../ins/fluke289/">Fluke 287/289 DMMs</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../ins/simple-serial/">Simple serial terminal</a>
+    <a href="../simple-serial/">Simple serial terminal</a>
 </li>
 
                         
@@ -207,37 +207,37 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Outputs <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../rest/">REST API</a>
+    <a href="../../out/rest/">REST API</a>
 </li>
 
                         
                             
 <li >
-    <a href="../safecast/">Safecast</a>
-</li>
-
-                        
-                            
-<li class="active">
-    <a href="./">rigctld</a>
+    <a href="../../out/safecast/">Safecast</a>
 </li>
 
                         
                             
 <li >
-    <a href="../text/">Text</a>
+    <a href="../../out/rigctld/">rigctld</a>
 </li>
 
                         
                             
 <li >
-    <a href="../webrtc/">WebRTC</a>
+    <a href="../../out/text/">Text</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../out/webrtc/">WebRTC</a>
 </li>
 
                         
@@ -256,12 +256,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../safecast/">
+                        <a rel="next" href="../elecraft-kxpa100/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../text/">
+                        <a rel="prev" href="../fluke289/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -277,15 +277,31 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#rigctld-output">RigCTLd Output</a></li>
+        <li class="main active"><a href="#elecraft-xg3">Elecraft XG3</a></li>
+        
+            <li><a href="#the-main-screen">The main screen</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="rigctld-output">RigCTLd Output</h1>
-<p>This output is available for HAM radio transceivers. It emulates a Hamlib "Rigctld" daemon, so that programs like fldigi can control the KX3 through Wizkers.</p></div>
+<h1 id="elecraft-xg3">Elecraft XG3</h1>
+<p>The XG3 instrument plugin lets you configure and operate the Elecraft XG3 RF signal source. One of this really nice features is that it makes it very simple to operate the XG3 in CW or RTTY beacon mode, which is not very easy when just interfacing with the XG3 Elecraft utility or a serial terminal.</p>
+<p><img alt="KXPA100 main" src="../img/xg3-main.png" /></p>
+<h2 id="the-main-screen">The main screen</h2>
+<h3 id="the-xg3-faceplate">The XG3 faceplate</h3>
+<p>The XG3 faceplate is active. In particular, in order to select a band memory, simply click on the LED of the band you want to select. Same thing for the output levels.</p>
+<p>Note that the red buttons are not active yet.</p>
+<h3 id="direct-frequency-selection-and-memory-edit">Direct frequency selection and memory edit</h3>
+<p>You can select a frequency directly in the "Current frequency" field.</p>
+<p>The monitor screen displays the frequency of all band memories. You can modify any memory and press "Save" to send the changes to the XG3. Note that Wizkers is 'smart' and will only send actual changes to the XG3 and will not overwrite a memory for unchanged memories.</p>
+<h3 id="cwrtty-beacon">CW/RTTY beacon</h3>
+<p>The "Beacon Mode" panel lets you define the beacon string. The XG3 supports quite a few special characters as part of the beacon string, and the monitor can display a quick 'cheat sheet' by pressing "Syntax Help".</p>
+<p>Note that when clicking "Send Beacon", the XG3 PF1 memory is automatically reprogrammed to activate beacon memory. The XG3 will send the beacon (continuously if the beacon ends with '#') until a command is sent to the XG3, for instance by changing the band.</p>
+<p>The XG3 can also send an arbitraty string of characters in CW or RTTY mode using the "send immediately" field.</p>
+<h3 id="sweep-mode">Sweep mode</h3>
+<p>Sweeps are not implemented on this version yet!</p></div>
             
         </div>
 
