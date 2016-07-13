@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Elecraft KXPA100 - Wizkers Documentation</title>
+	<title>XML-RPC - Wizkers Documentation</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
@@ -132,73 +132,73 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Instruments <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../medcom-onyx/">Medcom Onyx</a>
+    <a href="../../ins/medcom-onyx/">Medcom Onyx</a>
 </li>
 
                         
                             
 <li >
-    <a href="../medcom-onyx-ble/">Medcom Blue Onyx</a>
+    <a href="../../ins/medcom-onyx-ble/">Medcom Blue Onyx</a>
 </li>
 
                         
                             
 <li >
-    <a href="../bgeigie/">Safecast bGeigie Nano</a>
+    <a href="../../ins/bgeigie/">Safecast bGeigie Nano</a>
 </li>
 
                         
                             
 <li >
-    <a href="../fcoled/">Fried Circuits OLED backpack</a>
+    <a href="../../ins/fcoled/">Fried Circuits OLED backpack</a>
 </li>
 
                         
                             
 <li >
-    <a href="../sark110/">Sark 110</a>
+    <a href="../../ins/sark110/">Sark 110</a>
 </li>
 
                         
                             
 <li >
-    <a href="../elecraft-kx3/">Elecraft KX3</a>
+    <a href="../../ins/elecraft-kx3/">Elecraft KX3</a>
 </li>
 
                         
                             
 <li >
-    <a href="../elecraft-remote-kx3/">Elecraft Remote KX3</a>
-</li>
-
-                        
-                            
-<li class="active">
-    <a href="./">Elecraft KXPA100</a>
+    <a href="../../ins/elecraft-remote-kx3/">Elecraft Remote KX3</a>
 </li>
 
                         
                             
 <li >
-    <a href="../elecraft-xg3/">Elecraft XG3</a>
+    <a href="../../ins/elecraft-kxpa100/">Elecraft KXPA100</a>
 </li>
 
                         
                             
 <li >
-    <a href="../fluke289/">Fluke 287/289 DMMs</a>
+    <a href="../../ins/elecraft-xg3/">Elecraft XG3</a>
 </li>
 
                         
                             
 <li >
-    <a href="../simple-serial/">Simple serial terminal</a>
+    <a href="../../ins/fluke289/">Fluke 287/289 DMMs</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../ins/simple-serial/">Simple serial terminal</a>
 </li>
 
                         
@@ -207,43 +207,43 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Outputs <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../../out/rest/">REST API</a>
+    <a href="../rest/">REST API</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../out/safecast/">Safecast</a>
+    <a href="../safecast/">Safecast</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../out/rigctld/">rigctld</a>
+    <a href="../rigctld/">rigctld</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../out/text/">Text</a>
+    <a href="../text/">Text</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../out/webrtc/">WebRTC</a>
+    <a href="../webrtc/">WebRTC</a>
 </li>
 
                         
                             
-<li >
-    <a href="../../out/xmlrpc/">XML-RPC</a>
+<li class="active">
+    <a href="./">XML-RPC</a>
 </li>
 
                         
@@ -262,12 +262,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../elecraft-remote-kx3/">
+                        <a rel="next" href="../webrtc/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
-                    <li >
-                        <a rel="prev" href="../elecraft-xg3/">
+                    <li class="disabled">
+                        <a rel="prev" >
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -283,36 +283,18 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#elecraft-kxpa100">Elecraft KXPA100</a></li>
-        
-            <li><a href="#the-main-screen">The main screen</a></li>
+        <li class="main active"><a href="#xml-rpc-output">XML-RPC Output</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="elecraft-kxpa100">Elecraft KXPA100</h1>
-<p>The KXPA100 instrument plugin is a complete interface for monitoring and configuring the Elecraft KXPA100 HF amplifier.</p>
-<p><img alt="KXPA100 main" src="../img/kxpa100-main.png" /></p>
-<p>Nearly all LEDs on the front panel monitor are functional, so you can get a display of the KXPA100 even when it is located far away.</p>
-<p>You can either use the KXPA100 monitor along with a KX3, in which case you can access it through the "Device Setup" screen, or simply in standalone mode, in case you are using the KXPA100 without a KX3. In that case, just configure it as a standalone instrument through the "Instruments" screen.</p>
-<h2 id="the-main-screen">The main screen</h2>
-<h3 id="the-kxpa100-faceplate">The KXPA100 faceplate</h3>
-<p>As mentioned above, most LEDs on the faceplate follow the LEDs on the KXPA100 display - the only LED that is not implemented at the moment is the "TX" led.</p>
-<p>Two LED brightness levels are used, in order to avoid polling the KXPA100 too fast but still provide great visual feedback</p>
-<h3 id="amp-and-atu-configuration">AMP and ATU Configuration</h3>
-<p>As shown on the screenshot above, you can control pretty much every aspect of the configuration of the KXPA100 by directly clicking on the checkboxes and dropdowns. Changes are done instantly.</p>
-<h3 id="parameter-monitoring">Parameter Monitoring</h3>
-<p>The bottom of the screen displays four graphs:</p>
-<ul>
-<li>Power: input, forward and reflected power</li>
-<li>Temperature</li>
-<li>Voltage and current</li>
-<li>SWR</li>
-</ul>
-<h3 id="evolutions">Evolutions</h3>
-<p>In a future release, the KXPA100 monitor will also display the fault history.</p></div>
+<h1 id="xml-rpc-output">XML-RPC Output</h1>
+<p>This output is available for HAM radio transceivers only.</p>
+<p>It is a fairly complete implementation of the XML-RPC server that fldigi expects for rig control. While you can use the rigctld output with fldigi as well, the XML-RPC implementation is much more robust, faster and flexible.</p>
+<p>In essence, this lets Wizkers emulate the 'flrig' program, so any software that is compatible with flrig will be able to work with Wizkers.</p>
+<p>There are no specific settings for the XML-RPC output, just create it, then enable it in the "Outputs" screen, fldigi will automatically connect to Wizkers as soon as it starts.</p></div>
             
         </div>
 

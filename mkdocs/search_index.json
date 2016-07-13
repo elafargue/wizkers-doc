@@ -27,8 +27,18 @@
         }, 
         {
             "location": "/#wizkers-overview", 
-            "text": "Supported instruments  The following instruments are currently supported in Wizkers (as of August 2015):     Instrument name  Chrome App  Android App  Server       Medcom Onyx  Yes  Yes  Yes     Medcom Geiger Link  Yes  Yes  Yes     Medcom Blue Onyx  Chromebooks only  Yes  No     Medcom Hawk Nest  -  -  Yes     Safecast bGeigie Nano  Chromebooks only  Yes  No     Elecraft KX3  Yes  Yes  Yes     Remote KX3 (Wizkers to Wizkers)  Yes  Not tested  Not tested     Fluke 287/289  Yes  Yes  Yes     Fried Circuits USB tester OLED backpack  Yes  Yes  Yes     Fried Circuits USB tested BTLE backpack  Chromebooks only  Yes  No     Simple serial terminal  Yes  Yes  Yes     Sark 110 antena analyzer  Yes  Yes  Yes     Kromek Sigma 25  Yes  Yes  Yes      What if my instrument is not supported ?  We can help! If you are a developer, you can head over to the  developer documentation  and get started. You can also contact us at  info@wizkers.io  and find out how we can help.", 
+            "text": "", 
             "title": "Wizkers overview"
+        }, 
+        {
+            "location": "/#supported-instruments", 
+            "text": "The following instruments are currently supported in Wizkers (as of August 2015):     Instrument name  Chrome App  Android App  Server       Medcom Onyx  Yes  Yes  Yes     Medcom Geiger Link  Yes  Yes  Yes     Medcom Blue Onyx  Chromebooks only  Yes  No     Medcom Hawk Nest  -  -  Yes     Safecast bGeigie Nano  Chromebooks only  Yes  No     Elecraft KX3  Yes  Yes  Yes     Remote KX3 (Wizkers to Wizkers)  Yes  Not tested  Not tested     Fluke 287/289  Yes  Yes  Yes     Fried Circuits USB tester OLED backpack  Yes  Yes  Yes     Fried Circuits USB tested BTLE backpack  Chromebooks only  Yes  No     Simple serial terminal  Yes  Yes  Yes     Sark 110 antena analyzer  Yes  Yes  Yes     Kromek Sigma 25  Yes  Yes  Yes", 
+            "title": "Supported instruments"
+        }, 
+        {
+            "location": "/#what-if-my-instrument-is-not-supported", 
+            "text": "We can help! If you are a developer, you can head over to the  developer documentation  and get started. You can also contact us at  info@wizkers.io  and find out how we can help.", 
+            "title": "What if my instrument is not supported ?"
         }, 
         {
             "location": "/#wizkers-and-open-source", 
@@ -37,8 +47,23 @@
         }, 
         {
             "location": "/#installation-instructions", 
-            "text": "Below are installation instructions for the three run modes supported on Wizkers:  Chrome packaged app  Wizkers can be  downloaded  from the Chrome app store, and is available on any computer that can run Chrome. This includes MacOS, Linux and Windows.   Chrome packaged apps rely on the Chrome runtime to run - this means you need to have Google Chrome installed on the computer - but otherwise behave as native applications.  Android app  Wizkers will eventually be available on the Google Play store, but in the mean time, you will have to build Wizkers for Android yourself (refer to the  developer documentation  for details on how to do this).  Server  You can also run Wizkers as a standalone server. You then interact with a running Wizkers instance using a web browser. The advantage of running Wizkers in this mode, is that you can leave it connected to instruments 24/7. Server mode supports advanced features such as user management and user rights, multiple open instruments at the same time.  Refer to the  developer documentation  for instructions on how to checkout Wizkers from Github and build the server version.", 
+            "text": "Below are installation instructions for the three run modes supported on Wizkers:", 
             "title": "Installation instructions"
+        }, 
+        {
+            "location": "/#chrome-packaged-app", 
+            "text": "Wizkers can be  downloaded  from the Chrome app store, and is available on any computer that can run Chrome. This includes MacOS, Linux and Windows.   Chrome packaged apps rely on the Chrome runtime to run - this means you need to have Google Chrome installed on the computer - but otherwise behave as native applications.", 
+            "title": "Chrome packaged app"
+        }, 
+        {
+            "location": "/#android-app", 
+            "text": "Wizkers will eventually be available on the Google Play store, but in the mean time, you will have to build Wizkers for Android yourself (refer to the  developer documentation  for details on how to do this).", 
+            "title": "Android app"
+        }, 
+        {
+            "location": "/#server", 
+            "text": "You can also run Wizkers as a standalone server. You then interact with a running Wizkers instance using a web browser. The advantage of running Wizkers in this mode, is that you can leave it connected to instruments 24/7. Server mode supports advanced features such as user management and user rights, multiple open instruments at the same time.  Refer to the  developer documentation  for instructions on how to checkout Wizkers from Github and build the server version.", 
+            "title": "Server"
         }, 
         {
             "location": "/userdoc/", 
@@ -122,13 +147,43 @@
         }, 
         {
             "location": "/devdoc/#wizkers-architecture", 
-            "text": "Due to its multiple supported run modes, the structure of Wizkers is split between a \u201cfront-end\u201d and a \u201cback-end\u201d part, even when it runs 100% in a browser.  The diagram below shows how the the various components of Wizkers interact with each other. If you want to add new instruments, this will be a good reference, though you will usually not need to go deep into those modules, and only implement instrument views and the instruments\u2019s front-end/back-end API.   Global Wizkers services  The Wizkers front-end exposes a couple of global objects/services throughout the application:   The Instrument manager  The Output manager  The link manager   All communication between the various parts of Wizkers, whether they are located in the browser or on the server, are done using those three services.  Wizkers also exposes a couple of utility services:   The statistics service, which enables the connection of Wizkers to analytics services  The global settings   The link manager  The link manager is the interface between the front-end and the back-end of Wizkers. In particular, the front-end only talks to instruments through the link manager.  Even when Wizkers is running on its own (not in server mode), it makes use of the link manager, which makes it possible to use a single architecture for both in-app and server modes.  In server mode, the link manager uses socket.io to communicate with the server for all commands and instrument data - the HTML and javascript resources are loaded directly using HTTP.  In Chrome or Cordova mode, the link manager talks to the  chromeSocket.js  object, which emulates the API of socker.io but implements the backend on the app directly.  The Instrument manager  The instrument manager loads new instruments, switches between instruments.  The Output manager  The output manager subscribes to all data coming in from instruments, is in charge or starting/stopping outputs depending on what is enabled for a particular instrument, and forwards instrument data to all active outputs.", 
+            "text": "Due to its multiple supported run modes, the structure of Wizkers is split between a \u201cfront-end\u201d and a \u201cback-end\u201d part, even when it runs 100% in a browser.  The diagram below shows how the the various components of Wizkers interact with each other. If you want to add new instruments, this will be a good reference, though you will usually not need to go deep into those modules, and only implement instrument views and the instruments\u2019s front-end/back-end API.", 
             "title": "Wizkers architecture"
         }, 
         {
+            "location": "/devdoc/#global-wizkers-services", 
+            "text": "The Wizkers front-end exposes a couple of global objects/services throughout the application:   The Instrument manager  The Output manager  The link manager   All communication between the various parts of Wizkers, whether they are located in the browser or on the server, are done using those three services.  Wizkers also exposes a couple of utility services:   The statistics service, which enables the connection of Wizkers to analytics services  The global settings", 
+            "title": "Global Wizkers services"
+        }, 
+        {
+            "location": "/devdoc/#the-link-manager", 
+            "text": "The link manager is the interface between the front-end and the back-end of Wizkers. In particular, the front-end only talks to instruments through the link manager.  Even when Wizkers is running on its own (not in server mode), it makes use of the link manager, which makes it possible to use a single architecture for both in-app and server modes.  In server mode, the link manager uses socket.io to communicate with the server for all commands and instrument data - the HTML and javascript resources are loaded directly using HTTP.  In Chrome or Cordova mode, the link manager talks to the  chromeSocket.js  object, which emulates the API of socker.io but implements the backend on the app directly.", 
+            "title": "The link manager"
+        }, 
+        {
+            "location": "/devdoc/#the-instrument-manager", 
+            "text": "The instrument manager loads new instruments, switches between instruments.", 
+            "title": "The Instrument manager"
+        }, 
+        {
+            "location": "/devdoc/#the-output-manager", 
+            "text": "The output manager subscribes to all data coming in from instruments, is in charge or starting/stopping outputs depending on what is enabled for a particular instrument, and forwards instrument data to all active outputs.", 
+            "title": "The Output manager"
+        }, 
+        {
             "location": "/devdoc/#source-tree-organization", 
-            "text": "The Wizkers source tree is organized as follows:  README.md            # Top level Readme, for the benefit of Github\nbuild-tools          # A couple of build scripts used to optimize the javascript for the Chrome version\ncordova              # Cordova-specific files used to build Wizkers\ndocumentation        # The documentation you are reading right now\nserver               # Files used by Wizkers in server mode\nchrome               # Files used by Wizkers in Chrome mode\ngulpfile.js          # The toplevel gulpfile\nmerges               # er....\npackage.json         # npm toplevel package file\nwww                  # The complete javascript app - frontend only in server mode, complete app in Chrome/Cordova mode  www tree  Most of the code of Wizkers is contained in the  www  directory, which is organized as follows:  www/css             # Stylesheets used by the app\nwww/fonts           # Fonts used be the app\nwww/img             # Images used by the app\nwww/js              # The core of Wizkers, see below for organization\n...                 # A couple of extra files used for examples  The  js  directory is then structured in a modular fashion, to make it easy to extend Wizkers:  www/js/app              # The main Wizkers app\nwww/js/app/connections  # Used in Chrome/Cordova mode: low-level drivers for serial/bluetooth/etc\nwww/js/app/instruments  # All instruments supported by Wizkers\nwww/js/app/lib          # Wizkers shared libraries\nwww/js/app/models       # Wizkers Backbone models\nwww/js/app/outputs      # Output plugins\nwww/js/app/views        # Wizkers views (screens)\nwww/js/lib              # All third party libraries used by Wizkers\nwww/js/tpl              # All HTML templates used by the various Wizkers screens/views.  Run-mode specific trees  The  cordova ,  server  and  chrome  directories contain all the files that are specific to those run-modes. When  building  Wizkers, Gulp will add the contents of those directories to the  dist  directory to end up with a working version of Wizkers for those various run modes.", 
+            "text": "The Wizkers source tree is organized as follows:  README.md            # Top level Readme, for the benefit of Github\nbuild-tools          # A couple of build scripts used to optimize the javascript for the Chrome version\ncordova              # Cordova-specific files used to build Wizkers\ndocumentation        # The documentation you are reading right now\nserver               # Files used by Wizkers in server mode\nchrome               # Files used by Wizkers in Chrome mode\ngulpfile.js          # The toplevel gulpfile\nmerges               # er....\npackage.json         # npm toplevel package file\nwww                  # The complete javascript app - frontend only in server mode, complete app in Chrome/Cordova mode", 
             "title": "Source tree organization"
+        }, 
+        {
+            "location": "/devdoc/#www-tree", 
+            "text": "Most of the code of Wizkers is contained in the  www  directory, which is organized as follows:  www/css             # Stylesheets used by the app\nwww/fonts           # Fonts used be the app\nwww/img             # Images used by the app\nwww/js              # The core of Wizkers, see below for organization\n...                 # A couple of extra files used for examples  The  js  directory is then structured in a modular fashion, to make it easy to extend Wizkers:  www/js/app              # The main Wizkers app\nwww/js/app/connections  # Used in Chrome/Cordova mode: low-level drivers for serial/bluetooth/etc\nwww/js/app/instruments  # All instruments supported by Wizkers\nwww/js/app/lib          # Wizkers shared libraries\nwww/js/app/models       # Wizkers Backbone models\nwww/js/app/outputs      # Output plugins\nwww/js/app/views        # Wizkers views (screens)\nwww/js/lib              # All third party libraries used by Wizkers\nwww/js/tpl              # All HTML templates used by the various Wizkers screens/views.", 
+            "title": "www tree"
+        }, 
+        {
+            "location": "/devdoc/#run-mode-specific-trees", 
+            "text": "The  cordova ,  server  and  chrome  directories contain all the files that are specific to those run-modes. When  building  Wizkers, Gulp will add the contents of those directories to the  dist  directory to end up with a working version of Wizkers for those various run modes.", 
+            "title": "Run-mode specific trees"
         }, 
         {
             "location": "/building/", 
@@ -142,8 +197,38 @@
         }, 
         {
             "location": "/building/#prerequisites", 
-            "text": "The only prerequisite for building (and running Wizkers in server mode) are NodeJS and npm.  You will need to install a recent 0.10 version of NodeJS \u2013 Wizkers is not tested on Node 0.12 yet. You can refer to  this guide  for details on how to do this on Linux, in particular.  Platform-specific prerequisites  MacOS  You should be able to install all the building prerequisites on MacOS by simply visiting the  Nodejs.org  side and download NodeJS version 10.X.  Beaglebone Black on Linux  Assuming you are starting with a brand new BeagleBone Black, you have a choice of operating systems. At the moment (August 2015), the BBB team seems to favour Debian as the official distribution, so this is what we will use. Installation of the OS image is beyond the scope of this guide, but you can find more information about this at  Beagleboard.org .  The reference image used in the build instructions below is  Base Image: BBB-eMMC-flasher-debian-7.8-console-armhf-2015-03-01-2gb  Once your BBB has booted up, you will need to install the basic development toolchains, as well as NodeJS and git:  sudo apt-get update\nsudo apt-get upgrade\nsudo apt-get dist-upgrade\nsudo apt-get install --yes ntpdate\nsudo ntpdate -b -s -u pool.ntp.org\nsudo apt-get install --yes build-essential\nsudo apt-get install --yes curl\ncurl --insecure --location https://deb.nodesource.com/setup_0.10 | sudo bash -\nsudo apt-get install --yes nodejs\nsudo apt-get install --yes git  You can then move on to checking out the code, as described in the next section.  Node-serialport issues on Linux  You might have to add rules in udev to make sure the right entries are created in  /dev/serial  because Debian does not do it by default  debian@aprs:~$ cat /etc/udev/rules.d/60-ed-persistent-serial.rules \nENV{.ID_PORT}== , SYMLINK+= serial/by-id/$env{ID_BUS}-$env{ID_SERIAL}-if$env{ID_USB_INTERFACE_NUM} \nENV{.ID_PORT}== ?* , SYMLINK+= serial/by-id/$env{ID_BUS}-$env{ID_SERIAL}-if$env{ID_USB_INTERFACE_NUM}-port$env{.ID_PORT}   This way, you will be able to list serial ports even on the most recent versions on node-serialport.      Generic Linux  Linux instructions are very similar to the Beaglebone black instructions described above. The only difference from one distribution to the next is the presence of a bundled NodeJS with the distribution: if you have access to Node version 0.10 or later as part of your distributions's package manager, you should definitely try it before doing a manual download and install.  Windows  While there is no good reason why building Wizkers on Windows shouldn't work, I have never attempted it. If you would like to contribute instructions, please reach out at  info@wizkers.io .", 
+            "text": "The only prerequisite for building (and running Wizkers in server mode) are NodeJS and npm.  You will need to install a recent 0.10 version of NodeJS \u2013 Wizkers is not tested on Node 0.12 yet. You can refer to  this guide  for details on how to do this on Linux, in particular.", 
             "title": "Prerequisites"
+        }, 
+        {
+            "location": "/building/#platform-specific-prerequisites", 
+            "text": "", 
+            "title": "Platform-specific prerequisites"
+        }, 
+        {
+            "location": "/building/#macos", 
+            "text": "You should be able to install all the building prerequisites on MacOS by simply visiting the  Nodejs.org  side and download NodeJS version 10.X.", 
+            "title": "MacOS"
+        }, 
+        {
+            "location": "/building/#beaglebone-black-on-linux", 
+            "text": "Assuming you are starting with a brand new BeagleBone Black, you have a choice of operating systems. At the moment (August 2015), the BBB team seems to favour Debian as the official distribution, so this is what we will use. Installation of the OS image is beyond the scope of this guide, but you can find more information about this at  Beagleboard.org .  The reference image used in the build instructions below is  Base Image: BBB-eMMC-flasher-debian-7.8-console-armhf-2015-03-01-2gb  Once your BBB has booted up, you will need to install the basic development toolchains, as well as NodeJS and git:  sudo apt-get update\nsudo apt-get upgrade\nsudo apt-get dist-upgrade\nsudo apt-get install --yes ntpdate\nsudo ntpdate -b -s -u pool.ntp.org\nsudo apt-get install --yes build-essential\nsudo apt-get install --yes curl\ncurl --insecure --location https://deb.nodesource.com/setup_0.10 | sudo bash -\nsudo apt-get install --yes nodejs\nsudo apt-get install --yes git  You can then move on to checking out the code, as described in the next section.", 
+            "title": "Beaglebone Black on Linux"
+        }, 
+        {
+            "location": "/building/#node-serialport-issues-on-linux", 
+            "text": "You might have to add rules in udev to make sure the right entries are created in  /dev/serial  because Debian does not do it by default  debian@aprs:~$ cat /etc/udev/rules.d/60-ed-persistent-serial.rules \nENV{.ID_PORT}== , SYMLINK+= serial/by-id/$env{ID_BUS}-$env{ID_SERIAL}-if$env{ID_USB_INTERFACE_NUM} \nENV{.ID_PORT}== ?* , SYMLINK+= serial/by-id/$env{ID_BUS}-$env{ID_SERIAL}-if$env{ID_USB_INTERFACE_NUM}-port$env{.ID_PORT}   This way, you will be able to list serial ports even on the most recent versions on node-serialport.", 
+            "title": "Node-serialport issues on Linux"
+        }, 
+        {
+            "location": "/building/#generic-linux", 
+            "text": "Linux instructions are very similar to the Beaglebone black instructions described above. The only difference from one distribution to the next is the presence of a bundled NodeJS with the distribution: if you have access to Node version 0.10 or later as part of your distributions's package manager, you should definitely try it before doing a manual download and install.", 
+            "title": "Generic Linux"
+        }, 
+        {
+            "location": "/building/#windows", 
+            "text": "While there is no good reason why building Wizkers on Windows shouldn't work, I have never attempted it. If you would like to contribute instructions, please reach out at  info@wizkers.io .", 
+            "title": "Windows"
         }, 
         {
             "location": "/building/#check-out-the-code", 
@@ -157,8 +242,23 @@
         }, 
         {
             "location": "/building/#finalizing-and-packaging", 
-            "text": "Once the base code is built through Gulp, the instructions below will show you how to finalize the build for the various run modes and launch Wizkers:  Chrome app  After building, the Chrome version of Wizkers will be ready in  dist/chrome  and  dist/chrome-debug . The  chrome-debug  directory can be immediately loaded into Google Chrome by visiting (chrome://extensions) and loading Wizkers from there.  The  chrome  version requires finalizing the compilation by launching  build-toold/build-chrome.sh  which will optimize the javascript code. The resulting Chrome app in  dist/chrome  will run faster but it won't be possible to debug it easily.  Cordova (Android app)  The Android app version of Wizker uses the Cordova framework to package Wizkers into a native Android application.  The first thing to do is to install Cordova on your machine:  npm install -g cordova  Then cd to the  cordova  directory and install the required plugins. Cordova does not have a good way to automate this, which is strange, so you will have to take a look at the config.xml file to see the list of plugins, and install them pretty much manually. A future revision of Wizkers will automate this.  Once all the plugins are installed, you can  cd ..  and launch  gulp cordova . Once this is done,  cd dist/cordova  and launch the build following the standard Cordova procedure...  Server  The server build of Wizkers is available in  dist/server . Simply go to that directory and launch the server:  cd dist/server\nnode server.js  Refer to the  Deploying  section for more details on how to properly launch Wizkers as a server.", 
+            "text": "Once the base code is built through Gulp, the instructions below will show you how to finalize the build for the various run modes and launch Wizkers:", 
             "title": "Finalizing and packaging"
+        }, 
+        {
+            "location": "/building/#chrome-app", 
+            "text": "After building, the Chrome version of Wizkers will be ready in  dist/chrome  and  dist/chrome-debug . The  chrome-debug  directory can be immediately loaded into Google Chrome by visiting (chrome://extensions) and loading Wizkers from there.  The  chrome  version requires finalizing the compilation by launching  build-toold/build-chrome.sh  which will optimize the javascript code. The resulting Chrome app in  dist/chrome  will run faster but it won't be possible to debug it easily.", 
+            "title": "Chrome app"
+        }, 
+        {
+            "location": "/building/#cordova-android-app", 
+            "text": "The Android app version of Wizker uses the Cordova framework to package Wizkers into a native Android application.  The first thing to do is to install Cordova on your machine:  npm install -g cordova  Then cd to the  cordova  directory and install the required plugins. Cordova does not have a good way to automate this, which is strange, so you will have to take a look at the config.xml file to see the list of plugins, and install them pretty much manually. A future revision of Wizkers will automate this.  Once all the plugins are installed, you can  cd ..  and launch  gulp cordova . Once this is done,  cd dist/cordova  and launch the build following the standard Cordova procedure...", 
+            "title": "Cordova (Android app)"
+        }, 
+        {
+            "location": "/building/#server", 
+            "text": "The server build of Wizkers is available in  dist/server . Simply go to that directory and launch the server:  cd dist/server\nnode server.js  Refer to the  Deploying  section for more details on how to properly launch Wizkers as a server.", 
+            "title": "Server"
         }, 
         {
             "location": "/deploying/", 
@@ -172,8 +272,18 @@
         }, 
         {
             "location": "/deploying/#selecting-the-database", 
-            "text": "Wizkers will run fine out of the box with no particular additional configuration: a simple  gulp server\ncd dist/server\nnode server.js  will be enough to get you started. In that mode, Wizkers will use a disk database called LevelDB which is the default storage mechanism for PouchDB, the internal Wizkers database API.  For larger deployments where you have potentially dozens or more sensors connected at once, levelDB will not be adequate, which is why Wizkers also supports standard CouchDB servers.  The database engine is selected in  server/pouchdb-config.js  with the  backend  variable. Set it to  CouchDB  to use CouchDB rather than PouchDB (which is the default).  var backend = 'CouchDB';  Do not forget to run  gulp server  again after making a change.  Configuring CouchDB  Please head over to the  CouchDB documentation  for details on how to install CouchDB on your particular machine. Most Linux distributions already include Couch in their standard packages, so this should be very easy.  By default, CouchDB binds to the 127.0.0.1 interface, and lets anyone connect to it with no authentication. You probably do not want this for a production system, and should take the appropriate steps to secure your installation. For development purposes, this should be fine, though.  The only Wizkers-specific configuration you should do on CouchDB (and this can become critical for large number of connected sensors), is configure the auto_compaction daemon so that there are no runaway databases due to frequent document updates. This can be done from the admin interface of couchdb at  http://127.0.0.1:5984/_utils . From this interface, head over to \"configuration\" (menu on the right) and add the configuration for compactions: at the bottom of the page, click on the \"add a new section\" link, and enter the following:   Section: compactions  Option:  _default  value:  [{db_fragmentation, \"70%\"}, {view_fragmentation, \"60%\"}]    This way, CouchDB will make sure that even with frequent document updates, the overall database size does not get out of hand.  Migrating from Pouch to Couch  If you started your deployment with PouchDB and later decided to migrate to CouchDB, a script in the  server/utils  directory will automatically migrate all your data and settings to CouchDB.  First of all, make sure Wizkers is not running. Then go to  dist/server/utils  and launch  node migrate_to_couchdb.js . The process should take from a couple of seconds to a couple of minutes depending on how much data you have in your database.  Last, make sure that the  backend  variable in  dist/server/pouchdb-config.jg  is set to  CouchDB , then relaunch Wizkers. You should be able to login exactly like before.", 
+            "text": "Wizkers will run fine out of the box with no particular additional configuration: a simple  gulp server\ncd dist/server\nnode server.js  will be enough to get you started. In that mode, Wizkers will use a disk database called LevelDB which is the default storage mechanism for PouchDB, the internal Wizkers database API.  For larger deployments where you have potentially dozens or more sensors connected at once, levelDB will not be adequate, which is why Wizkers also supports standard CouchDB servers.  The database engine is selected in  server/pouchdb-config.js  with the  backend  variable. Set it to  CouchDB  to use CouchDB rather than PouchDB (which is the default).  var backend = 'CouchDB';  Do not forget to run  gulp server  again after making a change.", 
             "title": "Selecting the database"
+        }, 
+        {
+            "location": "/deploying/#configuring-couchdb", 
+            "text": "Please head over to the  CouchDB documentation  for details on how to install CouchDB on your particular machine. Most Linux distributions already include Couch in their standard packages, so this should be very easy.  By default, CouchDB binds to the 127.0.0.1 interface, and lets anyone connect to it with no authentication. You probably do not want this for a production system, and should take the appropriate steps to secure your installation. For development purposes, this should be fine, though.  The only Wizkers-specific configuration you should do on CouchDB (and this can become critical for large number of connected sensors), is configure the auto_compaction daemon so that there are no runaway databases due to frequent document updates. This can be done from the admin interface of couchdb at  http://127.0.0.1:5984/_utils . From this interface, head over to \"configuration\" (menu on the right) and add the configuration for compactions: at the bottom of the page, click on the \"add a new section\" link, and enter the following:   Section: compactions  Option:  _default  value:  [{db_fragmentation, \"70%\"}, {view_fragmentation, \"60%\"}]    This way, CouchDB will make sure that even with frequent document updates, the overall database size does not get out of hand.", 
+            "title": "Configuring CouchDB"
+        }, 
+        {
+            "location": "/deploying/#migrating-from-pouch-to-couch", 
+            "text": "If you started your deployment with PouchDB and later decided to migrate to CouchDB, a script in the  server/utils  directory will automatically migrate all your data and settings to CouchDB.  First of all, make sure Wizkers is not running. Then go to  dist/server/utils  and launch  node migrate_to_couchdb.js . The process should take from a couple of seconds to a couple of minutes depending on how much data you have in your database.  Last, make sure that the  backend  variable in  dist/server/pouchdb-config.jg  is set to  CouchDB , then relaunch Wizkers. You should be able to login exactly like before.", 
+            "title": "Migrating from Pouch to Couch"
         }, 
         {
             "location": "/deploying/#wizkers-auto-start", 
@@ -207,8 +317,18 @@
         }, 
         {
             "location": "/dev/connections/#all-modes", 
-            "text": "All connections implement the following API:   open  close  write  (optional)  read  (optional)  flush   And connections emit the  data  event whenever there is data ready to be sent to the upper level driver.  Connection configuration  Each connection type should also provide a configuration view, located in  wizkers/server/www/js/app/views/instruments/ , along with a template in  wizkers/server/www/js/tpl/connections . You can refer to the structure of existing connections to get a clearer understanding of how they work.  Making a new connection available to instruments  In Chrome/Cordova mode, a new connection is connected to the rest of the Wizkers codebase by refering to it in  wizkers/server/www/js/app/instruments/connectionmanager.js  as part of the instrument plugin setup.  In server mode, new connections are used directly by instrument backend-drivers (in  wizkers/server/server/parsers ).", 
+            "text": "All connections implement the following API:   open  close  write  (optional)  read  (optional)  flush   And connections emit the  data  event whenever there is data ready to be sent to the upper level driver.", 
             "title": "All modes"
+        }, 
+        {
+            "location": "/dev/connections/#connection-configuration", 
+            "text": "Each connection type should also provide a configuration view, located in  wizkers/server/www/js/app/views/instruments/ , along with a template in  wizkers/server/www/js/tpl/connections . You can refer to the structure of existing connections to get a clearer understanding of how they work.", 
+            "title": "Connection configuration"
+        }, 
+        {
+            "location": "/dev/connections/#making-a-new-connection-available-to-instruments", 
+            "text": "In Chrome/Cordova mode, a new connection is connected to the rest of the Wizkers codebase by refering to it in  wizkers/server/www/js/app/instruments/connectionmanager.js  as part of the instrument plugin setup.  In server mode, new connections are used directly by instrument backend-drivers (in  wizkers/server/server/parsers ).", 
+            "title": "Making a new connection available to instruments"
         }, 
         {
             "location": "/dev/connections/#connection-support-by-mode", 
@@ -287,13 +407,33 @@
         }, 
         {
             "location": "/dev/outputs/#general-architecture", 
-            "text": "Due to the fact Wizkers in server mode supports multiple open devices at once and standalone operation, there are slight differences in the way outputs work in server vs Chrome mode, but a lot of similarities too.   wizkers/server/www/js/app/outputs/ output_name /logo.png  is the output logo.   Output definition  Outputs are defined in  wizkers/server/www/js/app/outputs/ output_name / output_name .js . This file defines a couple of high level output characteristics which are used by Wizkers to understand how and when it can be used.   this.wantOnly  returns an array of strings that describe the type of data the output will accept. For instance, the  safecast.js  output will return  ['radioactivity']  so that it does not show up as an available output to devices which don't sent that sort of reading.  this.requestAllData  is true if the output want Wizkers to send it everything in \"pass through\" mode rather than use the regular/alarm mechanism  this.outputFields  is the list of fields required by the output to work. The result can be \"variable\" in case the output does not have a fixed number of fields or \"none\" if the output does not support the concept of fields.   Front-end output config  Outputs always provide a configuration view, which is located in  wizkers/server/www/js/app/outputs/ output_name /settings.js . The corresponding template, by convention, lives in  wizkers/server/www/js/tpl/outputs/ .  The front-end view is a Backbone view: refer to the existing outputs to get an idea of how to manage output-specific settings, which are merged with general output settings automatically.", 
+            "text": "Due to the fact Wizkers in server mode supports multiple open devices at once and standalone operation, there are slight differences in the way outputs work in server vs Chrome mode, but a lot of similarities too.   wizkers/server/www/js/app/outputs/ output_name /logo.png  is the output logo.", 
             "title": "General architecture."
         }, 
         {
+            "location": "/dev/outputs/#output-definition", 
+            "text": "Outputs are defined in  wizkers/server/www/js/app/outputs/ output_name / output_name .js . This file defines a couple of high level output characteristics which are used by Wizkers to understand how and when it can be used.   this.wantOnly  returns an array of strings that describe the type of data the output will accept. For instance, the  safecast.js  output will return  ['radioactivity']  so that it does not show up as an available output to devices which don't sent that sort of reading.  this.requestAllData  is true if the output want Wizkers to send it everything in \"pass through\" mode rather than use the regular/alarm mechanism  this.outputFields  is the list of fields required by the output to work. The result can be \"variable\" in case the output does not have a fixed number of fields or \"none\" if the output does not support the concept of fields.", 
+            "title": "Output definition"
+        }, 
+        {
+            "location": "/dev/outputs/#front-end-output-config", 
+            "text": "Outputs always provide a configuration view, which is located in  wizkers/server/www/js/app/outputs/ output_name /settings.js . The corresponding template, by convention, lives in  wizkers/server/www/js/tpl/outputs/ .  The front-end view is a Backbone view: refer to the existing outputs to get an idea of how to manage output-specific settings, which are merged with general output settings automatically.", 
+            "title": "Front-end output config"
+        }, 
+        {
             "location": "/dev/outputs/#output-backend-drivers", 
-            "text": "Chrome/Cordova mode  In this mode, you want to implement  wizkers/server/www/js/app/outputs/ output_name /backend_driver.js  . The backend driver needs to implement a couple of public methods which are expected by the output manager:   setup  onClose  resolveMapping  sendData   Server mode  In server mode, output backends live in  wizkers/server/server/outputs/  and implement the same API as in Chrome/Cordova mode. Since the outputs are executed in a NodeJS environment, they often use different low-level APIs which is the reason why they are separate from the 'app mode' output code.", 
+            "text": "", 
             "title": "Output backend drivers"
+        }, 
+        {
+            "location": "/dev/outputs/#chromecordova-mode", 
+            "text": "In this mode, you want to implement  wizkers/server/www/js/app/outputs/ output_name /backend_driver.js  . The backend driver needs to implement a couple of public methods which are expected by the output manager:   setup  onClose  resolveMapping  sendData", 
+            "title": "Chrome/Cordova mode"
+        }, 
+        {
+            "location": "/dev/outputs/#server-mode", 
+            "text": "In server mode, output backends live in  wizkers/server/server/outputs/  and implement the same API as in Chrome/Cordova mode. Since the outputs are executed in a NodeJS environment, they often use different low-level APIs which is the reason why they are separate from the 'app mode' output code.", 
+            "title": "Server mode"
         }, 
         {
             "location": "/dev/debugging/", 
@@ -312,13 +452,23 @@
         }, 
         {
             "location": "/dev/debugging/#server-mode", 
-            "text": "In server mode, Wizkers uses the Node.js \u201cdebug\u201d facility: simply define a \u201cDEBUG\u201d variable to enable debug output. All modules in Wizkers already define a unique debug name, so you get fairly fine grained output. You can try a \u201cDEBUG=* node server.js\u201d to get an idea of the maximum level of debug output you can get.  Using node-inspector  You can also debug the server side using the Chrome debugger, thanks to  node-inspector . This gives your nearly the same ease of debugging as doing everything browser-side.  You can install node-inspector by visiting  github  and following the instructions.", 
+            "text": "In server mode, Wizkers uses the Node.js \u201cdebug\u201d facility: simply define a \u201cDEBUG\u201d variable to enable debug output. All modules in Wizkers already define a unique debug name, so you get fairly fine grained output. You can try a \u201cDEBUG=* node server.js\u201d to get an idea of the maximum level of debug output you can get.", 
             "title": "Server mode"
         }, 
         {
+            "location": "/dev/debugging/#using-node-inspector", 
+            "text": "You can also debug the server side using the Chrome debugger, thanks to  node-inspector . This gives your nearly the same ease of debugging as doing everything browser-side.  You can install node-inspector by visiting  github  and following the instructions.", 
+            "title": "Using node-inspector"
+        }, 
+        {
             "location": "/dev/debugging/#android-application", 
-            "text": "You can also use Chrome to debug Wizkers running as an Android application: you need to have the Android SDK installed on your computer, and your test device connected through USB using  adb .  Network debugging of Android  Since Wizkers lets you use the USB port of your Android device to connect to various kinds of instruments, you will often end up in situatino where you cannot do USB debugging. This is not a problem, since adb can also work on the network. You still need to link your Android device to the adb server on your computer through USB once:  $ adb tcpip 5555  Then you can disconnect the Android device from USB, and connect through the Wifi network:  $ adb connect  device-ip-address   The Chrome Webview contained in Wizkers will then start showing up on Chrome's  chrome://inspect  screen.", 
+            "text": "You can also use Chrome to debug Wizkers running as an Android application: you need to have the Android SDK installed on your computer, and your test device connected through USB using  adb .", 
             "title": "Android application"
+        }, 
+        {
+            "location": "/dev/debugging/#network-debugging-of-android", 
+            "text": "Since Wizkers lets you use the USB port of your Android device to connect to various kinds of instruments, you will often end up in situatino where you cannot do USB debugging. This is not a problem, since adb can also work on the network. You still need to link your Android device to the adb server on your computer through USB once:  $ adb tcpip 5555  Then you can disconnect the Android device from USB, and connect through the Wifi network:  $ adb connect  device-ip-address   The Chrome Webview contained in Wizkers will then start showing up on Chrome's  chrome://inspect  screen.", 
+            "title": "Network debugging of Android"
         }, 
         {
             "location": "/dev/api/", 
@@ -337,8 +487,28 @@
         }, 
         {
             "location": "/dev/api/#low-level-api-access", 
-            "text": "You can access the low level RESTFUL API of Wizkers using the standard authentication mechanism that is used by the Wizkers front-end web app. The simple Shell script below demonstrates how to get a list of instruments in JSON format.  #!/bin/sh\n\n## Example of Wizkers authentication then API request\n\n## Save cookies to the  cookies.txt  file\ncurl --cookie-jar cookies.txt -H  Content-Type: application/json  -X POST http://localhost:8090/login -d  {\\ email\\ : \\ admin\\ , \\ password\\ : \\ abc123\\ } \n\n## Now you can do queries:\ncurl --cookie cookies.txt -X GET http://localhost:8090/instruments  Listing instruments  You can get a list of all instruments registered in a Wizkers instance by doing an HTTP GET to /instruments/ . Note that this returns all instruments contents, not only a list of references.   Example below:  [\n    {\n     name : Piglet ,\n     type : simple_serial ,\n     tag : ,\n     uuid : 00000000 (n.a.) ,\n     port : /dev/cu.usbserial-FTGDPEGI ,\n     comment : enter your notes here ,\n     icon : ,\n     liveviewspan :600,\n     liveviewperiod :1,\n     liveviewlogscale :false,\n     metadata :{ baudrate : 9600 , lines : 40 },\n     _id : 5AD6B170-A8AC-820E-9070-6DB9619661C4 ,\n     _rev : 19-5199b8924f8388771d32d13f0b26c508 \n    },\n    {\n     name : OLED ,\n     type : fcoledv1 ,\n     tag : ,\n     uuid : 00000000 (n.a.) ,\n     port : /dev/cu.usbmodem14121 ,\n     comment : enter your notes here ,\n     icon : ,\n     liveviewspan :600,\n     liveviewperiod :1,\n     liveviewlogscale :false,\n     metadata :{},\n     _id : 6C8BCEB8-77C7-DF73-930A-3DEA48992119 ,\n     _rev : 3-643fc192e8094b885f0b29c4f944e8f3 \n    },\n    {\n     name : FCOLED ,\n     type : fcoledv1 ,\n     tag : ,\n     uuid : 00000000 (n.a.) ,\n     port : /dev/cu.usbmodem1451 ,\n     comment : enter your notes here ,\n     icon : ,\n     liveviewspan :600,\n     liveviewperiod :1,\n     liveviewlogscale :false,\n     metadata :{},\n     _id : 8E7A801E-8AD1-FB5C-B772-CABA61B8FCC6 ,\n     _rev : 7-13d2c6309ffeab1bcf87833fae563764 \n    },\n]  Instruments details  Returns one instrument's details (http GET):  http://localhost:8090/instruments/6C8BCEB8-77C7-DF73-930A-3DEA48992119  Listing logs for an instrument  You can get all the logs for a given instrument by doing a GET on /logs :  http://localhost:8090/instruments/E1B65550-BEA8-63BB-9AFA-58F94E0D881D/logs  [\n    {\n     instrumentid : E1B65550-BEA8-63BB-9AFA-58F94E0D881D ,    \n     name : Autorecord ,\n     description : Autorecord ,\n     logtype : live ,\n     startstamp :1437430818782.795,\n     isrecording :false,\n     datapoints :11,\n     swversion :0,\n     endstamp :1437431082121.264,\n     _id : 4E148536-1F12-8F85-AF9B-6E48401F030C ,\n     _rev : 5-ef4df5e4f9a9e85e26252cbfc175706f \n    }\n]  Log download  The contents of a log are returned with (http GET):  http://localhost:8090/logs/4E148536-1F12-8F85-AF9B-6E48401F030C/entries  Each log record contains two keys:   timestamp: javascript timestamp (milliseconds since January 1 1970). Time when the entry was added to the log. Sometimes (esp for on-intrument log download), the timestamp in the 'data' key will be more important.  data : structure depends on the instrument.   [\n    {\n        timestamp :1437430818782.795,\n        data :{ uniqueID : 00000000 (n.a.) },\n        _id : 1437430818782.795 \n    },\n    {\n         timestamp :1437430878351.307,\n         data :{\n             probeid :3001739,\n             timestamp :25544,\n             devicestamp :1437426924000,\n             cpm :{\n                 value :0,\n                 valid :true\n            },\n             cpm2 :{\n                  value :0,\n                  valid :true\n                }\n        },\n         _id : 1437430878351.307 \n    },\n    {\n         timestamp :1437430878351.7,\n         data :{\n           ...\n        },\n         _id : 1437430878351.7 \n    }\n\n....\n\n    ]", 
+            "text": "You can access the low level RESTFUL API of Wizkers using the standard authentication mechanism that is used by the Wizkers front-end web app. The simple Shell script below demonstrates how to get a list of instruments in JSON format.  #!/bin/sh\n\n## Example of Wizkers authentication then API request\n\n## Save cookies to the  cookies.txt  file\ncurl --cookie-jar cookies.txt -H  Content-Type: application/json  -X POST http://localhost:8090/login -d  {\\ email\\ : \\ admin\\ , \\ password\\ : \\ abc123\\ } \n\n## Now you can do queries:\ncurl --cookie cookies.txt -X GET http://localhost:8090/instruments", 
             "title": "Low level API access"
+        }, 
+        {
+            "location": "/dev/api/#listing-instruments", 
+            "text": "You can get a list of all instruments registered in a Wizkers instance by doing an HTTP GET to /instruments/ . Note that this returns all instruments contents, not only a list of references.   Example below:  [\n    {\n     name : Piglet ,\n     type : simple_serial ,\n     tag : ,\n     uuid : 00000000 (n.a.) ,\n     port : /dev/cu.usbserial-FTGDPEGI ,\n     comment : enter your notes here ,\n     icon : ,\n     liveviewspan :600,\n     liveviewperiod :1,\n     liveviewlogscale :false,\n     metadata :{ baudrate : 9600 , lines : 40 },\n     _id : 5AD6B170-A8AC-820E-9070-6DB9619661C4 ,\n     _rev : 19-5199b8924f8388771d32d13f0b26c508 \n    },\n    {\n     name : OLED ,\n     type : fcoledv1 ,\n     tag : ,\n     uuid : 00000000 (n.a.) ,\n     port : /dev/cu.usbmodem14121 ,\n     comment : enter your notes here ,\n     icon : ,\n     liveviewspan :600,\n     liveviewperiod :1,\n     liveviewlogscale :false,\n     metadata :{},\n     _id : 6C8BCEB8-77C7-DF73-930A-3DEA48992119 ,\n     _rev : 3-643fc192e8094b885f0b29c4f944e8f3 \n    },\n    {\n     name : FCOLED ,\n     type : fcoledv1 ,\n     tag : ,\n     uuid : 00000000 (n.a.) ,\n     port : /dev/cu.usbmodem1451 ,\n     comment : enter your notes here ,\n     icon : ,\n     liveviewspan :600,\n     liveviewperiod :1,\n     liveviewlogscale :false,\n     metadata :{},\n     _id : 8E7A801E-8AD1-FB5C-B772-CABA61B8FCC6 ,\n     _rev : 7-13d2c6309ffeab1bcf87833fae563764 \n    },\n]", 
+            "title": "Listing instruments"
+        }, 
+        {
+            "location": "/dev/api/#instruments-details", 
+            "text": "Returns one instrument's details (http GET):  http://localhost:8090/instruments/6C8BCEB8-77C7-DF73-930A-3DEA48992119", 
+            "title": "Instruments details"
+        }, 
+        {
+            "location": "/dev/api/#listing-logs-for-an-instrument", 
+            "text": "You can get all the logs for a given instrument by doing a GET on /logs :  http://localhost:8090/instruments/E1B65550-BEA8-63BB-9AFA-58F94E0D881D/logs  [\n    {\n     instrumentid : E1B65550-BEA8-63BB-9AFA-58F94E0D881D ,    \n     name : Autorecord ,\n     description : Autorecord ,\n     logtype : live ,\n     startstamp :1437430818782.795,\n     isrecording :false,\n     datapoints :11,\n     swversion :0,\n     endstamp :1437431082121.264,\n     _id : 4E148536-1F12-8F85-AF9B-6E48401F030C ,\n     _rev : 5-ef4df5e4f9a9e85e26252cbfc175706f \n    }\n]", 
+            "title": "Listing logs for an instrument"
+        }, 
+        {
+            "location": "/dev/api/#log-download", 
+            "text": "The contents of a log are returned with (http GET):  http://localhost:8090/logs/4E148536-1F12-8F85-AF9B-6E48401F030C/entries  Each log record contains two keys:   timestamp: javascript timestamp (milliseconds since January 1 1970). Time when the entry was added to the log. Sometimes (esp for on-intrument log download), the timestamp in the 'data' key will be more important.  data : structure depends on the instrument.   [\n    {\n        timestamp :1437430818782.795,\n        data :{ uniqueID : 00000000 (n.a.) },\n        _id : 1437430818782.795 \n    },\n    {\n         timestamp :1437430878351.307,\n         data :{\n             probeid :3001739,\n             timestamp :25544,\n             devicestamp :1437426924000,\n             cpm :{\n                 value :0,\n                 valid :true\n            },\n             cpm2 :{\n                  value :0,\n                  valid :true\n                }\n        },\n         _id : 1437430878351.307 \n    },\n    {\n         timestamp :1437430878351.7,\n         data :{\n           ...\n        },\n         _id : 1437430878351.7 \n    }\n\n....\n\n    ]", 
+            "title": "Log download"
         }, 
         {
             "location": "/ins/medcom-onyx/", 
@@ -372,8 +542,23 @@
         }, 
         {
             "location": "/ins/medcom-onyx/#firmware-upgrades", 
-            "text": "Note:  firmware upgrades have been tested on Wizkers running on Chromebooks, MacOS, as well as Windows on all version from XP to Windows 10.  Starting with Onyx firmware 12.26-b, it is now possible to upgrade the firmware of the Onyx directly from Wizkers.   Important:  if your Onyx firmware version is lower than 12.26-b, you will need to do one final manual upgrade to get it up to date, by following the \"Recovering from a failed upgrade\" procedure described just below.  If your firmware is 12.26-b or more recent, simply head over to the \"Settings\" screen, then click on \"Upgrade Firmware\", as shown below:   Wizkers will first verify that the existing Onyx firmware can be upgraded, then, if successful, will let you either manually select a firmware file on your hard drive, or download the latest version of the Onyx firmware directly from the Wizkers firmware service.   You can then press \u201cUpgrade Firmware\u201d (it should turn green once Wizkers is happy with the firmware file or download).  Do not switch screens once the firmware upgrade starts, it will crash the upgrade process and the Onyx will be temporarily \u2018bricked\u2019. Which brings us to the next section: recovering from a failed firmware upgrade.  Recovering from a failed upgrade  If for any reason, the firmware upgrade process is not successful, the Onyx screen will remain blank and the unit will not react to its power/standby switch anymore. Fear not, though, you can recover from this fairly easily. Depending on the operating system you are using, the procedure will be slightly different. Please note that at the moment, it is not possible to recover from a failed upgrade from a Chromebook, you will need a Mac, Linux or a Windows computer.  Recovering on MacOS X  In order to recover from a failed upgrade, you will need access to the two files below:   Onyx firmware loader (MacOS)  Onyx firmware   You then need to uncompress the Onyx firmware loader in your home directory. Also put the firmware file in the same location. The rest takes place on a terminal: launch the \u201cTerminal\u201d application and follow the procedure below:   Unload the FTDI drivers from the MacOS kernel:   sudo kextunload -b com.apple.driver.AppleUSBFTDI  This command works on MacOS Yosemite and later. If you are running an older version of MacOS, please replace com.apple.driver.AppleUSBFTDI with \u201ccom.FTDI.driver.FTDIUSBSerialDriver\u201d.  You might get an error at this stage, but this is nothing to worry about, the driver is unloaded anyway.   Do the firmware recovery (please use the correct name for the firmware file, 12.26-c is used here as an example)   chmod a+x fwload\n./fwload -f firmware-12.26-c.bin  Recovery takes about two minutes, you will see a progress indicator move slowly. If the utility complains it cannot find the Onyx, please unplug it, wait a couple of seconds, then replug it and retry the last step (./fwload -f firmware-12.26-c.bin)  You should now be up and running again.   Reload the MacOS FTDI drivers so that the Onyx serial port is available again:   sudo kextload -b com.apple.driver.AppleUSBFTDI  Again, this is for Yosemite and later, use \u201ccom.FTDI.driver.FTDIUSBSerialDriver\u201d for earlier MacOS versions.  Recovering on Windows  Recovery on Windows is done with a different utility, and the same firmware file: firmware 12.26-c and the OnyxLink utility are bundled in the ZIP file below:   OnyxLink   Once you have downloaded OnyxLink.zip, extract it to your desktop, and run the \u201cOnyxLink\u201d application, to do a firmware upgrade using firmware.12-26-c.bin and get back on your feet . You will then be able to use Wizkers to upgrade to the latest firmware.", 
+            "text": "Note:  firmware upgrades have been tested on Wizkers running on Chromebooks, MacOS, as well as Windows on all version from XP to Windows 10.  Starting with Onyx firmware 12.26-b, it is now possible to upgrade the firmware of the Onyx directly from Wizkers.   Important:  if your Onyx firmware version is lower than 12.26-b, you will need to do one final manual upgrade to get it up to date, by following the \"Recovering from a failed upgrade\" procedure described just below.  If your firmware is 12.26-b or more recent, simply head over to the \"Settings\" screen, then click on \"Upgrade Firmware\", as shown below:   Wizkers will first verify that the existing Onyx firmware can be upgraded, then, if successful, will let you either manually select a firmware file on your hard drive, or download the latest version of the Onyx firmware directly from the Wizkers firmware service.   You can then press \u201cUpgrade Firmware\u201d (it should turn green once Wizkers is happy with the firmware file or download).  Do not switch screens once the firmware upgrade starts, it will crash the upgrade process and the Onyx will be temporarily \u2018bricked\u2019. Which brings us to the next section: recovering from a failed firmware upgrade.", 
             "title": "Firmware upgrades"
+        }, 
+        {
+            "location": "/ins/medcom-onyx/#recovering-from-a-failed-upgrade", 
+            "text": "If for any reason, the firmware upgrade process is not successful, the Onyx screen will remain blank and the unit will not react to its power/standby switch anymore. Fear not, though, you can recover from this fairly easily. Depending on the operating system you are using, the procedure will be slightly different. Please note that at the moment, it is not possible to recover from a failed upgrade from a Chromebook, you will need a Mac, Linux or a Windows computer.", 
+            "title": "Recovering from a failed upgrade"
+        }, 
+        {
+            "location": "/ins/medcom-onyx/#recovering-on-macos-x", 
+            "text": "In order to recover from a failed upgrade, you will need access to the two files below:   Onyx firmware loader (MacOS)  Onyx firmware   You then need to uncompress the Onyx firmware loader in your home directory. Also put the firmware file in the same location. The rest takes place on a terminal: launch the \u201cTerminal\u201d application and follow the procedure below:   Unload the FTDI drivers from the MacOS kernel:   sudo kextunload -b com.apple.driver.AppleUSBFTDI  This command works on MacOS Yosemite and later. If you are running an older version of MacOS, please replace com.apple.driver.AppleUSBFTDI with \u201ccom.FTDI.driver.FTDIUSBSerialDriver\u201d.  You might get an error at this stage, but this is nothing to worry about, the driver is unloaded anyway.   Do the firmware recovery (please use the correct name for the firmware file, 12.26-c is used here as an example)   chmod a+x fwload\n./fwload -f firmware-12.26-c.bin  Recovery takes about two minutes, you will see a progress indicator move slowly. If the utility complains it cannot find the Onyx, please unplug it, wait a couple of seconds, then replug it and retry the last step (./fwload -f firmware-12.26-c.bin)  You should now be up and running again.   Reload the MacOS FTDI drivers so that the Onyx serial port is available again:   sudo kextload -b com.apple.driver.AppleUSBFTDI  Again, this is for Yosemite and later, use \u201ccom.FTDI.driver.FTDIUSBSerialDriver\u201d for earlier MacOS versions.", 
+            "title": "Recovering on MacOS X"
+        }, 
+        {
+            "location": "/ins/medcom-onyx/#recovering-on-windows", 
+            "text": "Recovery on Windows is done with a different utility, and the same firmware file: firmware 12.26-c and the OnyxLink utility are bundled in the ZIP file below:   OnyxLink   Once you have downloaded OnyxLink.zip, extract it to your desktop, and run the \u201cOnyxLink\u201d application, to do a firmware upgrade using firmware.12-26-c.bin and get back on your feet . You will then be able to use Wizkers to upgrade to the latest firmware.", 
+            "title": "Recovering on Windows"
         }, 
         {
             "location": "/ins/medcom-onyx-ble/", 
@@ -447,8 +632,28 @@
         }, 
         {
             "location": "/ins/elecraft-kx3/#the-main-screen", 
-            "text": "The KX3 Faceplace  Not much to say there: most buttons work as they should \u2013 click on the text below the buttons for accessing those functions which are usually accessed by \u201cholding\u201d the buttons.  The display mostly works, a few elements are not kept in sync, most notably the SWR. This will be implemented in a future revision.  Direct input area  In this area, you can enter VFO A and VFO B frequencies, select input power, and adjust AF gain, RF attenuation, Mic gain, filter bandwidth and center frequency. Press the  *  button to recenter the filter.   Waterfall display  The waterfall display is the most recent feature of this plugin. It is an Audio (not IQ) display, and uses the computer\u2019s default sound input. Press the small \"power\" icon on the upper left to start the waterfall. The Headphones icon sends the audio to the computer\u2019s speakers, which is good for monitoring in digital modes, for instance.  The \"Scale\" and \"Ref\" controls let you change the rendering of the waterfall. Smoothing and FFT window are further controls to fine-tune how the waterfall looks.  Graph displays  The right side of the page shows you three graphs:   Amplifier temperature  Transmit power  Power supply voltage/current   Those graphs really make most sense when a KXPA100 unit is connected to the setup. But even witout a KXPA100, you can graph the KX3 amp temperature (PA.I) or the internal oscillator temp (OSC) by enabling the display of that value on VFOB. Only one value at a time can be monitored, due to the way the KX3 is designed.", 
+            "text": "", 
             "title": "The main screen"
+        }, 
+        {
+            "location": "/ins/elecraft-kx3/#the-kx3-faceplace", 
+            "text": "Not much to say there: most buttons work as they should \u2013 click on the text below the buttons for accessing those functions which are usually accessed by \u201cholding\u201d the buttons.  The display mostly works, a few elements are not kept in sync, most notably the SWR. This will be implemented in a future revision.", 
+            "title": "The KX3 Faceplace"
+        }, 
+        {
+            "location": "/ins/elecraft-kx3/#direct-input-area", 
+            "text": "In this area, you can enter VFO A and VFO B frequencies, select input power, and adjust AF gain, RF attenuation, Mic gain, filter bandwidth and center frequency. Press the  *  button to recenter the filter.", 
+            "title": "Direct input area"
+        }, 
+        {
+            "location": "/ins/elecraft-kx3/#waterfall-display", 
+            "text": "The waterfall display is the most recent feature of this plugin. It is an Audio (not IQ) display, and uses the computer\u2019s default sound input. Press the small \"power\" icon on the upper left to start the waterfall. The Headphones icon sends the audio to the computer\u2019s speakers, which is good for monitoring in digital modes, for instance.  The \"Scale\" and \"Ref\" controls let you change the rendering of the waterfall. Smoothing and FFT window are further controls to fine-tune how the waterfall looks.", 
+            "title": "Waterfall display"
+        }, 
+        {
+            "location": "/ins/elecraft-kx3/#graph-displays", 
+            "text": "The right side of the page shows you three graphs:   Amplifier temperature  Transmit power  Power supply voltage/current   Those graphs really make most sense when a KXPA100 unit is connected to the setup. But even witout a KXPA100, you can graph the KX3 amp temperature (PA.I) or the internal oscillator temp (OSC) by enabling the display of that value on VFOB. Only one value at a time can be monitored, due to the way the KX3 is designed.", 
+            "title": "Graph displays"
         }, 
         {
             "location": "/ins/elecraft-kx3/#data-mode", 
@@ -457,13 +662,38 @@
         }, 
         {
             "location": "/ins/elecraft-kx3/#kx3-setup", 
-            "text": "The \"Device Setup\" screen cover the following capabilities:   Quick diagnostics: KX3, KXPA100, PX3 versions, options installed, etc  Configuration of the KX3 receive and transmit equalizers  Full KXPA100 configuration and monitoring  PX3 screenshots   KX3 diagnostics   This screen is a quick summary of the current state of the KX-line setup: KX3, KXPA100 and PX3 configurations, options etc.  Audio settings   You can adjust the TX and RX equalizers there. This is a feature of the KX3 that is often underused because changing those settings on the radio is fairly cumbersome: the Wizkers UI makes it super easy.  Note:  the KX3 seems to keep separate TX/RX EQ settings depending on the band. Moreover, if your KX3 is in \"DATA\" mode when trying to modify the settings, the UI will freeze. Put the Radio in USB mode to resume operations.  KXPA100 configuration and monitoring   This tab reproduces nearly all the capabilities of the official Elecraft KXPA100 utility, and is also able to graph most amplifier values in real time.  You can adjust your KXPA100 settings from there and check all operating parameters. The values are refreshed twice per second.  PX3 Utility  The PX3 utility lets you take screenshots of the PX3 screen, not much to say there. Click on the image to save it:", 
+            "text": "The \"Device Setup\" screen cover the following capabilities:   Quick diagnostics: KX3, KXPA100, PX3 versions, options installed, etc  Configuration of the KX3 receive and transmit equalizers  Full KXPA100 configuration and monitoring  PX3 screenshots", 
             "title": "KX3 Setup"
         }, 
         {
+            "location": "/ins/elecraft-kx3/#kx3-diagnostics", 
+            "text": "This screen is a quick summary of the current state of the KX-line setup: KX3, KXPA100 and PX3 configurations, options etc.", 
+            "title": "KX3 diagnostics"
+        }, 
+        {
+            "location": "/ins/elecraft-kx3/#audio-settings", 
+            "text": "You can adjust the TX and RX equalizers there. This is a feature of the KX3 that is often underused because changing those settings on the radio is fairly cumbersome: the Wizkers UI makes it super easy.  Note:  the KX3 seems to keep separate TX/RX EQ settings depending on the band. Moreover, if your KX3 is in \"DATA\" mode when trying to modify the settings, the UI will freeze. Put the Radio in USB mode to resume operations.", 
+            "title": "Audio settings"
+        }, 
+        {
+            "location": "/ins/elecraft-kx3/#kxpa100-configuration-and-monitoring", 
+            "text": "This tab reproduces nearly all the capabilities of the official Elecraft KXPA100 utility, and is also able to graph most amplifier values in real time.  You can adjust your KXPA100 settings from there and check all operating parameters. The values are refreshed twice per second.", 
+            "title": "KXPA100 configuration and monitoring"
+        }, 
+        {
+            "location": "/ins/elecraft-kx3/#px3-utility", 
+            "text": "The PX3 utility lets you take screenshots of the PX3 screen, not much to say there. Click on the image to save it:", 
+            "title": "PX3 Utility"
+        }, 
+        {
             "location": "/ins/elecraft-kx3/#configuring-kx3-instruments-on-wizkers", 
-            "text": "On the \"Instruments\" screen, create a new \"Elecraft Radio\" instrument, as shown below. Most of the fields are self-explanatory:   Pick the correct serial port  If you are planning to connect your radio audio to the KX3, you can also setup your sound cards here   Important note: you will need to set your KX3 baud rate to 38400 for Wizkers to talk to your KX3.  If you want to use the Pignology Piglet with this instrument, select \"TCP/IP\" in the serial port dropdown. You will then need to enter the Piglet's IP address and port (7373 by default). You also need to make sure the Piglet is configured for 38'400 baud.   Sound card setup  The KX3 instrument gives you the ability to visualize the audio from the KX3 on a \"waterfall\" display, as well as monitor the audio on the computer. It can also send audio coming from your computer (a microphone for instance) to the radio. This is convenient since the radio's audio input and output are connected to your computer, to it is not possible to connect your microphone to the radio anymore.  For doing this, you will need to setup the \"audio from radio\" and \"audio to radio\" drop-downs to indicate which sound card the radio is connected to. And you can use the \"audio from/to operator\" dropdowns to indicate the sound card used by the operator.  Note that making full use of this setup requires two sound cards, but you can choose to simply setup the \"audio from radio\" and \"audio to operator\" dropdowns to do a simple monitoring when working on digital modes.  Why are the \"Audio to...\" dropdowns empty ?  : You need to enable experimental support in Chrome 45.0.2441.x or later by selecting Enable experimental Web Platform features in chrome://flags or by using command line flag \"--enable-blink-features=EnumerateDevices,AudioOutputDevices\"", 
+            "text": "On the \"Instruments\" screen, create a new \"Elecraft Radio\" instrument, as shown below. Most of the fields are self-explanatory:   Pick the correct serial port  If you are planning to connect your radio audio to the KX3, you can also setup your sound cards here   Important note: you will need to set your KX3 baud rate to 38400 for Wizkers to talk to your KX3.  If you want to use the Pignology Piglet with this instrument, select \"TCP/IP\" in the serial port dropdown. You will then need to enter the Piglet's IP address and port (7373 by default). You also need to make sure the Piglet is configured for 38'400 baud.", 
             "title": "Configuring KX3 instruments on Wizkers"
+        }, 
+        {
+            "location": "/ins/elecraft-kx3/#sound-card-setup", 
+            "text": "The KX3 instrument gives you the ability to visualize the audio from the KX3 on a \"waterfall\" display, as well as monitor the audio on the computer. It can also send audio coming from your computer (a microphone for instance) to the radio. This is convenient since the radio's audio input and output are connected to your computer, to it is not possible to connect your microphone to the radio anymore.  For doing this, you will need to setup the \"audio from radio\" and \"audio to radio\" drop-downs to indicate which sound card the radio is connected to. And you can use the \"audio from/to operator\" dropdowns to indicate the sound card used by the operator.  Note that making full use of this setup requires two sound cards, but you can choose to simply setup the \"audio from radio\" and \"audio to operator\" dropdowns to do a simple monitoring when working on digital modes.  Why are the \"Audio to...\" dropdowns empty ?  : You need to enable experimental support in Chrome 45.0.2441.x or later by selecting Enable experimental Web Platform features in chrome://flags or by using command line flag \"--enable-blink-features=EnumerateDevices,AudioOutputDevices\"", 
+            "title": "Sound card setup"
         }, 
         {
             "location": "/ins/elecraft-remote-kx3/", 
@@ -477,8 +707,23 @@
         }, 
         {
             "location": "/ins/elecraft-remote-kx3/#setting-up-wizkers-for-kx3-remote-control", 
-            "text": "Local end  The first requirement for using this instrument, is to have another Chrome instance of Wizkers running somewhere, and configured with a standard  KX3 instrument .  On that first instance, you need to then enable a  WebRTC output . Refer to the WebRTC output documentation for details on how to do this.  Once the KX3 and the WebRTC output are configured, simply connect the KX3. You are done on this end.  Remote end  On the remote end, things are a lot simpler: just create a Remote KX3 instrument. Most of the screen is similar to any other instrument, with the following differences:   WebRTC Peer needs to point to the call establishment server (see the  WebRTC output  doc for details on what this is).  You should select the correct sound card inputs and outputs for the audio. Audio from the radio comes in from the WebRTC audio channel, what you are setting up here is local audio (your microphone and speaker/headphones, in other words).    Establishing a call  With the KX3 turned on and connected to the 'local end' Wizkers, you can now start Wizkers on the \"remote end\" device - which can be as simple as a low-end Chromebook, and press \"Connect\". You should see the KX3 display start to update, and you will be able to remotely control the KX3 in the same way you would with the local instance.  In order to start audio, press the \"power\" icon next to the waterfall. This will establish audio communications. You can now use the \"XMIT\" button on the KX3 faceplate to start talking. Be very careful about Audio feedback if you are not using headphones!", 
+            "text": "", 
             "title": "Setting up Wizkers for KX3 remote control"
+        }, 
+        {
+            "location": "/ins/elecraft-remote-kx3/#local-end", 
+            "text": "The first requirement for using this instrument, is to have another Chrome instance of Wizkers running somewhere, and configured with a standard  KX3 instrument .  On that first instance, you need to then enable a  WebRTC output . Refer to the WebRTC output documentation for details on how to do this.  Once the KX3 and the WebRTC output are configured, simply connect the KX3. You are done on this end.", 
+            "title": "Local end"
+        }, 
+        {
+            "location": "/ins/elecraft-remote-kx3/#remote-end", 
+            "text": "On the remote end, things are a lot simpler: just create a Remote KX3 instrument. Most of the screen is similar to any other instrument, with the following differences:   WebRTC Peer needs to point to the call establishment server (see the  WebRTC output  doc for details on what this is).  You should select the correct sound card inputs and outputs for the audio. Audio from the radio comes in from the WebRTC audio channel, what you are setting up here is local audio (your microphone and speaker/headphones, in other words).", 
+            "title": "Remote end"
+        }, 
+        {
+            "location": "/ins/elecraft-remote-kx3/#establishing-a-call", 
+            "text": "With the KX3 turned on and connected to the 'local end' Wizkers, you can now start Wizkers on the \"remote end\" device - which can be as simple as a low-end Chromebook, and press \"Connect\". You should see the KX3 display start to update, and you will be able to remotely control the KX3 in the same way you would with the local instance.  In order to start audio, press the \"power\" icon next to the waterfall. This will establish audio communications. You can now use the \"XMIT\" button on the KX3 faceplate to start talking. Be very careful about Audio feedback if you are not using headphones!", 
+            "title": "Establishing a call"
         }, 
         {
             "location": "/ins/elecraft-kxpa100/", 
@@ -492,8 +737,28 @@
         }, 
         {
             "location": "/ins/elecraft-kxpa100/#the-main-screen", 
-            "text": "The KXPA100 faceplate  As mentioned above, most LEDs on the faceplate follow the LEDs on the KXPA100 display - the only LED that is not implemented at the moment is the \"TX\" led.  Two LED brightness levels are used, in order to avoid polling the KXPA100 too fast but still provide great visual feedback  AMP and ATU Configuration  As shown on the screenshot above, you can control pretty much every aspect of the configuration of the KXPA100 by directly clicking on the checkboxes and dropdowns. Changes are done instantly.  Parameter Monitoring  The bottom of the screen displays four graphs:   Power: input, forward and reflected power  Temperature  Voltage and current  SWR   Evolutions  In a future release, the KXPA100 monitor will also display the fault history.", 
+            "text": "", 
             "title": "The main screen"
+        }, 
+        {
+            "location": "/ins/elecraft-kxpa100/#the-kxpa100-faceplate", 
+            "text": "As mentioned above, most LEDs on the faceplate follow the LEDs on the KXPA100 display - the only LED that is not implemented at the moment is the \"TX\" led.  Two LED brightness levels are used, in order to avoid polling the KXPA100 too fast but still provide great visual feedback", 
+            "title": "The KXPA100 faceplate"
+        }, 
+        {
+            "location": "/ins/elecraft-kxpa100/#amp-and-atu-configuration", 
+            "text": "As shown on the screenshot above, you can control pretty much every aspect of the configuration of the KXPA100 by directly clicking on the checkboxes and dropdowns. Changes are done instantly.", 
+            "title": "AMP and ATU Configuration"
+        }, 
+        {
+            "location": "/ins/elecraft-kxpa100/#parameter-monitoring", 
+            "text": "The bottom of the screen displays four graphs:   Power: input, forward and reflected power  Temperature  Voltage and current  SWR", 
+            "title": "Parameter Monitoring"
+        }, 
+        {
+            "location": "/ins/elecraft-kxpa100/#evolutions", 
+            "text": "In a future release, the KXPA100 monitor will also display the fault history.", 
+            "title": "Evolutions"
         }, 
         {
             "location": "/ins/elecraft-xg3/", 
@@ -507,8 +772,28 @@
         }, 
         {
             "location": "/ins/elecraft-xg3/#the-main-screen", 
-            "text": "The XG3 faceplate  The XG3 faceplate is active. In particular, in order to select a band memory, simply click on the LED of the band you want to select. Same thing for the output levels.  Note that the red buttons are not active yet.  Direct frequency selection and memory edit  You can select a frequency directly in the \"Current frequency\" field.  The monitor screen displays the frequency of all band memories. You can modify any memory and press \"Save\" to send the changes to the XG3. Note that Wizkers is 'smart' and will only send actual changes to the XG3 and will not overwrite a memory for unchanged memories.  CW/RTTY beacon  The \"Beacon Mode\" panel lets you define the beacon string. The XG3 supports quite a few special characters as part of the beacon string, and the monitor can display a quick 'cheat sheet' by pressing \"Syntax Help\".  Note that when clicking \"Send Beacon\", the XG3 PF1 memory is automatically reprogrammed to activate beacon memory. The XG3 will send the beacon (continuously if the beacon ends with '#') until a command is sent to the XG3, for instance by changing the band.  The XG3 can also send an arbitraty string of characters in CW or RTTY mode using the \"send immediately\" field.  Sweep mode  Sweeps are not implemented on this version yet!", 
+            "text": "", 
             "title": "The main screen"
+        }, 
+        {
+            "location": "/ins/elecraft-xg3/#the-xg3-faceplate", 
+            "text": "The XG3 faceplate is active. In particular, in order to select a band memory, simply click on the LED of the band you want to select. Same thing for the output levels.  Note that the red buttons are not active yet.", 
+            "title": "The XG3 faceplate"
+        }, 
+        {
+            "location": "/ins/elecraft-xg3/#direct-frequency-selection-and-memory-edit", 
+            "text": "You can select a frequency directly in the \"Current frequency\" field.  The monitor screen displays the frequency of all band memories. You can modify any memory and press \"Save\" to send the changes to the XG3. Note that Wizkers is 'smart' and will only send actual changes to the XG3 and will not overwrite a memory for unchanged memories.", 
+            "title": "Direct frequency selection and memory edit"
+        }, 
+        {
+            "location": "/ins/elecraft-xg3/#cwrtty-beacon", 
+            "text": "The \"Beacon Mode\" panel lets you define the beacon string. The XG3 supports quite a few special characters as part of the beacon string, and the monitor can display a quick 'cheat sheet' by pressing \"Syntax Help\".  Note that when clicking \"Send Beacon\", the XG3 PF1 memory is automatically reprogrammed to activate beacon memory. The XG3 will send the beacon (continuously if the beacon ends with '#') until a command is sent to the XG3, for instance by changing the band.  The XG3 can also send an arbitraty string of characters in CW or RTTY mode using the \"send immediately\" field.", 
+            "title": "CW/RTTY beacon"
+        }, 
+        {
+            "location": "/ins/elecraft-xg3/#sweep-mode", 
+            "text": "Sweeps are not implemented on this version yet!", 
+            "title": "Sweep mode"
         }, 
         {
             "location": "/ins/fluke289/", 
@@ -614,6 +899,16 @@
             "location": "/out/webrtc/#future-evolutions-of-the-webrtc-output", 
             "text": "We are currently investigating running a Wizkers.io PeerServer for Wizkers users, which will make it a lot easier to use the output (no manual installation of PeerServer required). But self-hosting will always be supported anyway.", 
             "title": "Future evolutions of the WebRTC output"
+        }, 
+        {
+            "location": "/out/xmlrpc/", 
+            "text": "XML-RPC Output\n\n\nThis output is available for HAM radio transceivers only.\n\n\nIt is a fairly complete implementation of the XML-RPC server that fldigi expects for rig control. While you can use the rigctld output with fldigi as well, the XML-RPC implementation is much more robust, faster and flexible.\n\n\nIn essence, this lets Wizkers emulate the 'flrig' program, so any software that is compatible with flrig will be able to work with Wizkers.\n\n\nThere are no specific settings for the XML-RPC output, just create it, then enable it in the \"Outputs\" screen, fldigi will automatically connect to Wizkers as soon as it starts.", 
+            "title": "XML-RPC"
+        }, 
+        {
+            "location": "/out/xmlrpc/#xml-rpc-output", 
+            "text": "This output is available for HAM radio transceivers only.  It is a fairly complete implementation of the XML-RPC server that fldigi expects for rig control. While you can use the rigctld output with fldigi as well, the XML-RPC implementation is much more robust, faster and flexible.  In essence, this lets Wizkers emulate the 'flrig' program, so any software that is compatible with flrig will be able to work with Wizkers.  There are no specific settings for the XML-RPC output, just create it, then enable it in the \"Outputs\" screen, fldigi will automatically connect to Wizkers as soon as it starts.", 
+            "title": "XML-RPC Output"
         }
     ]
 }
