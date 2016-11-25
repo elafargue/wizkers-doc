@@ -3,16 +3,16 @@
 
     
     <url>
-     <loc>None/</loc>
-     <lastmod>2016-07-13</lastmod>
+     <loc>/</loc>
+     <lastmod>2016-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
 
     
     <url>
-     <loc>None/userdoc/</loc>
-     <lastmod>2016-07-13</lastmod>
+     <loc>/userdoc/</loc>
+     <lastmod>2016-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -20,120 +20,50 @@
     
         
     <url>
-     <loc>None/devdoc/</loc>
-     <lastmod>2016-07-13</lastmod>
+     <loc>/devdoc/</loc>
+     <lastmod>2016-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/building/</loc>
-     <lastmod>2016-07-13</lastmod>
+     <loc>/building/</loc>
+     <lastmod>2016-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/deploying/</loc>
-     <lastmod>2016-07-13</lastmod>
+     <loc>/deploying/</loc>
+     <lastmod>2016-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/dev/connections/</loc>
-     <lastmod>2016-07-13</lastmod>
+     <loc>/dev/connections/</loc>
+     <lastmod>2016-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/dev/instruments/</loc>
-     <lastmod>2016-07-13</lastmod>
+     <loc>/dev/instruments/</loc>
+     <lastmod>2016-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/dev/outputs/</loc>
-     <lastmod>2016-07-13</lastmod>
+     <loc>/dev/outputs/</loc>
+     <lastmod>2016-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/dev/debugging/</loc>
-     <lastmod>2016-07-13</lastmod>
+     <loc>/dev/debugging/</loc>
+     <lastmod>2016-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/dev/api/</loc>
-     <lastmod>2016-07-13</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    
-
-    
-        
-    <url>
-     <loc>None/ins/medcom-onyx/</loc>
-     <lastmod>2016-07-13</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/ins/medcom-onyx-ble/</loc>
-     <lastmod>2016-07-13</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/ins/bgeigie/</loc>
-     <lastmod>2016-07-13</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/ins/fcoled/</loc>
-     <lastmod>2016-07-13</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/ins/sark110/</loc>
-     <lastmod>2016-07-13</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/ins/elecraft-kx3/</loc>
-     <lastmod>2016-07-13</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/ins/elecraft-remote-kx3/</loc>
-     <lastmod>2016-07-13</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/ins/elecraft-kxpa100/</loc>
-     <lastmod>2016-07-13</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/ins/elecraft-xg3/</loc>
-     <lastmod>2016-07-13</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/ins/fluke289/</loc>
-     <lastmod>2016-07-13</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/ins/simple-serial/</loc>
-     <lastmod>2016-07-13</lastmod>
+     <loc>/dev/api/</loc>
+     <lastmod>2016-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -142,38 +72,108 @@
     
         
     <url>
-     <loc>None/out/rest/</loc>
-     <lastmod>2016-07-13</lastmod>
+     <loc>/ins/medcom-onyx/</loc>
+     <lastmod>2016-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/out/safecast/</loc>
-     <lastmod>2016-07-13</lastmod>
+     <loc>/ins/medcom-onyx-ble/</loc>
+     <lastmod>2016-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/out/rigctld/</loc>
-     <lastmod>2016-07-13</lastmod>
+     <loc>/ins/bgeigie/</loc>
+     <lastmod>2016-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/out/text/</loc>
-     <lastmod>2016-07-13</lastmod>
+     <loc>/ins/fcoled/</loc>
+     <lastmod>2016-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/out/webrtc/</loc>
-     <lastmod>2016-07-13</lastmod>
+     <loc>/ins/sark110/</loc>
+     <lastmod>2016-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/out/xmlrpc/</loc>
-     <lastmod>2016-07-13</lastmod>
+     <loc>/ins/elecraft-kx3/</loc>
+     <lastmod>2016-11-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/ins/elecraft-remote-kx3/</loc>
+     <lastmod>2016-11-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/ins/elecraft-kxpa100/</loc>
+     <lastmod>2016-11-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/ins/elecraft-xg3/</loc>
+     <lastmod>2016-11-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/ins/fluke289/</loc>
+     <lastmod>2016-11-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/ins/simple-serial/</loc>
+     <lastmod>2016-11-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/out/rest/</loc>
+     <lastmod>2016-11-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/out/safecast/</loc>
+     <lastmod>2016-11-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/out/rigctld/</loc>
+     <lastmod>2016-11-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/out/text/</loc>
+     <lastmod>2016-11-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/out/webrtc/</loc>
+     <lastmod>2016-11-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/out/xmlrpc/</loc>
+     <lastmod>2016-11-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
