@@ -62,15 +62,9 @@ Wizkers is hosted on [github](https://github.com/wizkers/wizkers). Create a work
 ```bash
 git clone https://github.com/wizkers/wizkers.git
 cd wizkers/server
-git checkout release
 ```
 
 ## Build it
-
-Wizkers supports the [Helium](http://www.helium.com/) IoT network for some of its instruments. The NodeJS "nodhelium" module requires installing "libhelium" on your system. If you don't have any idea what Helium is about, you definitely don't need it, and you can edit out the two locations on Wizkers which depend on libhelium:
-
-* server/package.json
-* server/connectionmanager.js (line 45)
 
 The next step is to install all dependencies using npm:
 
@@ -86,15 +80,19 @@ Once all dependencies are installed, Wizkers uses 'gulp' as its build system: if
 sudo npm install -g gulp
 ```
 
-You can now build Wizkers in its three supported modes. Note that ```gulp cordova``` will only work if you have a working cordova/phonegap development environment installed.
+You can now build Wizkers in its multiple supported modes. Note that ```gulp cordova``` will only work if you have a working cordova/phonegap development environment installed.
+
+There are also multiple Flavors of Wizker: Wizkers:Radio, Wizkers:Nuclear, etc. You will need to indicate the build flavor on the command
+line by using the "OEM" variable. For instance:
 
 ```bash
-gulp chrome
-gulp server
-gulp cordova
+OEM=radio gulp chrome
+OEM=radio gulp server
+OEM=radio gulp cordova
+OEM=radio gulp nwjs
 ```
 
-Those three gulp targets will build Wizkers in the `dist` directory
+Those three gulp targets will build Wizkers in the `dist` directory.
 
 ## Finalizing and packaging
 
@@ -126,7 +124,7 @@ The server build of Wizkers is available in `dist/server`. Simply go to that dir
 
 ```bash
 cd dist/server
-node server.js
+./start-server.sh
 ```
 
 Refer to the [Deploying](deploying.md) section for more details on how to properly launch Wizkers as a server.

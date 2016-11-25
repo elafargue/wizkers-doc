@@ -31,3 +31,4 @@ pages:
     - rigctld:  out/rigctld.md
     - Text:     out/text.md
     - WebRTC:   out/webrtc.md
+    - XML-RPC:  out/xmlrpc.md

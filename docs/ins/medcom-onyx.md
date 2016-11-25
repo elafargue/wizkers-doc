@@ -67,8 +67,8 @@ If for any reason, the firmware upgrade process is not successful, the Onyx scre
 
 In order to recover from a failed upgrade, you will need access to the two files below:
 
-* [Onyx firmware loader (MacOS)](http://www.wizkers.io/files/2015/04/fwload.zip)
-* [Onyx firmware](http://www.wizkers.io/download/780/)
+* [Onyx firmware loader (MacOS)](https://www.dropbox.com/s/yq0rj3h6m8on6of/fwload.zip?dl=0)
+* [Onyx firmware](https://www.dropbox.com/s/tr8q97666qmeufx/onyx-firmware.bin?dl=0)
 
 You then need to uncompress the Onyx firmware loader in your home directory. Also put the firmware file in the same location. The rest takes place on a terminal: launch the “Terminal” application and follow the procedure below:
 
@@ -105,6 +105,6 @@ Again, this is for Yosemite and later, use “com.FTDI.driver.FTDIUSBSerialDrive
 
 Recovery on Windows is done with a different utility, and the same firmware file: firmware 12.26-c and the OnyxLink utility are bundled in the ZIP file below:
 
-* [OnyxLink](http://www.wizkers.io/files/2015/04/OnyxLink.zip)
+* [OnyxLink](https://www.dropbox.com/s/8b6xmgl3swdxzvf/OnyxLink.zip?dl=0)
 
 Once you have downloaded OnyxLink.zip, extract it to your desktop, and run the “OnyxLink” application, to do a firmware upgrade using firmware.12-26-c.bin and get back on your feet . You will then be able to use Wizkers to upgrade to the latest firmware.
