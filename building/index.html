@@ -254,14 +254,14 @@ cd wizkers/server
 
 <h2 id="build-it">Build it</h2>
 <p>The next step is to install all dependencies using npm:</p>
+<pre><code class="bash">sudo npm install -g gulp-cli
+</code></pre>
+
 <pre><code class="bash">npm install
 </code></pre>
 
 <p>This can take from a couple of minutes to quite some time if you are building on a low power system such as a Beaglebone.</p>
 <p>Once all dependencies are installed, Wizkers uses 'gulp' as its build system: if gulp is not installed on your system already, use npm to get it:</p>
-<pre><code class="bash">sudo npm install -g gulp
-</code></pre>
-
 <p>You can now build Wizkers in its multiple supported modes. Note that <code>gulp cordova</code> will only work if you have a working cordova/phonegap development environment installed.</p>
 <p>There are also multiple Flavors of Wizker: Wizkers:Radio, Wizkers:Nuclear, etc. You will need to indicate the build flavor on the command
 line by using the "OEM" variable. For instance:</p>
