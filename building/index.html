@@ -202,26 +202,28 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="main active"><a href="#building-wizkers">Building Wizkers</a></li>
-            <li><a href="#prerequisites">Prerequisites</a></li>
-            <li><a href="#check-out-the-code">Check out the code</a></li>
-            <li><a href="#build-it">Build it</a></li>
+            <li><a href="#prerequisites-all-platforms">Prerequisites (all platforms)</a></li>
+            <li><a href="#building-steps-all-platforms">Building steps (all platforms)</a></li>
             <li><a href="#finalizing-and-packaging">Finalizing and packaging</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
 <h1 id="building-wizkers">Building Wizkers</h1>
-<h2 id="prerequisites">Prerequisites</h2>
+<h2 id="prerequisites-all-platforms">Prerequisites (all platforms)</h2>
 <p>The only prerequisite for building (and running Wizkers in server mode) are NodeJS and npm.</p>
 <p>You will need to install a recent version of NodeJS. This used to be a tricky requirement on Linux, but not anymore, since it is now easy to install Node JS using <a href="https://nodejs.org/en/download/package-manager/">most package managers</a>.</p>
+<p>Note that NodeJS is a project that evolves very fast, and pretty much 100% of all distributions out there ship with very outdated version of Node. Resist the temptation to use the version of Node that is shipped with
+your distribution, it won't work properly. Likewise, do not try to use you distribution's package manager to install Node sub-dependencies, those will also be outdated and will break. Like Python, NodeJS does not play very well with
+the classic packaging model, which is unfortunate but beyond the scope of this discussion...</p>
+<p>At the time of this writing, Wizkers can be built and run using <strong>Node version 6.9.1</strong> (aka "LTS" on the nodejs.org website).</p>
 <h3 id="platform-specific-prerequisites">Platform-specific prerequisites</h3>
 <h4 id="macos">MacOS</h4>
-<p>You should be able to install all the building prerequisites on MacOS by simply visiting the <a href="http://nodejs.org">Nodejs.org</a> side and download the current NodeJS LTS version.</p>
-<h4 id="beaglebone-black-on-linux">Beaglebone Black on Linux</h4>
-<p>(note: those instructions were last updated in August 2015, and are probably fairly obsolete now).</p>
-<p>Assuming you are starting with a brand new BeagleBone Black, you have a choice of operating systems. At the moment (August 2015), the BBB team seems to favour Debian as the official distribution, so this is what we will use. Installation of the OS image is beyond the scope of this guide, but you can find more information about this at <a href="http://beagleboard.org/latest-images">Beagleboard.org</a>.</p>
-<p>The reference image used in the build instructions below is <code>Base Image: BBB-eMMC-flasher-debian-7.8-console-armhf-2015-03-01-2gb</code></p>
-<p>Once your BBB has booted up, you will need to install the basic development toolchains, as well as NodeJS and git:</p>
+<p>No additional prerequisites.</p>
+<h4 id="linux-debian-and-ubuntu-based-linux-distributions">Linux (Debian and Ubuntu based Linux distributions)</h4>
+<p>We assume here that you are starting with a computer/server/board running on Debian or Ubuntu Linux, or a variant. This includes
+for instance most Beaglebone images, Rapsberry Pi, etc. Installation of Linux itself is out of the scope of this document.</p>
+<p>On a new installation, you will need to install the basic development toolchains, as well as NodeJS and git:</p>
 <pre><code class="bash">sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get dist-upgrade
@@ -229,73 +231,136 @@ sudo apt-get install --yes ntpdate
 sudo ntpdate -b -s -u pool.ntp.org
 sudo apt-get install --yes build-essential
 sudo apt-get install --yes curl
-curl --insecure --location https://deb.nodesource.com/setup_0.10 | sudo bash -
+curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 sudo apt-get install --yes nodejs
 sudo apt-get install --yes git
 </code></pre>
 
 <p>You can then move on to checking out the code, as described in the next section.</p>
 <h4 id="node-serialport-issues-on-linux">Node-serialport issues on Linux</h4>
-<p>You might have to add rules in udev to make sure the right entries are created in <code>/dev/serial</code> because Debian does not do it by default</p>
+<p>(Note: this might be outdated on current versions of Debian/Ubuntu, to be validated)</p>
+<p>You might have to add rules in udev to make sure the right entries are created in <code>/dev/serial</code> because Debian does not do it by default, at least on the BeagleBone.</p>
 <pre><code>debian@aprs:~$ cat /etc/udev/rules.d/60-ed-persistent-serial.rules 
 ENV{.ID_PORT}==&quot;&quot;, SYMLINK+=&quot;serial/by-id/$env{ID_BUS}-$env{ID_SERIAL}-if$env{ID_USB_INTERFACE_NUM}&quot;
 ENV{.ID_PORT}==&quot;?*&quot;, SYMLINK+=&quot;serial/by-id/$env{ID_BUS}-$env{ID_SERIAL}-if$env{ID_USB_INTERFACE_NUM}-port$env{.ID_PORT}&quot;
 </code></pre>
 
 <p>This way, you will be able to list serial ports even on the most recent versions on node-serialport.    </p>
-<h4 id="raspberry-pi">Raspberry Pi</h4>
-<p>On the Raspberry Pi, just use the standard "Raspbian" distribution, and install NodeJS as indicated on the <a href="https://nodejs.org/en/download/package-manager/">installing Node.js via package managers</a> page.</p>
-<p>You can then proceed to the "Check out the code" section below:</p>
-<h4 id="generic-linux">Generic Linux</h4>
-<p>Again, as long as there is a NodeJS that is available for your Linux distribution, you should be fine. Otherwise, you can also build NodeJS from the source, which is usually a lengthy process but fairly straightforward.</p>
 <h4 id="windows">Windows</h4>
 <p>While there is no good reason why building Wizkers on Windows shouldn't work, I have never attempted it. If you would like to contribute instructions, please reach out at <a href="mailto:info@wizkers.io">info@wizkers.io</a>.</p>
-<h2 id="check-out-the-code">Check out the code</h2>
-<p>Wizkers is hosted on <a href="https://github.com/wizkers/wizkers">github</a>. Create a work directory on your machine and check out the code from Github, and go to the 'release' branch:</p>
+<h2 id="building-steps-all-platforms">Building steps (all platforms)</h2>
+<h3 id="check-out-the-code">Check out the code</h3>
+<p>Wizkers is hosted on <a href="https://github.com/wizkers/wizkers">github</a>. These instructions suggest you use "git", but you can actually simply download the source code as a ZIP archive <a href="https://github.com/wizkers/wizkers/archive/master.zip">here</a>.
+The upside of using git, though, is that you can easily upgrade to newer version of wizkers at a later stage by typing a simple <code>git pull</code> from the <code>wizkers</code> directory and follow the <code>gulp</code> steps below again.</p>
+<p>Assuming you are using git: Create a work directory on your machine and check out the code from Github:</p>
 <pre><code class="bash">git clone https://github.com/wizkers/wizkers.git
 cd wizkers/wizkers
 </code></pre>
 
-<h2 id="build-it">Build it</h2>
+<h3 id="build-it-step-1">Build it - step 1</h3>
 <p>The next step is to install all dependencies using npm:</p>
 <pre><code class="bash">sudo npm install -g gulp-cli
-</code></pre>
-
-<pre><code class="bash">npm install
+npm install
 </code></pre>
 
 <p>This can take from a couple of minutes to quite some time if you are building on a low power system such as a Beaglebone.</p>
-<p>Once all dependencies are installed, Wizkers uses 'gulp' as its build system.</p>
-<p>Wizkers supports multiple modes: server, nwjs, chrome, cordova, etc. Note that <code>gulp cordova</code> will only work if you have a working cordova development environment installed.</p>
+<p>Once all dependencies are installed, Wizkers uses 'gulp' as its build system. Gulp automates all build steps which would otherwise be pretty complex.</p>
+<h4 id="pick-your-run-mode">Pick your run mode</h4>
+<p>Wizkers supports multiple modes: server, nwjs, chrome, cordova, etc. Below is a short description of each mode:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Mode name</th>
+<th align="left">Description</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">server</td>
+<td align="left">Run in server mode (port 8090 by default)</td>
+<td></td>
+</tr>
+<tr>
+<td align="left">cordova</td>
+<td align="left">Run as an Android or iOS application</td>
+<td></td>
+</tr>
+<tr>
+<td align="left">nsjw</td>
+<td align="left">Run as a native application using the nwjs.io framework</td>
+<td></td>
+</tr>
+<tr>
+<td align="left">chrome</td>
+<td align="left">Run as a Chrome app</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="pick-your-flavor">Pick your flavor</h4>
 <p>There are also multiple Flavors of Wizker: Wizkers:Radio, Wizkers:Nuclear, etc. You will need to indicate the build flavor on the command
-line by using the "OEM" variable. For instance:</p>
-<pre><code class="bash">OEM=radio gulp chrome
-OEM=radio gulp server
-OEM=radio gulp cordova
-OEM=radio gulp nwjs
+line by using the "OEM" variable. All build flavors correspond to an actual application that is built using the Wizkers framework, and they are listed in the "oem" directory.
+The flavors that are defined at the time of this writing are:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Flavor name</th>
+<th align="left">Description</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">radio</td>
+<td align="left"><a href="http://wizkers.io/wizkersradio">Wizkers:Radio</a></td>
+<td></td>
+</tr>
+<tr>
+<td align="left">nuclear</td>
+<td align="left"><a href="http://wizkers.io/wizkersnuclear">Wizkers:Nuclear</a></td>
+<td></td>
+</tr>
+<tr>
+<td align="left">bench</td>
+<td align="left">Work in progress, for benchtop instruments</td>
+<td></td>
+</tr>
+<tr>
+<td align="left">safecast</td>
+<td align="left">Builds Safecast:Drive, the Safecast.org Android app</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="build-it">Build it!</h4>
+<p>You can now build wizkers in the mode/flavor of your choice. For instance, for Wizkers:Radio in 'server' mode:</p>
+<pre><code class="bash">OEM=radio gulp server
 </code></pre>
 
-<p>Those four gulp targets will build Wizkers in the <code>dist</code> directory.</p>
+<p>The results of the build are in the <code>dist</code> directory.</p>
 <h2 id="finalizing-and-packaging">Finalizing and packaging</h2>
 <p>Once the base code is built through Gulp, the instructions below will show you how to finalize the build for the various run modes and launch Wizkers:</p>
 <h3 id="chrome-app">Chrome app</h3>
 <p>After building, the Chrome version of Wizkers will be ready in <code>dist/chrome</code> and <code>dist/chrome-debug</code>. The <code>chrome-debug</code> directory can be immediately loaded into Google Chrome by visiting (chrome://extensions) and loading Wizkers from there.</p>
 <p>The <code>chrome</code> version requires finalizing the compilation by launching <code>build-toold/build-chrome.sh</code> which will optimize the javascript code. The resulting Chrome app in <code>dist/chrome</code> will run faster but it won't be possible to debug it easily.</p>
-<h3 id="cordova-android-app">Cordova (Android app)</h3>
+<h3 id="cordova-android-andor-ios-app">Cordova (Android and/or iOS app)</h3>
 <p>The Android app version of Wizker uses the Cordova framework to package Wizkers into a native Android application.</p>
 <p>The first thing to do is to install Cordova on your machine:</p>
 <pre><code class="bash">npm install -g cordova
 </code></pre>
 
-<p>Then cd to the <code>cordova</code> directory and install the required plugins. Cordova does not have a good way to automate this, which is strange, so you will have to take a look at the config.xml file to see the list of plugins, and install them pretty much manually. A future revision of Wizkers will automate this.</p>
-<p>Once all the plugins are installed, you can <code>cd ..</code> and launch <code>OEM=XXX gulp cordova</code> - replace XXX with the flavor of your choice. Once this is done, <code>cd dist/cordova</code> and launch the build following the standard Cordova procedure...</p>
+<p>Then cd to the <code>dist/cordova-debug</code> directory and add the target Cordova plaforms of your choice, and build, for instance:</p>
+<pre><code>cordova platform add Android
+cordova build
+</code></pre>
+
+<p>For further instructions on how to complete the build and install on your device, please refer to the <a href="../http//cordova.apache.com/">Cordova documentation</a> online.</p>
 <h3 id="server">Server</h3>
 <p>The server build of Wizkers is available in <code>dist/server</code>. Simply go to that directory and launch the server:</p>
 <pre><code class="bash">cd dist/server
 ./start-server.sh
-</code></pre>
-
-<p>Refer to the <a href="../deploying/">Deploying</a> section for more details on how to properly launch Wizkers as a server.</p></div>
+</code></pre></div>
         </div>
 
         <footer class="col-md-12">
