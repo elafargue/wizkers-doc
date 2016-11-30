@@ -215,10 +215,10 @@
 <p>Wizkers runs great as a server application. In that mode, you access Wizkers through a standard browser (Google Chrome being the reference browser for our tests).</p>
 <p>This section describes the various database backends you can select when running Wizkers, as well as how you should configure it with reverse proxies like nginx.</p>
 <h2 id="selecting-the-database">Selecting the database</h2>
-<p>Wizkers will run fine out of the box with no particular additional configuration: a simple</p>
-<pre><code>gulp server
+<p>Wizkers will run fine out of the box with no particular additional configuration: for instance, for the "Wizkers:Radio" flavor, a simple</p>
+<pre><code>OEM=radio gulp server
 cd dist/server
-node server.js
+./start_server.sh
 </code></pre>
 
 <p>will be enough to get you started. In that mode, Wizkers will use a disk database called LevelDB which is the default storage mechanism for PouchDB, the internal Wizkers database API.</p>
