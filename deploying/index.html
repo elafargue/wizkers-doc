@@ -110,7 +110,15 @@
 </li>
                             
 <li >
+    <a href="../ins/medcom-geigerlink/">Medcom GeigerLink</a>
+</li>
+                            
+<li >
     <a href="../ins/bgeigie/">Safecast bGeigie Nano</a>
+</li>
+                            
+<li >
+    <a href="../ins/gammarae/">RAE Systems GammaRAE II R</a>
 </li>
                             
 <li >
@@ -143,6 +151,10 @@
                             
 <li >
     <a href="../ins/simple-serial/">Simple serial terminal</a>
+</li>
+                            
+<li >
+    <a href="../ins/kestrel5/">Kestrel 5 series</a>
 </li>
                         </ul>
                     </li>
@@ -227,7 +239,7 @@ cd dist/server
 <pre><code>var backend = 'CouchDB';
 </code></pre>
 
-<p>Do not forget to run <code>gulp server</code> again after making a change.</p>
+<p>Do not forget to run <code>OEM=XXX gulp server</code> again after making a change.</p>
 <h3 id="configuring-couchdb">Configuring CouchDB</h3>
 <p>Please head over to the <a href="http://couchdb.readthedocs.org/en/1.6.1/">CouchDB documentation</a> for details on how to install CouchDB on your particular machine. Most Linux distributions already include Couch in their standard packages, so this should be very easy.</p>
 <p>By default, CouchDB binds to the 127.0.0.1 interface, and lets anyone connect to it with no authentication. You probably do not want this for a production system, and should take the appropriate steps to secure your installation. For development purposes, this should be fine, though.</p>
