@@ -45,21 +45,21 @@ Wizkers solves all this issues with one elegant framework: In a nutshell, Wizker
 
 The following instruments are currently supported in Wizkers (as of August 2015):
 
-Instrument name                          | Chrome App       | Android App  | Server      |
-:----------------------------------------|:-----------------|:-------------|:------------|
-Medcom Onyx                              | Yes              |  Yes         |  Yes        |
-Medcom Geiger Link                       | Yes              |  Yes         |  Yes        |
-Medcom Blue Onyx                         | Chromebooks only |  Yes         |  No         |
-Medcom Hawk Nest                         | -                |  -           |  Yes        |
-Safecast bGeigie Nano                    | Chromebooks only |  Yes         |  No         |
-Elecraft KX3                             | Yes              |  Yes         |  Yes        |
-Remote KX3 (Wizkers to Wizkers)          | Yes              |  Not tested  |  Not tested |
-Fluke 287/289                            | Yes              |  Yes         |  Yes        |
-Fried Circuits USB tester OLED backpack  | Yes              |  Yes         |  Yes        |
-Fried Circuits USB tested BTLE backpack  | Chromebooks only |  Yes         |  No         |
-Simple serial terminal                   | Yes              |  Yes         |  Yes        |
-Sark 110 antena analyzer                 | Yes              |  Yes         |  Yes        |
-Kromek Sigma 25                          | Yes              | Yes          |  Yes        |
+Instrument name                          | Chrome           | Android      | Server      | Native (nwjs.io) |
+:----------------------------------------|:-----------------|:-------------|:------------|:-----------------|
+Medcom Onyx                              | Yes              |  Yes         |  Yes        | Yes              |
+Medcom Geiger Link                       | Yes              |  Yes         |  Yes        | Yes              |
+Medcom Blue Onyx                         | Chromebooks only |  Yes         |  No         | -                |
+Medcom Hawk Nest                         | -                |  -           |  Yes        | -                |
+Safecast bGeigie Nano                    | Chromebooks only |  Yes         |  -          | -                |
+Elecraft KX3                             | Yes              |  Yes         |  Yes        | Yes              |
+Remote KX3 (Wizkers to Wizkers)          | Yes              |  Not tested  |  Not tested | Yes              |
+Fluke 287/289                            | Yes              |  Yes         |  Yes        | Yes              |
+Fried Circuits USB tester OLED backpack  | Yes              |  Yes         |  Yes        | Yes              |
+Fried Circuits USB tested BTLE backpack  | Chromebooks only |  Yes         |  No         | -                |
+Simple serial terminal                   | Yes              |  Yes         |  Yes        | Yes              |
+Sark 110 antena analyzer                 | Yes              |  Yes         |  Yes        | Yes              |
+Kromek Sigma 25                          | Yes              | Yes          |  Yes        | Yes              |
 
 ### What if my instrument is not supported ?
 

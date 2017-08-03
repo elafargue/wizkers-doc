@@ -16,6 +16,7 @@ pages:
     - Medcom Onyx: ins/medcom-onyx.md
     - Medcom Blue Onyx: ins/medcom-onyx-ble.md
     - Medcom GeigerLink: ins/medcom-geigerlink.md
+    - Medcom Inspector BLE: ins/inspector-ble.md
     - Safecast bGeigie Nano: ins/bgeigie.md
     - RAE Systems GammaRAE II R: ins/gammarae.md
     - Fried Circuits OLED backpack: ins/fcoled.md

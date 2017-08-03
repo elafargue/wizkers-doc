@@ -84,7 +84,13 @@ To be detailed
 
 ## Apache2
 
-On Apache2, a 'sites-available' configuration that is adequate to run Wizkers is as follows. This works for Apache 2.4 + with mod rewrite and mod proxy enabled. The trick being to handle socket.io in websockets mode without having it fall back into http polling mode:
+On Apache2, a 'sites-available' configuration that is adequate to run Wizkers is as follows. This works for Apache 2.4 + with mod rewrite and mod proxy enabled. The trick being to handle socket.io in websockets mode without having it fall back into http polling mode.
+
+You will need to enable a couple of apache2 modules to make the configuration below work
+
+```
+a2enmod rewrite proxy proxy_http proxy_wstunnel
+```
 
 ```
 # Setup for Wizkers
