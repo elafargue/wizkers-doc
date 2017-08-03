@@ -6,12 +6,12 @@ This section describes the various database backends you can select when running
 
 ## Selecting the database
 
-Wizkers will run fine out of the box with no particular additional configuration: a simple
+Wizkers will run fine out of the box with no particular additional configuration: for instance, for the "Wizkers:Radio" flavor, a simple
 
 ```
-gulp server
+OEM=radio gulp server
 cd dist/server
-node server.js
+./start_server.sh
 ```
 
 will be enough to get you started. In that mode, Wizkers will use a disk database called LevelDB which is the default storage mechanism for PouchDB, the internal Wizkers database API.
@@ -24,7 +24,7 @@ The database engine is selected in `server/pouchdb-config.js` with the `backend`
 var backend = 'CouchDB';
 ```
 
-Do not forget to run `gulp server` again after making a change.
+Do not forget to run `OEM=XXX gulp server` again after making a change.
 
 ### Configuring CouchDB
 

@@ -35,7 +35,7 @@ In server mode, new connections are used directly by instrument backend-drivers 
 | USB HID           | Yes        | No      | No     | USB HID communications. |
 | Helium            | No         | No      | Yes    | Network connection to the [helium.com](http://helium.com) IoT network. |
 | Pinocc.io         | No         | No      | Yes    | Network connection to the Pinocc.io IoT network |
-| Bluetooth LE      | Yes        | Yes     | No     | Chrome support on Chromebooks only
+| Bluetooth LE      | Yes        | Yes     | Yes     | Chrome support on Chromebooks only
 | WebRTC            | Yes        | Not tested | No  | Connection over a WebRTC data channel (using the [peerjs.com](http://peerjs.com) library) |
 
 ## Serial Connection
@@ -64,7 +64,7 @@ _Note:_ the Pinocc.io network is now obsolete, and a standalone `pinoccio-server
 
 ## Bluetooth LE connection
 
-This connection is supported on Chromebooks only because of a Chrome runtime limitation (August 2015)
+This connection is supported on Chromebooks only because of a Chrome runtime limitation (August 2015). Bluetooth LE also works on Android as well as Server modes.
 
 ## WebRTC
 

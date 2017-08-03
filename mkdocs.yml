@@ -15,8 +15,9 @@ pages:
 - Instruments:
     - Medcom Onyx: ins/medcom-onyx.md
     - Medcom Blue Onyx: ins/medcom-onyx-ble.md
-#    - Medcom GeigerLink: ins/medcom-geigerlink.md
+    - Medcom GeigerLink: ins/medcom-geigerlink.md
     - Safecast bGeigie Nano: ins/bgeigie.md
+    - RAE Systems GammaRAE II R: ins/gammarae.md
     - Fried Circuits OLED backpack: ins/fcoled.md
     - Sark 110: ins/sark110.md
     - Elecraft KX3: ins/elecraft-kx3.md
@@ -25,6 +26,7 @@ pages:
     - Elecraft XG3: ins/elecraft-xg3.md
     - Fluke 287/289 DMMs: ins/fluke289.md
     - Simple serial terminal: ins/simple-serial.md
+    - Kestrel 5 series: ins/kestrel5.md
 - Outputs:
     - REST API: out/rest.md
     - Safecast: out/safecast.md

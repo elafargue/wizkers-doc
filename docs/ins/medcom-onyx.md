@@ -8,6 +8,17 @@ Wizkers displays the current and historical radiation graph on the main screen, 
 
 Last, it also lets you update the firmware of the Onyx.
 
+## Support status
+
+The Onyx is supported on all existing target platforms as long as they support USB. This includes USB OTG for Android devices
+
+Wizkers.io app   | Supported | Notes              |
+:----------------|:----------|:-------------------|
+Framework level  | Yes       | All platforms      |
+Wizkers:Nuclear  | Yes       | All platforms      |
+Safecast:Drive   | Yes       | All platforms      |
+
+
 ## The main screen
 
 The main screen of Wizkers when connected to an Onyx is similar to what you will see with most other supported Geiger Counters:
