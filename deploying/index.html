@@ -114,6 +114,10 @@
 </li>
                             
 <li >
+    <a href="../ins/inspector-ble/">Medcom Inspector BLE</a>
+</li>
+                            
+<li >
     <a href="../ins/bgeigie/">Safecast bGeigie Nano</a>
 </li>
                             
@@ -280,7 +284,11 @@ end script
 <h2 id="nginx">NGINX</h2>
 <p>To be detailed</p>
 <h2 id="apache2">Apache2</h2>
-<p>On Apache2, a 'sites-available' configuration that is adequate to run Wizkers is as follows. This works for Apache 2.4 + with mod rewrite and mod proxy enabled. The trick being to handle socket.io in websockets mode without having it fall back into http polling mode:</p>
+<p>On Apache2, a 'sites-available' configuration that is adequate to run Wizkers is as follows. This works for Apache 2.4 + with mod rewrite and mod proxy enabled. The trick being to handle socket.io in websockets mode without having it fall back into http polling mode.</p>
+<p>You will need to enable a couple of apache2 modules to make the configuration below work</p>
+<pre><code>a2enmod rewrite proxy proxy_http proxy_wstunnel
+</code></pre>
+
 <pre><code># Setup for Wizkers
 &lt;VirtualHost *:80&gt;
 
