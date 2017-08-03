@@ -23,4 +23,4 @@ On Wizkers, you can not only plot and record readings coming from the geiger cou
 
 The Android version offers all the same features as the Chrome or server version of Wizkers, and also adds geolocation support through the GPS of the Android device:
 
-<img src="/ins/img/geigerlink-android.png" width="350">
+<img src="../img/geigerlink-android.png" width="350">

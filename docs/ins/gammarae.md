@@ -32,4 +32,4 @@ There is no support for downloading device logs so far
 
 ## Main screen
 
-<img src="/ins/img/gammarae-main.png" width="350">
+<img src="../img/gammarae-main.png" width="350">
