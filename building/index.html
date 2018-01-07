@@ -261,7 +261,11 @@ ENV{.ID_PORT}==&quot;&quot;, SYMLINK+=&quot;serial/by-id/$env{ID_BUS}-$env{ID_SE
 ENV{.ID_PORT}==&quot;?*&quot;, SYMLINK+=&quot;serial/by-id/$env{ID_BUS}-$env{ID_SERIAL}-if$env{ID_USB_INTERFACE_NUM}-port$env{.ID_PORT}&quot;
 </code></pre>
 
-<p>This way, you will be able to list serial ports even on the most recent versions on node-serialport.    </p>
+<p>This way, you will be able to list serial ports even on the most recent versions on node-serialport.   </p>
+<p>Also, for Bluetooth Low Energy support without the need to run wizkers as root, you can adjust permissions on the NodeJS executable as described in the <a href="https://github.com/sandeepmistry/noble">Noble</a> documentation:</p>
+<pre><code class="bash">sudo setcap cap_net_raw+eip $(eval readlink -f `which node`)
+</code></pre>
+
 <h4 id="windows">Windows</h4>
 <p>While there is no good reason why building Wizkers on Windows shouldn't work, I have never attempted it. If you would like to contribute instructions, please reach out at <a href="mailto:info@wizkers.io">info@wizkers.io</a>.</p>
 <h2 id="building-steps-all-platforms">Building steps (all platforms)</h2>
