@@ -18,8 +18,8 @@
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
-	
-	<script src="../js/jquery-1.10.2.min.js"></script>
+
+        <script src="../js/jquery-1.10.2.min.js"></script>
         <script src="../js/bootstrap-3.0.3.min.js"></script>
         <script src="../js/highlight.pack.js"></script>
         <script>
@@ -232,7 +232,7 @@
 <p>Note that NodeJS is a project that evolves very fast, and pretty much 100% of all distributions out there ship with very outdated version of Node. Resist the temptation to use the version of Node that is shipped with
 your distribution, it won't work properly. Likewise, do not try to use you distribution's package manager to install Node sub-dependencies, those will also be outdated and will break. Like Python, NodeJS does not play very well with
 the classic packaging model, which is unfortunate but beyond the scope of this discussion...</p>
-<p>At the time of this writing, Wizkers can be built and run using <strong>Node version 6.9.1</strong> (aka "LTS" on the nodejs.org website).</p>
+<p>At the time of this writing, Wizkers can be built and run using <strong>Node version 8.x.x</strong> (aka "LTS" on the nodejs.org website).</p>
 <h3 id="platform-specific-prerequisites">Platform-specific prerequisites</h3>
 <h4 id="macos">MacOS</h4>
 <p>No additional prerequisites.</p>
@@ -240,14 +240,11 @@ the classic packaging model, which is unfortunate but beyond the scope of this d
 <p>We assume here that you are starting with a computer/server/board running on Debian or Ubuntu Linux, or a variant. This includes
 for instance most Beaglebone images, Rapsberry Pi, etc. Installation of Linux itself is out of the scope of this document.</p>
 <p>On a new installation, you will need to install the basic development toolchains, as well as NodeJS and git:</p>
-<pre><code class="bash">sudo apt-get update
-sudo apt-get upgrade
-sudo apt-get dist-upgrade
-sudo apt-get install --yes ntpdate
+<pre><code class="bash">sudo apt-get install --yes ntpdate
 sudo ntpdate -b -s -u pool.ntp.org
 sudo apt-get install --yes build-essential
-sudo apt-get install --yes curl
-curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+sudo apt-get install --yes libudev-dev libusb-1.0-0-dev
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 sudo apt-get install --yes nodejs
 sudo apt-get install --yes git
 </code></pre>
@@ -292,29 +289,24 @@ npm install
 <tr>
 <th align="left">Mode name</th>
 <th align="left">Description</th>
-<th></th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td align="left">server</td>
 <td align="left">Run in server mode (port 8090 by default)</td>
-<td></td>
 </tr>
 <tr>
 <td align="left">cordova</td>
 <td align="left">Run as an Android or iOS application. The output of the build will be an Android or iOS app that you have to install on your device.</td>
-<td></td>
 </tr>
 <tr>
 <td align="left">nsjw</td>
 <td align="left">Run as a native application using the nwjs.io framework. Instructions will be added below at a later stage on how to run Wizkers in that mode.</td>
-<td></td>
 </tr>
 <tr>
 <td align="left">chrome</td>
 <td align="left">Run as a Chrome app. See below for instructions on how to run in that mode.</td>
-<td></td>
 </tr>
 </tbody>
 </table>
@@ -327,29 +319,24 @@ The flavors that are defined at the time of this writing are:</p>
 <tr>
 <th align="left">Flavor name</th>
 <th align="left">Description</th>
-<th></th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td align="left">radio</td>
 <td align="left"><a href="http://wizkers.io/wizkersradio">Wizkers:Radio</a></td>
-<td></td>
 </tr>
 <tr>
 <td align="left">nuclear</td>
 <td align="left"><a href="http://wizkers.io/wizkersnuclear">Wizkers:Nuclear</a></td>
-<td></td>
 </tr>
 <tr>
 <td align="left">bench</td>
 <td align="left">Work in progress, for benchtop instruments</td>
-<td></td>
 </tr>
 <tr>
 <td align="left">safecast</td>
 <td align="left">Builds Safecast:Drive, the Safecast.org Android app</td>
-<td></td>
 </tr>
 </tbody>
 </table>
@@ -392,8 +379,11 @@ cordova build
             <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
         <script>var base_url = '..';</script>
-        <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
-        <script src="../js/base.js"></script><div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <script src="../js/base.js"></script>
+        <script src="../search/require.js"></script>
+        <script src="../search/search.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -416,7 +406,47 @@ cordova build
             </div>
         </div>
     </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>&larr;</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>&rarr;</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
 </div>
+
 
     </body>
 </html>
