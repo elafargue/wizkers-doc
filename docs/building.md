@@ -10,7 +10,7 @@ Note that NodeJS is a project that evolves very fast, and pretty much 100% of al
 your distribution, it won't work properly. Likewise, do not try to use you distribution's package manager to install Node sub-dependencies, those will also be outdated and will break. Like Python, NodeJS does not play very well with
 the classic packaging model, which is unfortunate but beyond the scope of this discussion...
 
-At the time of this writing, Wizkers can be built and run using **Node version 6.9.1** (aka "LTS" on the nodejs.org website).
+At the time of this writing, Wizkers can be built and run using **Node version 8.x.x** (aka "LTS" on the nodejs.org website).
 
 ### Platform-specific prerequisites
 
@@ -26,14 +26,11 @@ for instance most Beaglebone images, Rapsberry Pi, etc. Installation of Linux it
 On a new installation, you will need to install the basic development toolchains, as well as NodeJS and git:
 
 ```bash
-sudo apt-get update
-sudo apt-get upgrade
-sudo apt-get dist-upgrade
 sudo apt-get install --yes ntpdate
 sudo ntpdate -b -s -u pool.ntp.org
 sudo apt-get install --yes build-essential
-sudo apt-get install --yes curl
-curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+sudo apt-get install --yes libudev-dev libusb-1.0-0-dev
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 sudo apt-get install --yes nodejs
 sudo apt-get install --yes git
 ```
@@ -52,7 +49,12 @@ ENV{.ID_PORT}=="", SYMLINK+="serial/by-id/$env{ID_BUS}-$env{ID_SERIAL}-if$env{ID
 ENV{.ID_PORT}=="?*", SYMLINK+="serial/by-id/$env{ID_BUS}-$env{ID_SERIAL}-if$env{ID_USB_INTERFACE_NUM}-port$env{.ID_PORT}"
 ```
 
-This way, you will be able to list serial ports even on the most recent versions on node-serialport.    
+This way, you will be able to list serial ports even on the most recent versions on node-serialport.   
+
+Also, for Bluetooth Low Energy support without the need to run wizkers as root, you can adjust permissions on the NodeJS executable as described in the [Noble](https://github.com/sandeepmistry/noble) documentation:
+```bash
+sudo setcap cap_net_raw+eip $(eval readlink -f `which node`)
+``` 
 
 #### Windows
 

@@ -74,6 +74,66 @@ script
 end script
 ```
 
+On Debian-style distributions such as Raspberry Pi's "raspbian", you will need to create /etc/init.d/wizkers as shown below. Don't forget to adjust the path where Wizkers is located:
+
+```bash
+#!/bin/sh
+# kFreeBSD do not accept scripts as interpreters, using #!/bin/sh and sourcing.
+if [ true != "$INIT_D_SCRIPT_SOURCED" ] ; then
+    set "$0" "$@"; INIT_D_SCRIPT_SOURCED=true . /lib/init/init-d-script
+fi
+### BEGIN INIT INFO
+# Provides:          wizkers
+# Required-Start:    $network $local_fs $remote_fs $time
+# Required-Stop:     $remote_fs
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+### END INIT INFO
+
+# Author:  Ed Lafargue <ed@wizkers.io>
+#
+
+export PATH=$PATH:/usr/local/bin
+DESC="Wizkers server"
+DAEMON=`which node`
+DAEMON_ARGS='/home/pi/wizkers/wizkers/dist/server/server.js'
+export DEBUG=wizkers:*,att
+
+test -x $DAEMON || exit 0
+
+case "$1" in
+	start)
+	log_begin_msg "Starting Wizkers"
+        cd /home/pi/wizkers/wizkers/dist/server
+	# Export the NODE_PATH variable to tell node where to get its modules
+	export NODE_PATH=.
+        export NOBLE_MULTI_ROLE=1
+
+# Shortcut to (again) help node find the modules that are from the web
+# root:
+if [ ! -e app ]; then
+    ln -s www/js/app .
+fi
+
+	NOBLE_MULTI_ROLE=1 node server.js 2>&1 | logger -p local0.info -t wizkers &
+	log_end_msg 0
+	;;
+	stop)
+	;;
+	restart|force-reload)
+	$0 start
+	;;
+	status)
+	$PROGRAM –show
+	;;
+	*)
+	log_failure_msg "Usage: $PROGRAM {start|stop|restart|force-reload|status}"
+	exit 1
+esac
+
+exit 0
+```
+
 # Wizkers behind a proxy
 
 In a production environment, you will want to run Wizkers behind a web server that will be running on port 80. NGINX or just Apache 2 are two good choices:

@@ -49,17 +49,21 @@ Instrument name                          | Chrome           | Android      | Ser
 :----------------------------------------|:-----------------|:-------------|:------------|:-----------------|
 Medcom Onyx                              | Yes              |  Yes         |  Yes        | Yes              |
 Medcom Geiger Link                       | Yes              |  Yes         |  Yes        | Yes              |
-Medcom Blue Onyx                         | Chromebooks only |  Yes         |  No         | -                |
+Medcom Blue Onyx                         | Chromebooks only |  Yes         |  No         | Yes              |
 Medcom Hawk Nest                         | -                |  -           |  Yes        | -                |
-Safecast bGeigie Nano                    | Chromebooks only |  Yes         |  -          | -                |
+Safecast bGeigie Nano                    | Chromebooks only |  Yes         |  -          | Yes              |
 Elecraft KX3                             | Yes              |  Yes         |  Yes        | Yes              |
 Remote KX3 (Wizkers to Wizkers)          | Yes              |  Not tested  |  Not tested | Yes              |
+Elecraft KXPA100                         | Yes              |  Yes         |  Yes        | Yes              |
+Kenwood V71A                             | Yes              |  Yes         |  Yes        | Yes              |
 Fluke 287/289                            | Yes              |  Yes         |  Yes        | Yes              |
 Fried Circuits USB tester OLED backpack  | Yes              |  Yes         |  Yes        | Yes              |
 Fried Circuits USB tested BTLE backpack  | Chromebooks only |  Yes         |  No         | -                |
 Simple serial terminal                   | Yes              |  Yes         |  Yes        | Yes              |
 Sark 110 antena analyzer                 | Yes              |  Yes         |  Yes        | Yes              |
 Kromek Sigma 25                          | Yes              | Yes          |  Yes        | Yes              |
+Kestrel 5000 series                      | Yes              |  Yes         |  Yes        | Yes              |
+Kestrel DROP Series                      | Yes              |  Yes         |  Yes        | Yes              |
 
 ### What if my instrument is not supported ?
 
@@ -67,7 +71,7 @@ We can help! If you are a developer, you can head over to the [developer documen
 
 ## Wizkers and Open Source
 
-Wizkers is a fully open source project, released under the terms of the GNU Affero General Public License. The Affero version of the GPL means that if you use Wizkers in any manner (including by running it or offering it as a service), you must make the full source code, including any modifications you did available to all your users.
+Wizkers is a fully open source project, released under the terms of the [MIT License](https://opensource.org/licenses/MIT). Some libraries included in Wizkers are subject to a couple of light restrictions and not compatible with the MIT license, please check the source code headers.
 
 Wizkers also uses a variety of third party libraries which are released under multiple license schemes, but are all compatible with this global license.
 
